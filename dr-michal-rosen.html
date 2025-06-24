@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ד"ר מיכל רוזן - מרפאה לאסתטיקה רפואית | בוטוקס ומילוי שפתיים בתל אביב</title>
+    <meta name="description" content="ד"ר מיכל רוזן - מרפאה מובילה לאסתטיקה רפואית בתל אביב. טיפולי בוטוקס, מילוי שפתיים, פילינג כימי ועוד. 5 שנות ניסיון, 500+ לקוחות מרוצים.">
+    <meta name="keywords" content="ד״ר מיכל רוזן, בוטוקס תל אביב, מילוי שפתיים, אסתטיקה רפואית, פילינג כימי">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #06b6d4;
+            --accent-color: #10b981;
+            --gold-color: #f59e0b;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --success: #22c55e;
+            
+            --primary-font: 'Inter', sans-serif;
+            --secondary-font: 'Playfair Display', serif;
+            --hebrew-font: 'Assistant', sans-serif;
+            
+            --section-padding: 100px 0;
+            --container-padding: 0 20px;
+            --border-radius: 16px;
+            --box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--hebrew-font);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: var(--transition);
+        }
+
+        .loading-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .loading-logo {
+            font-family: var(--secondary-font);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.2);
+            border-top: 4px solid var(--white);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .logo {
+            font-family: var(--secondary-font);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav a:hover::after,
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .phone-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .business-name {
+            font-family: var(--secondary-font);
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .business-description {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255,255,255,0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background: transparent;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 80px 0;
+            margin-top: -60px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-family: var(--secondary-font);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--section-padding);
+            background: var(--background-color);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: var(--secondary-font);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+
+        .service-card.featured {
+            border: 2px solid var(--gold-color);
+            transform: scale(1.02);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: var(--gold-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .service-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li i {
+            color: var(--success);
+            width: 20px;
+        }
+
+        .service-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            font-family: var(--secondary-font);
+        }
+
+        .service-duration {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .book-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Gallery, Testimonials, About, FAQ, Contact sections simplified for space */
+        .section {
+            padding: var(--section-padding);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-family: var(--secondary-font);
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .form-submit {
+            background: var(--white);
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .business-name {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo business-name-loading">ד״ר מיכל רוזן</div>
+            <div class="loading-text">טוענת את המרפאה המתקדמת שלך...</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#home" class="logo business-name-short">ד״ר מיכל רוזן</a>
+            
+            <nav class="nav">
+                <a href="#home" class="nav-link active">בית</a>
+                <a href="#services" class="nav-link">שירותים</a>
+                <a href="#gallery" class="nav-link">גלריה</a>
+                <a href="#about" class="nav-link">אודות</a>
+                <a href="#contact" class="nav-link">יצירת קשר</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:03-123-4567" class="phone-link">
+                    <i class="fas fa-phone"></i>
+                    <span class="phone">03-123-4567</span>
+                </a>
+                <a href="#contact" class="cta-btn">
+                    <i class="fas fa-calendar"></i>
+                    קביעת תור
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-badge">✨ מרפאה מובילה לאסתטיקה רפואית</div>
+            <h1 class="business-name">ד״ר מיכל רוזן</h1>
+            <h2 class="hero-subtitle">מומחית באסתטיקה רפואית</h2>
+            <p class="business-description">
+                מרפאה מתקדמת לטיפולי יופי ואסתטיקה רפואית עם הטכנולוגיות החדישות ביותר. 
+                מעל 5 שנות ניסיון ו-500 לקוחות מרוצים.
+            </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-white">
+                    <i class="fas fa-spa"></i>
+                    צפייה בטיפולים
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-phone"></i>
+                    יצירת קשר מיידי
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <i class="fas fa-users stat-icon"></i>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">לקוחות מרוצים</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <i class="fas fa-award stat-icon"></i>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <i class="fas fa-heart stat-icon"></i>
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">שביעות רצון</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <i class="fas fa-shield-alt stat-icon"></i>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">בטיחות מלאה</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">💉 הטיפולים שלנו</div>
+                <h2 class="section-title">טיפולי יופי מתקדמים</h2>
+                <p class="section-subtitle">
+                    מגוון רחב של טיפולי אסתטיקה רפואית עם הטכנולוגיות החדישות ביותר
+                </p>
+            </div>
+            <div class="services-grid" id="services-container">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Simplified sections for space -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">גלריית תוצאות</h2>
+            </div>
+            <div class="grid grid-3" id="gallery-container">
+                <!-- Gallery items -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">המלצות לקוחות</h2>
+            </div>
+            <div class="grid grid-3" id="testimonials-container">
+                <!-- Testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">אודות ד״ר מיכל רוזן</h2>
+                <p class="section-subtitle">
+                    מעל 5 שנות ניסיון באסתטיקה רפואית עם 500+ לקוחות מרוצים
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h2>בואו נקבע תור</h2>
+                    <p>
+                        מוזמנים ליצור קשר ולקבוע תור לייעוץ אישי וללא התחייבות. 
+                        נשמח לענות על כל שאלה ולהתאים עבורכם את הטיפול המושלם.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <h3>טלפון</h3>
+                            <p class="phone">03-123-4567</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h3>אימייל</h3>
+                            <p class="email">info@drmichalrosen.co.il</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>כתובת</h3>
+                            <p class="address">רחוב הרצל 45, תל אביב</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <h3>שעות פתיחה</h3>
+                            <p>א׳-ה׳: 9:00-19:00</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="whatsapp-btn" id="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i>
+                        שלח הודעת וואטסאפ
+                    </a>
+                </div>
+
+                <div class="contact-form animate-on-scroll">
+                    <h3>שלח הודעה</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-input" placeholder="שם מלא" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-input" placeholder="מספר טלפון" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="service" class="form-select" required>
+                                <option value="">בחרו את סוג הטיפול</option>
+                                <option value="botox">טיפולי בוטוקס</option>
+                                <option value="lips">מילוי שפתיים</option>
+                                <option value="peeling">פילינג כימי</option>
+                                <option value="laser">טיפולי לייזר</option>
+                                <option value="facial">טיפולי פנים</option>
+                                <option value="consultation">ייעוץ כללי</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-textarea" placeholder="ספרו לנו על הטיפול הרצוי" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">
+                            שלח הודעה
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Website data
+        const WEBSITE_DATA = {
+            businessName: 'ד״ר מיכל רוזן',
+            businessDescription: 'מרפאה מתקדמת לטיפולי יופי ואסתטיקה רפואית עם הטכנולוגיות החדישות ביותר. מעל 5 שנות ניסיון ו-500 לקוחות מרוצים.',
+            businessType: 'medical',
+            
+            phone: '03-123-4567',
+            email: 'info@drmichalrosen.co.il',
+            address: 'רחוב הרצל 45, תל אביב',
+            whatsapp: '972521234567',
+            
+            colors: {
+                primary: '#4f46e5',
+                secondary: '#06b6d4',
+                accent: '#10b981',
+                gold: '#f59e0b'
+            },
+            
+            services: [
+                {
+                    name: 'טיפולי בוטוקס',
+                    price: '₪1,200',
+                    description: 'הזרקות בוטוקס מקצועיות לחידוש הפנים ומניעת קמטים עם תוצאות טבעיות ומרשימות',
+                    duration: '30 דקות',
+                    icon: 'fas fa-syringe',
+                    features: ['ללא כאב', 'תוצאות מיידיות', 'טבעי ובטוח', 'אורך זמן 4-6 חודשים'],
+                    popular: true
+                },
+                {
+                    name: 'מילוי שפתיים',
+                    price: '₪800',
+                    description: 'מילוי שפתיים בחומצה היאלורונית איכותית לשפתיים מלאות, טבעיות ומושכות',
+                    duration: '45 דקות',
+                    icon: 'fas fa-lips',
+                    features: ['חומרים איכותיים', 'מראה טבעי', 'ללא זמן החלמה', 'עמידות עד שנה'],
+                    popular: true
+                },
+                {
+                    name: 'פילינג כימי',
+                    price: '₪600',
+                    description: 'חידוש עור מתקדם עם פילינג כימי מקצועי לעור רך, זוהר וללא פגמים',
+                    duration: '60 דקות',
+                    icon: 'fas fa-spa',
+                    features: ['חידוש העור', 'הבהרת כתמים', 'הקטנת נקבוביות', 'מרקם חלק'],
+                    popular: false
+                },
+                {
+                    name: 'טיפולי לייזר',
+                    price: '₪900',
+                    description: 'הסרת שיער קבועה ועיבוי עור בטכנולוגיית לייזר מתקדמת ובטוחה',
+                    duration: '45 דקות',
+                    icon: 'fas fa-magic',
+                    features: ['הסרת שיער קבועה', 'לכל סוגי העור', 'ללא כאב', 'תוצאות מהירות'],
+                    popular: false
+                },
+                {
+                    name: 'טיפולי פנים',
+                    price: '₪400',
+                    description: 'טיפול פנים מקצועי ומפנק לניקוי עמוק, לחות אופטימלית ורעננות מיידית',
+                    duration: '90 דקות',
+                    icon: 'fas fa-leaf',
+                    features: ['ניקוי עמוק', 'לחות מעמיקה', 'רגיעה מלאה', 'זוהר מיידי'],
+                    popular: false
+                },
+                {
+                    name: 'הזרקת חומצה היאלורונית',
+                    price: '₪1,000',
+                    description: 'הזרקות מדויקות למילוי קמטים וחידוש מראה הפנים עם תוצאות יוצאות דופן',
+                    duration: '40 דקות',
+                    icon: 'fas fa-tint',
+                    features: ['מילוי קמטים', 'הרמת פנים טבעית', 'תוצאות מיידיות', 'בטיחות מקסימלית'],
+                    popular: false
+                }
+            ],
+
+            gallery: [
+                {
+                    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'טיפול בוטוקס - לפני ואחרי'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1616391056345-0e54bcad3194?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'מילוי שפתיים טבעי'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'טיפול פנים מרגיע'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'פילינג כימי מתקדם'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'טיפול לייזר מדויק'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    title: 'הזרקת חומצה היאלורונית'
+                }
+            ],
+
+            testimonials: [
+                {
+                    name: 'שרה כהן',
+                    text: 'ד״ר מיכל היא פשוט מדהימה! הטיפול בבוטוקס שקיבלתי היה מקצועי ללא כאב, והתוצאות טבעיות ומושלמות. ממליצה בחום!',
+                    rating: 5,
+                    treatment: 'טיפול בוטוקס'
+                },
+                {
+                    name: 'מיכל לוי',
+                    text: 'מילוי השפתיים שעשיתי במרפאה פשוט מושלם! השפתיים נראות טבעיות ויפות, וכל התהליך היה נעים ומקצועי.',
+                    rating: 5,
+                    treatment: 'מילוי שפתיים'
+                },
+                {
+                    name: 'דנה אברהם',
+                    text: 'הפילינג הכימי שעשיתי שינה לי את העור לגמרי! העור זוהר, חלק ובריא. השירות מעולה והתוצאות מעבר לציפיות.',
+                    rating: 5,
+                    treatment: 'פילינג כימי'
+                }
+            ]
+        };
+
+        // Website updater class
+        class WebsiteUpdater {
+            constructor() {
+                this.data = WEBSITE_DATA;
+                this.init();
+            }
+            
+            init() {
+                this.updateBasicInfo();
+                this.updateColors();
+                this.updateServices();
+                this.updateGallery();
+                this.updateTestimonials();
+                this.setupEventListeners();
+                this.hideLoading();
+                this.setupAnimations();
+            }
+            
+            updateBasicInfo() {
+                // Update business name
+                document.querySelectorAll('.business-name, .business-name-loading, .business-name-short').forEach(el => {
+                    el.textContent = this.data.businessName;
+                });
+                
+                // Update business description
+                document.querySelectorAll('.business-description').forEach(el => {
+                    el.textContent = this.data.businessDescription;
+                });
+                
+                // Update contact info
+                document.querySelectorAll('.phone').forEach(el => {
+                    el.textContent = this.data.phone;
+                });
+                
+                document.querySelectorAll('.email').forEach(el => {
+                    el.textContent = this.data.email;
+                });
+                
+                document.querySelectorAll('.address').forEach(el => {
+                    el.textContent = this.data.address;
+                });
+                
+                // Update WhatsApp link
+                const whatsappLink = document.getElementById('whatsapp-link');
+                if (whatsappLink) {
+                    const message = encodeURIComponent(`שלום, אני מעוניין/ת לקבוע תור ב${this.data.businessName}`);
+                    whatsappLink.href = `https://wa.me/${this.data.whatsapp}?text=${message}`;
+                }
+            }
+            
+            updateColors() {
+                const root = document.documentElement;
+                Object.entries(this.data.colors).forEach(([colorName, colorValue]) => {
+                    const cssVarName = `--${colorName.replace(/([A-Z])/g, '-$1').toLowerCase()}-color`;
+                    root.style.setProperty(cssVarName, colorValue);
+                });
+            }
+            
+            updateServices() {
+                const servicesContainer = document.getElementById('services-container');
+                if (!servicesContainer) return;
+                
+                servicesContainer.innerHTML = '';
+                
+                this.data.services.forEach((service, index) => {
+                    const serviceElement = document.createElement('div');
+                    serviceElement.className = `service-card animate-on-scroll ${service.popular ? 'featured' : ''}`;
+                    serviceElement.style.animationDelay = `${index * 0.1}s`;
+                    
+                    const featuresHTML = service.features.map(feature => 
+                        `<li><i class="fas fa-check"></i> ${feature}</li>`
+                    ).join('');
+                    
+                    serviceElement.innerHTML = `
+                        ${service.popular ? '<div class="featured-badge">⭐ פופולרי</div>' : ''}
+                        <div class="service-icon">
+                            <i class="${service.icon}"></i>
+                        </div>
+                        <h3 class="service-name">${service.name}</h3>
+                        <p class="service-description">${service.description}</p>
+                        <ul class="service-features">
+                            ${featuresHTML}
+                        </ul>
+                        <div class="service-details">
+                            <div class="service-price">${service.price}</div>
+                            <div class="service-duration">${service.duration}</div>
+                        </div>
+                        <button class="book-btn" onclick="bookService('${service.name}', '${service.price}')">
+                            <i class="fas fa-calendar-plus"></i>
+                            הזמנת תור
+                        </button>
+                    `;
+                    
+                    servicesContainer.appendChild(serviceElement);
+                });
+            }
+
+            updateGallery() {
+                const galleryContainer = document.getElementById('gallery-container');
+                if (!galleryContainer) return;
+                
+                galleryContainer.innerHTML = '';
+                
+                this.data.gallery.forEach((item, index) => {
+                    const galleryElement = document.createElement('div');
+                    galleryElement.className = 'card animate-on-scroll';
+                    galleryElement.style.animationDelay = `${index * 0.1}s`;
+                    
+                    galleryElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;">
+                        <h4 style="margin-top: 15px; text-align: center;">${item.title}</h4>
+                    `;
+                    
+                    galleryContainer.appendChild(galleryElement);
+                });
+            }
+
+            updateTestimonials() {
+                const testimonialsContainer = document.getElementById('testimonials-container');
+                if (!testimonialsContainer) return;
+                
+                testimonialsContainer.innerHTML = '';
+                
+                this.data.testimonials.forEach((testimonial, index) => {
+                    const testimonialElement = document.createElement('div');
+                    testimonialElement.className = 'card animate-on-scroll';
+                    testimonialElement.style.animationDelay = `${index * 0.1}s`;
+                    
+                    const starsHTML = '★'.repeat(testimonial.rating);
+                    
+                    testimonialElement.innerHTML = `
+                        <div style="font-size: 2rem; color: var(--gold-color); margin-bottom: 15px;">"</div>
+                        <p style="margin-bottom: 20px; font-style: italic;">${testimonial.text}</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                ${testimonial.name.split(' ').map(n => n[0]).join('')}
+                            </div>
+                            <div>
+                                <h4>${testimonial.name}</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem;">${testimonial.treatment}</p>
+                                <div style="color: var(--gold-color);">${starsHTML}</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    testimonialsContainer.appendChild(testimonialElement);
+                });
+            }
+            
+            hideLoading() {
+                setTimeout(() => {
+                    const loadingScreen = document.getElementById('loadingScreen');
+                    if (loadingScreen) {
+                        loadingScreen.classList.add('hidden');
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 500);
+                    }
+                }, 2000);
+            }
+
+            setupAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animated');
+                        }
+                    });
+                }, observerOptions);
+                
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+            
+            setupEventListeners() {
+                // Smooth scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+                
+                // Header scroll effect
+                window.addEventListener('scroll', () => {
+                    const header = document.getElementById('header');
+                    const backToTop = document.getElementById('backToTop');
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (scrollTop > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    
+                    if (scrollTop > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+
+                // Back to top functionality
+                document.getElementById('backToTop').addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Contact form
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const formData = new FormData(this);
+                        const data = Object.fromEntries(formData);
+                        
+                        const message = `שלום ד״ר מיכל רוזן,
+
+שם: ${data.name}
+טלפון: ${data.phone}
+סוג טיפול: ${data.service}
+הודעה: ${data.message}
+
+אני מעוניין/ת לקבוע תור. תודה!`;
+                        
+                        const whatsappUrl = `https://wa.me/${WEBSITE_DATA.whatsapp}?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappUrl, '_blank');
+                        
+                        this.reset();
+                        alert('הודעתכם נשלחה בהצלחה!');
+                    });
+                }
+
+                // Active navigation
+                const navLinks = document.querySelectorAll('.nav-link');
+                const sections = document.querySelectorAll('section[id]');
+                
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - 100;
+                        if (window.pageYOffset >= sectionTop) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            }
+            
+            updateFromEditor(newData) {
+                this.data = { ...this.data, ...newData };
+                this.init();
+                localStorage.setItem('websiteData_dr-michal-rosen', JSON.stringify(this.data));
+            }
+        }
+        
+        // Helper functions
+        function bookService(serviceName, servicePrice) {
+            const message = encodeURIComponent(
+                `שלום ד״ר מיכל רוזן,\n\n` +
+                `אני מעוניין/ת לקבוע תור ל${serviceName} במחיר ${servicePrice}.\n\n` +
+                `אשמח לקבל פרטים נוספים ולתאם מועד.\n\n` +
+                `תודה רבה!`
+            );
+            
+            const whatsappUrl = `https://wa.me/${WEBSITE_DATA.whatsapp}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        function loadSavedData() {
+            const saved = localStorage.getItem('websiteData_dr-michal-rosen');
+            if (saved) {
+                try {
+                    const savedData = JSON.parse(saved);
+                    Object.assign(WEBSITE_DATA, savedData);
+                } catch (e) {
+                    console.warn('Failed to load saved data:', e);
+                }
+            }
+        }
+        
+        function updateWebsiteData(newData) {
+            if (window.websiteUpdater) {
+                window.websiteUpdater.updateFromEditor(newData);
+            }
+        }
+
+        // Listen for updates from editor
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'updateWebsite') {
+                Object.assign(WEBSITE_DATA, event.data.data);
+                if (window.websiteUpdater) {
+                    window.websiteUpdater.updateFromEditor(event.data.data);
+                }
+            }
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedData();
+            window.websiteUpdater = new WebsiteUpdater();
+            window.WEBSITE_DATA = WEBSITE_DATA;
+            window.updateWebsiteData = updateWebsiteData;
+            
+            console.log('✅ Dr. Michal Rosen Website Ready!');
+        });
+    </script>
+</body>
+</html>
