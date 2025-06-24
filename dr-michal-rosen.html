@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ד"ר מיכל רוזן - מרפאה לאסתטיקה רפואית | בוטוקס ומילוי שפתיים בתל אביב</title>
-    <meta name="description" content="ד"ר מיכל רוזן - מרפאה מובילה לאסתטיקה רפואית בתל אביב. טיפולי בוטוקס, מילוי שפתיים, פילינג כימי ועוד. 5 שנות ניסיון, 500+ לקוחות מרוצים.">
-    <meta name="keywords" content="ד״ר מיכל רוזן, בוטוקס תל אביב, מילוי שפתיים, אסתטיקה רפואית, פילינג כימי">
+    <meta name="description" content="ד"ר מיכל רוזן - מרפאה מובילה לאסתטיקה רפואית בתל אביב. טיפולי בוטוקס, מילוי שפתיים, פילינג כימי ועוד.">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -59,7 +58,7 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: var(--transition);
+            transition: all 0.8s ease;
         }
 
         .loading-content {
@@ -72,8 +71,7 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .loading-spinner {
@@ -88,8 +86,7 @@
 
         .loading-text {
             font-size: 1.2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
 
         @keyframes spin {
@@ -111,6 +108,7 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         /* Header */
@@ -123,11 +121,6 @@
             width: 100%;
             z-index: 1000;
             transition: var(--transition);
-        }
-
-        .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.12);
         }
 
         .header-container {
@@ -164,31 +157,8 @@
             position: relative;
         }
 
-        .nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .nav a:hover::after,
-        .nav a.active::after {
-            width: 100%;
-        }
-
-        .nav a:hover,
-        .nav a.active {
+        .nav a:hover {
             color: var(--primary-color);
-        }
-
-        .header-cta {
-            display: flex;
-            gap: 15px;
-            align-items: center;
         }
 
         .phone-link {
@@ -215,16 +185,6 @@
         .cta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            cursor: pointer;
         }
 
         /* Hero Section */
@@ -264,16 +224,13 @@
             font-weight: 800;
             margin-bottom: 25px;
             line-height: 1.1;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .hero-subtitle {
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 15px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
         }
 
         .business-description {
@@ -284,8 +241,6 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.7s forwards;
         }
 
         .hero-buttons {
@@ -293,8 +248,6 @@
             gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
         }
 
         .btn {
@@ -317,22 +270,11 @@
             box-shadow: 0 8px 25px rgba(255,255,255,0.3);
         }
 
-        .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255,255,255,0.4);
-        }
-
         .btn-outline {
             border: 2px solid var(--white);
             color: var(--white);
             background: transparent;
             backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-3px);
         }
 
         /* Stats Section */
@@ -363,8 +305,6 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
 
         .stat-item:hover {
@@ -374,7 +314,6 @@
         .stat-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            opacity: 0.9;
         }
 
         .stat-number {
@@ -474,7 +413,6 @@
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
 
         .service-icon {
@@ -529,8 +467,9 @@
             align-items: center;
             margin-bottom: 30px;
             padding: 20px;
-            background: var(--background-color);
+            background: linear-gradient(135deg, var(--background-color), #f1f5f9);
             border-radius: var(--border-radius);
+            border: 1px solid rgba(79, 70, 229, 0.1);
         }
 
         .service-price {
@@ -559,43 +498,167 @@
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
         }
 
-        .book-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-        }
-
-        /* Gallery, Testimonials, About, FAQ, Contact sections simplified for space */
-        .section {
+        /* Gallery Section */
+        .gallery {
             padding: var(--section-padding);
+            background: var(--white);
         }
 
-        .container {
+        .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: var(--container-padding);
         }
 
-        .grid {
+        .gallery-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 60px;
         }
 
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1.2;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        .card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: var(--transition);
         }
 
-        .card:hover {
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(6, 182, 212, 0.9));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--background-color), #f1f5f9);
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            color: rgba(79, 70, 229, 0.2);
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: var(--secondary-font);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-rating {
+            color: var(--gold-color);
+            font-size: 1.1rem;
         }
 
         /* Contact Section */
@@ -603,6 +666,12 @@
             padding: var(--section-padding);
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
         }
 
         .contact-grid {
@@ -618,6 +687,13 @@
             margin-bottom: 30px;
         }
 
+        .contact-info p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
         .contact-methods {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -627,14 +703,23 @@
 
         .contact-item {
             background: rgba(255,255,255,0.1);
-            padding: 20px;
+            padding: 25px 20px;
             border-radius: var(--border-radius);
             text-align: center;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
         }
 
         .contact-item i {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .whatsapp-btn {
@@ -648,99 +733,188 @@
             align-items: center;
             gap: 10px;
             margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .form-input,
-        .form-select,
-        .form-textarea {
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 15px;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
             color: var(--white);
             font-size: 1rem;
+            backdrop-filter: blur(10px);
         }
 
-        .form-submit {
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .submit-btn {
             background: var(--white);
             color: var(--primary-color);
             border: none;
-            padding: 15px 30px;
+            padding: 15px 40px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
+            transition: var(--transition);
             width: 100%;
+            font-size: 1.1rem;
         }
 
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
+        /* Footer */
+        .footer {
+            background: var(--text-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
             width: 50px;
             height: 50px;
             background: var(--primary-color);
-            color: var(--white);
-            border: none;
             border-radius: 50%;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
             transition: var(--transition);
-            z-index: 1000;
         }
 
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
+        .footer-social a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav {
-                display: none;
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 120px 20px 80px;
             }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
+
             .business-name {
                 font-size: 3rem;
             }
-            
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .business-description {
+                font-size: 1.1rem;
+            }
+
             .section-title {
                 font-size: 2.5rem;
             }
-            
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .contact-grid {
+
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
-            
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
             .contact-methods {
                 grid-template-columns: 1fr;
             }
-        }
 
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
+            .nav {
+                display: none;
+            }
 
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
+            .mobile-menu-btn {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -748,60 +922,51 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
+            <div class="loading-logo">ד"ר מיכל רוזן</div>
             <div class="loading-spinner"></div>
-            <div class="loading-logo business-name-loading">ד״ר מיכל רוזן</div>
-            <div class="loading-text">טוענת את המרפאה המתקדמת שלך...</div>
+            <div class="loading-text">טוענת את המרפאה...</div>
         </div>
     </div>
 
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
-            <a href="#home" class="logo business-name-short">ד״ר מיכל רוזן</a>
-            
-            <nav class="nav">
-                <a href="#home" class="nav-link active">בית</a>
-                <a href="#services" class="nav-link">שירותים</a>
-                <a href="#gallery" class="nav-link">גלריה</a>
-                <a href="#about" class="nav-link">אודות</a>
-                <a href="#contact" class="nav-link">יצירת קשר</a>
+            <a href="#" class="logo business-name-element">ד"ר מיכל רוזן</a>
+            <nav class="nav" id="nav">
+                <a href="#hero" class="active">בית</a>
+                <a href="#services">שירותים</a>
+                <a href="#gallery">גלריה</a>
+                <a href="#testimonials">המלצות</a>
+                <a href="#contact">יצירת קשר</a>
             </nav>
-
             <div class="header-cta">
-                <a href="tel:03-123-4567" class="phone-link">
+                <a href="tel:052-123-4567" class="phone-link">
                     <i class="fas fa-phone"></i>
-                    <span class="phone">03-123-4567</span>
+                    052-123-4567
                 </a>
-                <a href="#contact" class="cta-btn">
-                    <i class="fas fa-calendar"></i>
-                    קביעת תור
-                </a>
+                <a href="#contact" class="cta-btn">הזמנת תור</a>
             </div>
-
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero" id="hero">
         <div class="hero-container">
-            <div class="hero-badge">✨ מרפאה מובילה לאסתטיקה רפואית</div>
-            <h1 class="business-name">ד״ר מיכל רוזן</h1>
-            <h2 class="hero-subtitle">מומחית באסתטיקה רפואית</h2>
-            <p class="business-description">
-                מרפאה מתקדמת לטיפולי יופי ואסתטיקה רפואית עם הטכנולוגיות החדישות ביותר. 
-                מעל 5 שנות ניסיון ו-500 לקוחות מרוצים.
-            </p>
+            <div class="hero-badge">✨ מרפאה מובילה בתל אביב</div>
+            <h1 class="business-name business-name-element">ד"ר מיכל רוזן</h1>
+            <h2 class="hero-subtitle">מומחית לאסתטיקה רפואית</h2>
+            <p class="business-description business-description-element">מרפאה מתקדמת לטיפולי יופי ואסתטיקה רפואית. טיפולי בוטוקס, מילוי שפתיים, פילינג כימי ועוד. עם 5 שנות ניסיון ו-500+ לקוחות מרוצים</p>
             <div class="hero-buttons">
-                <a href="#services" class="btn btn-white">
-                    <i class="fas fa-spa"></i>
-                    צפייה בטיפולים
+                <a href="#contact" class="btn btn-white">
+                    <i class="fas fa-calendar-check"></i>
+                    הזמנת תור
                 </a>
-                <a href="#contact" class="btn btn-outline">
+                <a href="tel:052-123-4567" class="btn btn-outline">
                     <i class="fas fa-phone"></i>
-                    יצירת קשר מיידי
+                    התקשרי עכשיו
                 </a>
             </div>
         </div>
@@ -811,25 +976,33 @@
     <section class="stats">
         <div class="stats-container">
             <div class="stats-grid">
-                <div class="stat-item animate-on-scroll">
-                    <i class="fas fa-users stat-icon"></i>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <div class="stat-number">500+</div>
                     <div class="stat-label">לקוחות מרוצים</div>
                 </div>
-                <div class="stat-item animate-on-scroll">
-                    <i class="fas fa-award stat-icon"></i>
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">שנות ניסיון</div>
-                </div>
-                <div class="stat-item animate-on-scroll">
-                    <i class="fas fa-heart stat-icon"></i>
-                    <div class="stat-number">98%</div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number">99%</div>
                     <div class="stat-label">שביעות רצון</div>
                 </div>
-                <div class="stat-item animate-on-scroll">
-                    <i class="fas fa-shield-alt stat-icon"></i>
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">בטיחות מלאה</div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">דירוג ממוצע</div>
                 </div>
             </div>
         </div>
@@ -838,582 +1011,739 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="services-container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-badge">💉 הטיפולים שלנו</div>
+            <div class="section-header">
+                <div class="section-badge">השירותים שלנו</div>
                 <h2 class="section-title">טיפולי יופי מתקדמים</h2>
-                <p class="section-subtitle">
-                    מגוון רחב של טיפולי אסתטיקה רפואית עם הטכנולוגיות החדישות ביותר
-                </p>
+                <p class="section-subtitle">מגוון רחב של טיפולי אסתטיקה רפואית ברמה הגבוהה ביותר, עם ציוד מתקדם וטכנולוגיות חדשניות</p>
             </div>
-            <div class="services-grid" id="services-container">
-                <!-- Services will be populated by JavaScript -->
+            <div class="services-grid" id="servicesGrid">
+                <div class="service-card featured">
+                    <div class="featured-badge">פופולרי</div>
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3 class="service-name">בוטוקס</h3>
+                    <p class="service-description">טיפול מתקדם להחלקת קמטים וקווי הבעה. תוצאות טבעיות ויפות שנמשכות עד 6 חודשים.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> טיפול ללא כאב</li>
+                        <li><i class="fas fa-check"></i> תוצאות מיידיות</li>
+                        <li><i class="fas fa-check"></i> בטיחות מוחלטת</li>
+                        <li><i class="fas fa-check"></i> מראה טבעי</li>
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">₪1,200</div>
+                        <div class="service-duration">30 דקות</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('בוטוקס')">הזמנת תור</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lips"></i>
+                    </div>
+                    <h3 class="service-name">מילוי שפתיים</h3>
+                    <p class="service-description">מילוי מתקדם לשפתיים מלאות וחטובות. תוצאות טבעיות עם היאלורון איכותי.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> חומרי מילוי איכותיים</li>
+                        <li><i class="fas fa-check"></i> מראה טבעי</li>
+                        <li><i class="fas fa-check"></i> ללא זמן החלמה</li>
+                        <li><i class="fas fa-check"></i> תוצאות עד שנה</li>
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">₪1,800</div>
+                        <div class="service-duration">45 דקות</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('מילוי שפתיים')">הזמנת תור</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="service-name">פילינג כימי</h3>
+                    <p class="service-description">פילינג מתקדם לחידוש העור והסרת פגמים. עור חלק וזוהר לאחר הטיפול.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> חידוש תאי העור</li>
+                        <li><i class="fas fa-check"></i> הסרת כתמי גיל</li>
+                        <li><i class="fas fa-check"></i> מיצוק העור</li>
+                        <li><i class="fas fa-check"></i> מרקם משופר</li>
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">₪800</div>
+                        <div class="service-duration">60 דקות</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('פילינג כימי')">הזמנת תור</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="service-name">הידרה פיישל</h3>
+                    <p class="service-description">טיפול מתקדם לניקוי עמוק ולחות של העור. תוצאות מיידיות וזוהר.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> ניקוי עמוק</li>
+                        <li><i class="fas fa-check"></i> הזנת העור</li>
+                        <li><i class="fas fa-check"></i> מתאים לכל סוגי עור</li>
+                        <li><i class="fas fa-check"></i> ללא תופעות לוואי</li>
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">₪650</div>
+                        <div class="service-duration">90 דקות</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('הידרה פיישל')">הזמנת תור</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="service-name">מילוי קמטים</h3>
+                    <p class="service-description">טיפול מתקדם למילוי קמטים עמוקים ושיפור מרקם העור.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> החלקת קמטים</li>
+                        <li><i class="fas fa-check"></i> מראה צעיר</li>
+                        <li><i class="fas fa-check"></i> תוצאות לאורך זמן</li>
+                        <li><i class="fas fa-check"></i> טיפול מדויק</li>
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">₪1,500</div>
+                        <div class="service-duration">40 דקות</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('מילוי קמטים')">הזמנת תור</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="service-name">טיפול יוקרה</h3>
+                    <p class="service-description">חבילת טיפולים יוקרתית המשלבת מספר טכנולוגיות לתוצאות מקסימליות.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> חבילה משולבת</li>
+                        <li><i class="fas fa-check"></i> תוצאות מרהיבות</li>
+                        <li><i class="fas fa-check"></i> יעוץ אישי</li>
+                        <li><i class="fas fa-check"></i> מעקב רציף</li>
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">₪3,500</div>
+                        <div class="service-duration">3 שעות</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('טיפול יוקרה')">הזמנת תור</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Simplified sections for space -->
-    <section class="section" id="gallery">
-        <div class="container">
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-container">
             <div class="section-header">
-                <h2 class="section-title">גלריית תוצאות</h2>
+                <div class="section-badge">גלריה</div>
+                <h2 class="section-title">תוצאות מרהיבות</h2>
+                <p class="section-subtitle">צפי בתוצאות הטיפולים שלנו ובעבודות שביצענו. כל תמונה מספרת סיפור של שינוי ושיפור</p>
             </div>
-            <div class="grid grid-3" id="gallery-container">
-                <!-- Gallery items -->
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=300&fit=crop" alt="בוטוקס - לפני ואחרי">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h3 class="gallery-title">בוטוקס - תוצאות מרהיבות</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=300&fit=crop" alt="מילוי שפתיים - לפני ואחרי">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h3 class="gallery-title">מילוי שפתיים - מראה טבעי</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1526045431048-f857369baa09?w=400&h=300&fit=crop" alt="פילינג כימי - לפני ואחרי">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h3 class="gallery-title">פילינג כימי - עור חלק</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=300&fit=crop" alt="הידרה פיישל - לפני ואחרי">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h3 class="gallery-title">הידרה פיישל - זוהר טבעי</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" alt="מילוי קמטים - לפני ואחרי">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h3 class="gallery-title">מילוי קמטים - מראה צעיר</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop" alt="טיפול יוקרה - לפני ואחרי">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h3 class="gallery-title">טיפול יוקרה - תמורה מושלמת</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container">
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
             <div class="section-header">
-                <h2 class="section-title">המלצות לקוחות</h2>
+                <div class="section-badge">המלצות</div>
+                <h2 class="section-title">מה הלקוחות אומרות</h2>
+                <p class="section-subtitle">קראי המלצות מלקוחות שביצעו טיפולים במרפאה שלנו והתרשמי מהתוצאות המרהיבות</p>
             </div>
-            <div class="grid grid-3" id="testimonials-container">
-                <!-- Testimonials -->
-            </div>
-        </div>
-    </section>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">הטיפול עם ד"ר מיכל היה מעולה! התוצאות עלו על הציפיות והיא מקצועית מאוד. ממליצה בחום!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ר</div>
+                        <div class="testimonial-info">
+                            <h4>רחל כהן</h4>
+                            <p>בוטוקס ומילוי שפתיים</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">אודות ד״ר מיכל רוזן</h2>
-                <p class="section-subtitle">
-                    מעל 5 שנות ניסיון באסתטיקה רפואית עם 500+ לקוחות מרוצים
-                </p>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">מרפאה מדהימה! ד"ר מיכל מקצועית ואכפתית. הטיפול היה מושלם והתוצאות טבעיות ויפות.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ש</div>
+                        <div class="testimonial-info">
+                            <h4>שרה לוי</h4>
+                            <p>פילינג כימי והידרה פיישל</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">התייעצתי עם ד"ר מיכל וביצעתי טיפול מילוי קמטים. התוצאות פשוט מדהימות! מרגישה כמו נולדתי מחדש.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">מ</div>
+                        <div class="testimonial-info">
+                            <h4>מירי דוד</h4>
+                            <p>מילוי קמטים ובוטוקס</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">חוויה מושלמת! מהרגע הראשון הרגשתי בידיים טובות. ד"ר מיכל מבינה בדיוק מה שאני רוצה.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ע</div>
+                        <div class="testimonial-info">
+                            <h4>ענת גולן</h4>
+                            <p>חבילת טיפולים יוקרתית</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">המרפאה הכי מקצועית שביקרתי! הטיפול היה מהיר, יעיל ובלי כאב. אחזור בוודאי!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ד</div>
+                        <div class="testimonial-info">
+                            <h4>דנה אברהם</h4>
+                            <p>הידרה פיישל ומילוי שפתיים</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">תודה לד"ר מיכל על הטיפול המדהים! העור שלי נראה צעיר בעשר שנים. כל כך מרוצה!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ל</div>
+                        <div class="testimonial-info">
+                            <h4>לימור בן דוד</h4>
+                            <p>פילינג כימי ובוטוקס</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
+        <div class="contact-container">
             <div class="contact-grid">
-                <div class="contact-info animate-on-scroll">
-                    <h2>בואו נקבע תור</h2>
-                    <p>
-                        מוזמנים ליצור קשר ולקבוע תור לייעוץ אישי וללא התחייבות. 
-                        נשמח לענות על כל שאלה ולהתאים עבורכם את הטיפול המושלם.
-                    </p>
+                <div class="contact-info">
+                    <h2>בואי לקבוע תור</h2>
+                    <p>צרי קשר עכשיו לקביעת תור או לקבלת יעוץ ראשוני. נשמח לענות על כל שאלה ולהתאים לך את הטיפול המושלם.</p>
                     
                     <div class="contact-methods">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <h3>טלפון</h3>
-                            <p class="phone">03-123-4567</p>
+                            <p>052-123-4567</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <h3>אימייל</h3>
-                            <p class="email">info@drmichalrosen.co.il</p>
+                            <p>info@drmichal.co.il</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <h3>כתובת</h3>
-                            <p class="address">רחוב הרצל 45, תל אביב</p>
+                            <p>רחוב דיזנגוף 100, תל אביב</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
-                            <h3>שעות פתיחה</h3>
-                            <p>א׳-ה׳: 9:00-19:00</p>
+                            <h3>שעות פעילות</h3>
+                            <p>א-ה: 9:00-19:00</p>
                         </div>
                     </div>
                     
-                    <a href="#" class="whatsapp-btn" id="whatsapp-link">
+                    <a href="https://wa.me/972521234567?text=היי%20ד״ר%20מיכל,%20אני%20מעוניינת%20לקבוע%20תור" class="whatsapp-btn">
                         <i class="fab fa-whatsapp"></i>
-                        שלח הודעת וואטסאפ
+                        שלחי הודעה בוואטסאפ
                     </a>
                 </div>
-
-                <div class="contact-form animate-on-scroll">
-                    <h3>שלח הודעה</h3>
+                
+                <div class="contact-form">
+                    <h3>שלחי הודעה</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-input" placeholder="שם מלא" required>
+                            <label for="name">שם מלא</label>
+                            <input type="text" id="name" name="name" placeholder="השם שלך" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" name="phone" class="form-input" placeholder="מספר טלפון" required>
+                            <label for="phone">טלפון</label>
+                            <input type="tel" id="phone" name="phone" placeholder="מספר הטלפון שלך" required>
                         </div>
                         <div class="form-group">
-                            <select name="service" class="form-select" required>
-                                <option value="">בחרו את סוג הטיפול</option>
-                                <option value="botox">טיפולי בוטוקס</option>
-                                <option value="lips">מילוי שפתיים</option>
-                                <option value="peeling">פילינג כימי</option>
-                                <option value="laser">טיפולי לייזר</option>
-                                <option value="facial">טיפולי פנים</option>
-                                <option value="consultation">ייעוץ כללי</option>
-                            </select>
+                            <label for="service">סוג הטיפול</label>
+                            <input type="text" id="service" name="service" placeholder="איזה טיפול מעניין אותך?">
                         </div>
                         <div class="form-group">
-                            <textarea name="message" class="form-textarea" placeholder="ספרו לנו על הטיפול הרצוי" required></textarea>
+                            <label for="message">הודעה</label>
+                            <textarea id="message" name="message" rows="4" placeholder="ספרי לנו עוד על מה שאת מחפשת..."></textarea>
                         </div>
-                        <button type="submit" class="form-submit">
-                            שלח הודעה
-                        </button>
+                        <button type="submit" class="submit-btn">שלחי הודעה</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>ד"ר מיכל רוזן</h3>
+                    <p>מרפאה מובילה לאסתטיקה רפואית בתל אביב. מתמחים בטיפולי בוטוקס, מילוי שפתיים, פילינג כימי ועוד.</p>
+                    <div class="footer-social">
+                        <a href="#" title="פייסבוק"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="אינסטגרם"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="לינקדאין"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>שירותים</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">בוטוקס</a></li>
+                        <li><a href="#services">מילוי שפתיים</a></li>
+                        <li><a href="#services">פילינג כימי</a></li>
+                        <li><a href="#services">הידרה פיישל</a></li>
+                        <li><a href="#services">מילוי קמטים</a></li>
+                        <li><a href="#services">טיפול יוקרה</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>קישורים מהירים</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">בית</a></li>
+                        <li><a href="#services">שירותים</a></li>
+                        <li><a href="#gallery">גלריה</a></li>
+                        <li><a href="#testimonials">המלצות</a></li>
+                        <li><a href="#contact">יצירת קשר</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>יצירת קשר</h3>
+                    <ul class="footer-links">
+                        <li>📞 052-123-4567</li>
+                        <li>📧 info@drmichal.co.il</li>
+                        <li>📍 רחוב דיזנגוף 100, תל אביב</li>
+                        <li>🕒 א-ה: 9:00-19:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ד"ר מיכל רוזן. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Website data
-        const WEBSITE_DATA = {
-            businessName: 'ד״ר מיכל רוזן',
-            businessDescription: 'מרפאה מתקדמת לטיפולי יופי ואסתטיקה רפואית עם הטכנולוגיות החדישות ביותר. מעל 5 שנות ניסיון ו-500 לקוחות מרוצים.',
-            businessType: 'medical',
-            
-            phone: '03-123-4567',
-            email: 'info@drmichalrosen.co.il',
-            address: 'רחוב הרצל 45, תל אביב',
-            whatsapp: '972521234567',
-            
-            colors: {
-                primary: '#4f46e5',
-                secondary: '#06b6d4',
-                accent: '#10b981',
-                gold: '#f59e0b'
-            },
-            
-            services: [
-                {
-                    name: 'טיפולי בוטוקס',
-                    price: '₪1,200',
-                    description: 'הזרקות בוטוקס מקצועיות לחידוש הפנים ומניעת קמטים עם תוצאות טבעיות ומרשימות',
-                    duration: '30 דקות',
-                    icon: 'fas fa-syringe',
-                    features: ['ללא כאב', 'תוצאות מיידיות', 'טבעי ובטוח', 'אורך זמן 4-6 חודשים'],
-                    popular: true
-                },
-                {
-                    name: 'מילוי שפתיים',
-                    price: '₪800',
-                    description: 'מילוי שפתיים בחומצה היאלורונית איכותית לשפתיים מלאות, טבעיות ומושכות',
-                    duration: '45 דקות',
-                    icon: 'fas fa-lips',
-                    features: ['חומרים איכותיים', 'מראה טבעי', 'ללא זמן החלמה', 'עמידות עד שנה'],
-                    popular: true
-                },
-                {
-                    name: 'פילינג כימי',
-                    price: '₪600',
-                    description: 'חידוש עור מתקדם עם פילינג כימי מקצועי לעור רך, זוהר וללא פגמים',
-                    duration: '60 דקות',
-                    icon: 'fas fa-spa',
-                    features: ['חידוש העור', 'הבהרת כתמים', 'הקטנת נקבוביות', 'מרקם חלק'],
-                    popular: false
-                },
-                {
-                    name: 'טיפולי לייזר',
-                    price: '₪900',
-                    description: 'הסרת שיער קבועה ועיבוי עור בטכנולוגיית לייזר מתקדמת ובטוחה',
-                    duration: '45 דקות',
-                    icon: 'fas fa-magic',
-                    features: ['הסרת שיער קבועה', 'לכל סוגי העור', 'ללא כאב', 'תוצאות מהירות'],
-                    popular: false
-                },
-                {
-                    name: 'טיפולי פנים',
-                    price: '₪400',
-                    description: 'טיפול פנים מקצועי ומפנק לניקוי עמוק, לחות אופטימלית ורעננות מיידית',
-                    duration: '90 דקות',
-                    icon: 'fas fa-leaf',
-                    features: ['ניקוי עמוק', 'לחות מעמיקה', 'רגיעה מלאה', 'זוהר מיידי'],
-                    popular: false
-                },
-                {
-                    name: 'הזרקת חומצה היאלורונית',
-                    price: '₪1,000',
-                    description: 'הזרקות מדויקות למילוי קמטים וחידוש מראה הפנים עם תוצאות יוצאות דופן',
-                    duration: '40 דקות',
-                    icon: 'fas fa-tint',
-                    features: ['מילוי קמטים', 'הרמת פנים טבעית', 'תוצאות מיידיות', 'בטיחות מקסימלית'],
-                    popular: false
-                }
-            ],
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 2000);
+        });
 
-            gallery: [
-                {
-                    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                    title: 'טיפול בוטוקס - לפני ואחרי'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1616391056345-0e54bcad3194?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                    title: 'מילוי שפתיים טבעי'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                    title: 'טיפול פנים מרגיע'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                    title: 'פילינג כימי מתקדם'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                    title: 'טיפול לייזר מדויק'
-                },
-                {
-                    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                    title: 'הזרקת חומצה היאלורונית'
-                }
-            ],
-
-            testimonials: [
-                {
-                    name: 'שרה כהן',
-                    text: 'ד״ר מיכל היא פשוט מדהימה! הטיפול בבוטוקס שקיבלתי היה מקצועי ללא כאב, והתוצאות טבעיות ומושלמות. ממליצה בחום!',
-                    rating: 5,
-                    treatment: 'טיפול בוטוקס'
-                },
-                {
-                    name: 'מיכל לוי',
-                    text: 'מילוי השפתיים שעשיתי במרפאה פשוט מושלם! השפתיים נראות טבעיות ויפות, וכל התהליך היה נעים ומקצועי.',
-                    rating: 5,
-                    treatment: 'מילוי שפתיים'
-                },
-                {
-                    name: 'דנה אברהם',
-                    text: 'הפילינג הכימי שעשיתי שינה לי את העור לגמרי! העור זוהר, חלק ובריא. השירות מעולה והתוצאות מעבר לציפיות.',
-                    rating: 5,
-                    treatment: 'פילינג כימי'
-                }
-            ]
-        };
-
-        // Website updater class
-        class WebsiteUpdater {
-            constructor() {
-                this.data = WEBSITE_DATA;
-                this.init();
-            }
-            
-            init() {
-                this.updateBasicInfo();
-                this.updateColors();
-                this.updateServices();
-                this.updateGallery();
-                this.updateTestimonials();
-                this.setupEventListeners();
-                this.hideLoading();
-                this.setupAnimations();
-            }
-            
-            updateBasicInfo() {
-                // Update business name
-                document.querySelectorAll('.business-name, .business-name-loading, .business-name-short').forEach(el => {
-                    el.textContent = this.data.businessName;
-                });
-                
-                // Update business description
-                document.querySelectorAll('.business-description').forEach(el => {
-                    el.textContent = this.data.businessDescription;
-                });
-                
-                // Update contact info
-                document.querySelectorAll('.phone').forEach(el => {
-                    el.textContent = this.data.phone;
-                });
-                
-                document.querySelectorAll('.email').forEach(el => {
-                    el.textContent = this.data.email;
-                });
-                
-                document.querySelectorAll('.address').forEach(el => {
-                    el.textContent = this.data.address;
-                });
-                
-                // Update WhatsApp link
-                const whatsappLink = document.getElementById('whatsapp-link');
-                if (whatsappLink) {
-                    const message = encodeURIComponent(`שלום, אני מעוניין/ת לקבוע תור ב${this.data.businessName}`);
-                    whatsappLink.href = `https://wa.me/${this.data.whatsapp}?text=${message}`;
-                }
-            }
-            
-            updateColors() {
-                const root = document.documentElement;
-                Object.entries(this.data.colors).forEach(([colorName, colorValue]) => {
-                    const cssVarName = `--${colorName.replace(/([A-Z])/g, '-$1').toLowerCase()}-color`;
-                    root.style.setProperty(cssVarName, colorValue);
-                });
-            }
-            
-            updateServices() {
-                const servicesContainer = document.getElementById('services-container');
-                if (!servicesContainer) return;
-                
-                servicesContainer.innerHTML = '';
-                
-                this.data.services.forEach((service, index) => {
-                    const serviceElement = document.createElement('div');
-                    serviceElement.className = `service-card animate-on-scroll ${service.popular ? 'featured' : ''}`;
-                    serviceElement.style.animationDelay = `${index * 0.1}s`;
-                    
-                    const featuresHTML = service.features.map(feature => 
-                        `<li><i class="fas fa-check"></i> ${feature}</li>`
-                    ).join('');
-                    
-                    serviceElement.innerHTML = `
-                        ${service.popular ? '<div class="featured-badge">⭐ פופולרי</div>' : ''}
-                        <div class="service-icon">
-                            <i class="${service.icon}"></i>
-                        </div>
-                        <h3 class="service-name">${service.name}</h3>
-                        <p class="service-description">${service.description}</p>
-                        <ul class="service-features">
-                            ${featuresHTML}
-                        </ul>
-                        <div class="service-details">
-                            <div class="service-price">${service.price}</div>
-                            <div class="service-duration">${service.duration}</div>
-                        </div>
-                        <button class="book-btn" onclick="bookService('${service.name}', '${service.price}')">
-                            <i class="fas fa-calendar-plus"></i>
-                            הזמנת תור
-                        </button>
-                    `;
-                    
-                    servicesContainer.appendChild(serviceElement);
-                });
-            }
-
-            updateGallery() {
-                const galleryContainer = document.getElementById('gallery-container');
-                if (!galleryContainer) return;
-                
-                galleryContainer.innerHTML = '';
-                
-                this.data.gallery.forEach((item, index) => {
-                    const galleryElement = document.createElement('div');
-                    galleryElement.className = 'card animate-on-scroll';
-                    galleryElement.style.animationDelay = `${index * 0.1}s`;
-                    
-                    galleryElement.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;">
-                        <h4 style="margin-top: 15px; text-align: center;">${item.title}</h4>
-                    `;
-                    
-                    galleryContainer.appendChild(galleryElement);
-                });
-            }
-
-            updateTestimonials() {
-                const testimonialsContainer = document.getElementById('testimonials-container');
-                if (!testimonialsContainer) return;
-                
-                testimonialsContainer.innerHTML = '';
-                
-                this.data.testimonials.forEach((testimonial, index) => {
-                    const testimonialElement = document.createElement('div');
-                    testimonialElement.className = 'card animate-on-scroll';
-                    testimonialElement.style.animationDelay = `${index * 0.1}s`;
-                    
-                    const starsHTML = '★'.repeat(testimonial.rating);
-                    
-                    testimonialElement.innerHTML = `
-                        <div style="font-size: 2rem; color: var(--gold-color); margin-bottom: 15px;">"</div>
-                        <p style="margin-bottom: 20px; font-style: italic;">${testimonial.text}</p>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                                ${testimonial.name.split(' ').map(n => n[0]).join('')}
-                            </div>
-                            <div>
-                                <h4>${testimonial.name}</h4>
-                                <p style="color: var(--text-light); font-size: 0.9rem;">${testimonial.treatment}</p>
-                                <div style="color: var(--gold-color);">${starsHTML}</div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    testimonialsContainer.appendChild(testimonialElement);
-                });
-            }
-            
-            hideLoading() {
-                setTimeout(() => {
-                    const loadingScreen = document.getElementById('loadingScreen');
-                    if (loadingScreen) {
-                        loadingScreen.classList.add('hidden');
-                        setTimeout(() => {
-                            loadingScreen.style.display = 'none';
-                        }, 500);
-                    }
-                }, 2000);
-            }
-
-            setupAnimations() {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animated');
-                        }
-                    });
-                }, observerOptions);
-                
-                document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                    observer.observe(el);
-                });
-            }
-            
-            setupEventListeners() {
-                // Smooth scrolling
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-                
-                // Header scroll effect
-                window.addEventListener('scroll', () => {
-                    const header = document.getElementById('header');
-                    const backToTop = document.getElementById('backToTop');
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    
-                    if (scrollTop > 100) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                    
-                    if (scrollTop > 300) {
-                        backToTop.classList.add('visible');
-                    } else {
-                        backToTop.classList.remove('visible');
-                    }
-                });
-
-                // Back to top functionality
-                document.getElementById('backToTop').addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-
-                // Contact form
-                const contactForm = document.getElementById('contactForm');
-                if (contactForm) {
-                    contactForm.addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        const formData = new FormData(this);
-                        const data = Object.fromEntries(formData);
-                        
-                        const message = `שלום ד״ר מיכל רוזן,
-
-שם: ${data.name}
-טלפון: ${data.phone}
-סוג טיפול: ${data.service}
-הודעה: ${data.message}
-
-אני מעוניין/ת לקבוע תור. תודה!`;
-                        
-                        const whatsappUrl = `https://wa.me/${WEBSITE_DATA.whatsapp}?text=${encodeURIComponent(message)}`;
-                        window.open(whatsappUrl, '_blank');
-                        
-                        this.reset();
-                        alert('הודעתכם נשלחה בהצלחה!');
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
+            });
+        });
 
-                // Active navigation
-                const navLinks = document.querySelectorAll('.nav-link');
-                const sections = document.querySelectorAll('section[id]');
-                
-                window.addEventListener('scroll', () => {
-                    let current = '';
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop - 100;
-                        if (window.pageYOffset >= sectionTop) {
-                            current = section.getAttribute('id');
-                        }
-                    });
-                    
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${current}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                });
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-            
-            updateFromEditor(newData) {
-                this.data = { ...this.data, ...newData };
-                this.init();
-                localStorage.setItem('websiteData_dr-michal-rosen', JSON.stringify(this.data));
-            }
-        }
-        
-        // Helper functions
-        function bookService(serviceName, servicePrice) {
-            const message = encodeURIComponent(
-                `שלום ד״ר מיכל רוזן,\n\n` +
-                `אני מעוניין/ת לקבוע תור ל${serviceName} במחיר ${servicePrice}.\n\n` +
-                `אשמח לקבל פרטים נוספים ולתאם מועד.\n\n` +
-                `תודה רבה!`
-            );
-            
-            const whatsappUrl = `https://wa.me/${WEBSITE_DATA.whatsapp}?text=${message}`;
+        });
+
+        // Book Service Function
+        function bookService(serviceName) {
+            const message = `היי ד״ר מיכל, אני מעוניינת לקבוע תור ל${serviceName}`;
+            const whatsappUrl = `https://wa.me/972521234567?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
-        
-        function loadSavedData() {
-            const saved = localStorage.getItem('websiteData_dr-michal-rosen');
-            if (saved) {
-                try {
-                    const savedData = JSON.parse(saved);
-                    Object.assign(WEBSITE_DATA, savedData);
-                } catch (e) {
-                    console.warn('Failed to load saved data:', e);
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = `היי ד״ר מיכל,
+השם שלי: ${name}
+טלפון: ${phone}
+סוג הטיפול: ${service}
+הודעה: ${message}`;
+            
+            const whatsappUrl = `https://wa.me/972521234567?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Navigation Active State
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Editor Integration - Listen for updates from editor
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'updateSite') {
+                const data = event.data.data;
+                
+                // Update business name
+                if (data.businessName) {
+                    document.querySelectorAll('.business-name-element').forEach(el => {
+                        el.textContent = data.businessName;
+                    });
+                }
+                
+                // Update business description
+                if (data.businessDescription) {
+                    document.querySelectorAll('.business-description-element').forEach(el => {
+                        el.textContent = data.businessDescription;
+                    });
+                }
+                
+                // Update colors
+                if (data.primaryColor) {
+                    document.documentElement.style.setProperty('--primary-color', data.primaryColor);
+                }
+                if (data.secondaryColor) {
+                    document.documentElement.style.setProperty('--secondary-color', data.secondaryColor);
+                }
+                
+                // Update services
+                if (data.services && data.services.length > 0) {
+                    updateServices(data.services);
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('siteData', JSON.stringify(data));
+            }
+        });
+
+        // Load saved data on page load
+        window.addEventListener('load', function() {
+            const savedData = localStorage.getItem('siteData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                
+                // Apply saved business name
+                if (data.businessName) {
+                    document.querySelectorAll('.business-name-element').forEach(el => {
+                        el.textContent = data.businessName;
+                    });
+                }
+                
+                // Apply saved business description
+                if (data.businessDescription) {
+                    document.querySelectorAll('.business-description-element').forEach(el => {
+                        el.textContent = data.businessDescription;
+                    });
+                }
+                
+                // Apply saved colors
+                if (data.primaryColor) {
+                    document.documentElement.style.setProperty('--primary-color', data.primaryColor);
+                }
+                if (data.secondaryColor) {
+                    document.documentElement.style.setProperty('--secondary-color', data.secondaryColor);
+                }
+                
+                // Apply saved services
+                if (data.services && data.services.length > 0) {
+                    updateServices(data.services);
                 }
             }
-        }
-        
-        function updateWebsiteData(newData) {
-            if (window.websiteUpdater) {
-                window.websiteUpdater.updateFromEditor(newData);
-            }
+        });
+
+        function updateServices(services) {
+            const servicesGrid = document.getElementById('servicesGrid');
+            if (!servicesGrid) return;
+            
+            servicesGrid.innerHTML = '';
+            
+            services.forEach((service, index) => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card' + (index === 0 ? ' featured' : '');
+                
+                serviceCard.innerHTML = `
+                    ${index === 0 ? '<div class="featured-badge">פופולרי</div>' : ''}
+                    <div class="service-icon">
+                        <i class="${service.icon || 'fas fa-star'}"></i>
+                    </div>
+                    <h3 class="service-name">${service.name}</h3>
+                    <p class="service-description">${service.description}</p>
+                    <ul class="service-features">
+                        ${service.features ? service.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('') : ''}
+                    </ul>
+                    <div class="service-details">
+                        <div class="service-price">${service.price}</div>
+                        <div class="service-duration">${service.duration}</div>
+                    </div>
+                    <button class="book-btn" onclick="bookService('${service.name}')">הזמנת תור</button>
+                `;
+                
+                servicesGrid.appendChild(serviceCard);
+            });
         }
 
-        // Listen for updates from editor
-        window.addEventListener('message', function(event) {
-            if (event.data.type === 'updateWebsite') {
-                Object.assign(WEBSITE_DATA, event.data.data);
-                if (window.websiteUpdater) {
-                    window.websiteUpdater.updateFromEditor(event.data.data);
+        // Mobile Menu Toggle (if needed in future)
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('mobile-active');
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.service-card, .gallery-item, .testimonial-card, .stat-item');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Gallery Image Click Handler
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                if (img) {
+                    // Create modal or lightbox effect (simple version)
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10000;
+                        cursor: pointer;
+                    `;
+                    
+                    const modalImg = document.createElement('img');
+                    modalImg.src = img.src;
+                    modalImg.style.cssText = `
+                        max-width: 90%;
+                        max-height: 90%;
+                        border-radius: 10px;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                    `;
+                    
+                    modal.appendChild(modalImg);
+                    document.body.appendChild(modal);
+                    
+                    modal.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                }
+            });
+        });
+
+        // Particles background effect (optional lightweight version)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(79, 70, 229, 0.1);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1;
+                animation: float-particle 15s linear infinite;
+            `;
+            
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 15000);
+        }
+
+        // Add particle animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float-particle {
+                to {
+                    transform: translateY(-${window.innerHeight + 100}px) translateX(50px);
+                    opacity: 0;
                 }
             }
-        });
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            loadSavedData();
-            window.websiteUpdater = new WebsiteUpdater();
-            window.WEBSITE_DATA = WEBSITE_DATA;
-            window.updateWebsiteData = updateWebsiteData;
-            
-            console.log('✅ Dr. Michal Rosen Website Ready!');
-        });
+        `;
+        document.head.appendChild(style);
+
+        // Create particles periodically
+        setInterval(createParticle, 3000);
+
+        // Performance optimization - Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
     </script>
 </body>
 </html>
