@@ -1,1 +1,912 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMaster Pro - 12 דמואים מוכנים</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .editor-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .editor-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .demo-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .demo-card.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .demo-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .demo-info h3 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-category {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .demo-description {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .demo-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-features h4 {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem;
+        }
+
+        .feature-item {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item i {
+            margin-left: 0.5rem;
+            color: #4ade80;
+        }
+
+        .demo-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .demo-link {
+            flex: 1;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .demo-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .demo-link.edit {
+            background: rgba(34, 197, 94, 0.3);
+        }
+
+        .demo-link.edit:hover {
+            background: rgba(34, 197, 94, 0.5);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .demos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">WebMaster Pro</h1>
+            <a href="editor.html" class="editor-btn">
+                <i class="fas fa-edit"></i> פתח אדיטור
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>12 דמואים מוכנים למכירה</h1>
+            <p>אתרים מקצועיים ומעוצבים לכל סוג עסק - מוכנים להתאמה אישית</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">הכל</button>
+            <button class="filter-btn" data-filter="medical">רפואה</button>
+            <button class="filter-btn" data-filter="business">עסקים</button>
+            <button class="filter-btn" data-filter="education">חינוך</button>
+            <button class="filter-btn" data-filter="beauty">יופי</button>
+            <button class="filter-btn" data-filter="fitness">כושר</button>
+        </div>
+
+        <div class="demos-grid" id="demosGrid">
+            <!-- ד"ר מיכל רוזן -->
+            <div class="demo-card" data-category="medical">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>ד״ר מיכל רוזן ⭐</h3>
+                        <div class="demo-category">אסתטיקה רפואית</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    מרפאה מתקדמת לאסתטיקה רפואית עם עיצוב יוקרתי ומקצועי
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות מתקדמות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>7 עמודים מלאים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>6 שירותים מפורטים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>גלריית עבודות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>טפסי יצירת קשר
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>SEO מתקדם
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>וואטסאפ אוטומטי
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="financial-advisor.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=financial-advisor" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- רופא שיניים -->
+            <div class="demo-card" data-category="medical">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>רופא שיניים</h3>
+                        <div class="demo-category">רפואת שיניים</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מתקדם לרופא שיניים עם הזמנת תורים ומידע על טיפולים
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>טיפולים מתקדמים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת תורים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>לפני ואחרי
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מחירון שקוף
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="dentist.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=dentist" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- טכנאי מחשבים -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>טכנאי מחשבים</h3>
+                        <div class="demo-category">טכנולוגיה</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מקצועי לטכנאי מחשבים עם מערכת הזמנת שירות לבית
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>שירותי תיקון
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>תמיכה מרחוק
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מחירון שקוף
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת טכנאי
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="computer-tech.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=computer-tech" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 WebMaster Pro - פלטפורמה לבניית אתרים מקצועיים</p>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const demoCards = document.querySelectorAll('.demo-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter cards
+                demoCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all demo cards
+        demoCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>="dr-michal-rosen.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=dr-michal-rosen" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- מורה פרטית -->
+            <div class="demo-card" data-category="education">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>מורה פרטית</h3>
+                        <div class="demo-category">חינוך</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מקצועי למורה פרטית עם מערכת הזמנת שיעורים
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>לוח זמנים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>המלצות תלמידים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>חומרי לימוד
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>צור קשר מהיר
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="private-teacher.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=private-teacher" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- מאמן כושר -->
+            <div class="demo-card" data-category="fitness">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>מאמן כושר</h3>
+                        <div class="demo-category">ספורט</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר דינמי למאמן כושר עם תוכניות אימון ומעקב התקדמות
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>תוכניות אימון
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מעקב התקדמות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>ייעוץ תזונה
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת אימונים
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="fitness-coach.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=fitness-coach" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- משרד עורכי דין -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>משרד עורכי דין</h3>
+                        <div class="demo-category">משפטים</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מקצועי ומכובד למשרד עורכי דין עם דגש על אמינות
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>תחומי התמחות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>תיקי עבר
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>ייעוץ ראשוני
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>צור קשר מאובטח
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="law-firm.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=law-firm" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- סלון יופי -->
+            <div class="demo-card" data-category="beauty">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>סלון יופי</h3>
+                        <div class="demo-category">יופי</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר אלגנטי לסלון יופי עם הזמנת תורים אונליין
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מחירון שירותים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>גלריית עבודות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת תורים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מוצרי טיפוח
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="beauty-salon.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=beauty-salon" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- מסעדה -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>מסעדה יוקרתית</h3>
+                        <div class="demo-category">מזון</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מפתה למסעדה עם תפריט דיגיטלי והזמנת שולחנות
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>תפריט דיגיטלי
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת שולחנות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>גלריית מנות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>דליברי אונליין
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="restaurant.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=restaurant" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- צלם -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>צלם מקצועי</h3>
+                        <div class="demo-category">אמנות</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    פורטפוליו מרשים לצלם עם גלריות מקצועיות ותיאום צילומים
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>גלריות מתקדמות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>חבילות צילום
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>לוח זמנים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת צילום
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="photographer.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=photographer" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- נדל"ן -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>משכיר נדל״ן</h3>
+                        <div class="demo-category">נדל״ן</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מתקדם למשכיר נדל"ן עם חיפוש נכסים ומערכת פניות
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>קטלוג נכסים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>חיפוש מתקדם
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>סיורים וירטואליים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מערכת פניות
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="realtor.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=realtor" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- בית קפה -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>בית קפה</h3>
+                        <div class="demo-category">מזון</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר חם ומזמין לבית קפה עם תפריט והזמנות לטייק-אווי
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>תפריט משקאות
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנה מראש
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>אווירת המקום
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>פרטי הגעה
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href="coffee-shop.html" class="demo-link" target="_blank">
+                        <i class="fas fa-eye"></i> צפה
+                    </a>
+                    <a href="editor.html?site=coffee-shop" class="demo-link edit">
+                        <i class="fas fa-edit"></i> ערוך
+                    </a>
+                </div>
+            </div>
+
+            <!-- יועץ כלכלי -->
+            <div class="demo-card" data-category="business">
+                <div class="demo-header">
+                    <div class="demo-info">
+                        <h3>יועץ כלכלי</h3>
+                        <div class="demo-category">כספים</div>
+                    </div>
+                    <div class="demo-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="demo-description">
+                    אתר מקצועי ליועץ כלכלי עם כלי חישוב ומערכת יעוץ אונליין
+                </div>
+                <div class="demo-features">
+                    <h4>תכונות עיקריות:</h4>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>כלי חישוב
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>ייעוץ אונליין
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>מאמרים כלכליים
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>הזמנת פגישה
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-actions">
+                    <a href
 
