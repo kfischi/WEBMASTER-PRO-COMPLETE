@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דני פיט - מאמן כושר אישי | אימונים מקצועיים</title>
+    <meta name="description" content="דני פיט - מאמן כושר אישי מקצועי. אימונים אישיים, תוכניות אימון מותאמות, ייעוץ תזונה ומעקב התקדמות. הצטרפו עכשיו!">
+    <meta name="keywords" content="מאמן כושר, אימונים אישיים, כושר, תזונה, חדר כושר, דני פיט">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --secondary-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --accent-color: #4facfe;
+            --bg-light: #f7fafc;
+            --energy-orange: #ff6b35;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Glass Morphism & Energy Styles */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        .energy-card {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .energy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            border-radius: inherit;
+            padding: 2px;
+            mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+            mask-composite: exclude;
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="fitness" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><rect x="20" y="20" width="10" height="10" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23fitness)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: #fee140;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--accent-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: white;
+            border: 2px solid var(--glass-border);
+        }
+
+        .btn-energy {
+            background: var(--accent-gradient);
+            color: white;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 25px 30px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+            background: rgba(79, 172, 254, 0.05);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: var(--text-secondary);
+            margin-bottom: 70px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border-radius: 25px;
+            background: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(79, 172, 254, 0.2);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5em;
+            color: white;
+            position: relative;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .service-title {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .service-price {
+            font-size: 1.4em;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+        }
+
+        /* BMI Calculator */
+        .calculator-section {
+            background: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .calculator-title {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .calc-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calc-group label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .calc-group input {
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .calc-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+        }
+
+        .calc-button {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        .calc-result {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .result-bmi {
+            font-size: 3em;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .result-category {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: var(--primary-gradient);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.15)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .about-content h3 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            line-height: 1.7;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .achievement-item {
+            padding: 25px;
+            background: white;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-item i {
+            font-size: 2.5em;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .achievement-item h4 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-info h3 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .contact-item i {
+            width: 60px;
+            height: 60px;
+            background: var(--glass-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            padding: 50px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid var(--glass-border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.9);
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: white;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            text-decoration: none;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.8em;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/972522345678?text=שלום דני! אני מעוניין/ת באימונים אישיים" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 data-editable="main-title">דני פיט</h1>
+            <p class="subtitle" data-editable="subtitle">מאמן כושר אישי - הגשמת חלומות הכושר שלך</p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">מתאמנים מרוצים</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">הגיעו למטרה</div>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-dumbbell"></i>
+                    התחל עכשיו
+                </a>
+                <a href="tel:052-2345678" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    052-2345678
+                </a>
+                <a href="#calculator" class="btn btn-energy">
+                    <i class="fas fa-calculator"></i>
+                    מחשבון BMI
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#services" class="nav-item">שירותים</a>
+            <a href="#calculator" class="nav-item">מחשבון BMI</a>
+            <a href="#about" class="nav-item">אודות</a>
+            <a href="#contact" class="nav-item">יצירת קשר</a>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title" data-editable="services-title">השירותים שלי</h2>
+            <p class="section-subtitle" data-editable="services-subtitle">אימונים מותאמים אישית שיביאו אותך למטרה בצורה הכי יעילה ובטוחה</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="service-title" data-editable="service1-title">אימונים אישיים</h3>
+                    <p class="service-description" data-editable="service1-desc">אימון אחד על אחד עם התאמה מלאה למטרות שלך, לרמת הכושר ולמגבלות. כל תרגיל מותאם בדיוק עבורך.</p>
+                    <div class="service-price">₪300 לאימון</div>
+                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-title" data-editable="service2-title">אימונים בזוגות</h3>
+                    <p class="service-description" data-editable="service2-desc">אימון עם חבר/ה או בן/בת זוג. מניעות הדדית, כיף רב יותר ועלות נמוכה יותר לאדם.</p>
+                    <div class="service-price">₪200 לאדם</div>
+                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="service-title" data-editable="service3-title">תוכנית אימונים</h3>
+                    <p class="service-description" data-editable="service3-desc">תוכנית אימונים מפורטת למשך חודש שלם עם הסברים ווידאו לכל תרגיל. מתאים למי שרוצה להתאמן בעצמאות.</p>
+                    <div class="service-price">₪400 לחודש</div>
+                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3 class="service-title" data-editable="service4-title">ייעוץ תזונה</h3>
+                    <p class="service-description" data-editable="service4-desc">תפריט מותאם אישית למטרות שלך - בניית שריר, ירידה במשקל או שמירה על משקל יציב.</p>
+                    <div class="service-price">₪250 לחודש</div>
+                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="calculator-container">
+                <h2 class="calculator-title" data-editable="calc-title">מחשבון BMI</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">בדוק מה מצב המשקל שלך ותקבל המלצות מותאמות</p>
+                
+                <div class="calc-grid">
+                    <div class="calc-group">
+                        <label for="height">גובה (ס"מ)</label>
+                        <input type="number" id="height" placeholder="לדוגמה: 175">
+                    </div>
+                    <div class="calc-group">
+                        <label for="weight">משקל (ק"ג)</label>
+                        <input type="number" id="weight" placeholder="לדוגמה: 70">
+                    </div>
+                </div>
+                
+                <button class="calc-button" onclick="calculateBMI()">חשב BMI</button>
+                
+                <div class="calc-result" id="bmiResult">
+                    <div class="result-bmi" id="bmiValue"></div>
+                    <div class="result-category" id="bmiCategory"></div>
+                    <p id="bmiRecommendation" style="margin-top: 15px; color: var(--text-secondary);"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="about-content">
+                    <h3 data-editable="about-title">אודות דני פיט</h3>
+                    <p data-editable="about-desc1">שלום! אני דני, מאמן כושר מוסמך עם 8 שנות ניסיון בתחום. התמחותי היא באימונים אישיים, בניית שריר וירידה במשקל. אני מאמין שכושר זה לא רק מראה חיצוני, אלא אורח חיים שמשפיע על כל היבט בחיים.</p>
+                    <p data-editable="about-desc2">המטרה שלי היא לעזור לך להגיע ליעדים שלך בצורה בטוחה, יעילה ומהנה. כל מתאמן מקבל תוכנית מותאמת אישית ותמיכה מלאה לאורך כל הדרך.</p>
+                    
+                    <div class="achievements">
+                        <div class="achievement-item">
+                            <i class="fas fa-certificate"></i>
+                            <h4>הסמכות</h4>
+                            <p>מאמן מוסמך ACSM</p>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-trophy"></i>
+                            <h4>הישגים</h4>
+                            <p>500+ מתאמנים הגיעו למטרה</p>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-heart"></i>
+                            <h4>התמחות</h4>
+                            <p>כושר אישי ותזונה</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title" data-editable="contact-title">בואו נתחיל!</h2>
+            <p class="section-subtitle" data-editable="contact-subtitle">מוכן להתחיל את המסע לכושר הטוב ביותר שלך? צור קשר עוד היום</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>פרטי התקשרות</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>טלפון</strong><br>
+                            <a href="tel:052-2345678" data-editable="phone">052-2345678</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>אימייל</strong><br>
+                            <a href="mailto:info@fitness-co.co.il" data-editable="email">info@fitness-co.co.il</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>מיקום</strong><br>
+                            <span data-editable="address">מכון כושר פרמיום, רמת גן</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>שעות פעילות</strong><br>
+                            א'-ה': 06:00-22:00<br>
+                            ו': 07:00-15:00<br>
+                            ש': 08:00-20:00
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>השאר פרטים לייעוץ חינם</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">שם מלא *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">טלפון *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="goal">מה המטרה שלך?</label>
+                            <select id="goal" name="goal">
+                                <option value="">בחר מטרה...</option>
+                                <option value="weight-loss">ירידה במשקל</option>
+                                <option value="muscle-gain">בניית שריר</option>
+                                <option value="fitness">שיפור כושר כללי</option>
+                                <option value="other">אחר</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">הודעה נוספת</label>
+                            <textarea id="message" name="message" placeholder="ספר לי קצת על עצמך ועל המטרות שלך..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-energy" style="width: 100%;">
+                            <i class="fas fa-rocket"></i>
+                            שלח ובואו נתחיל!
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>דני פיט</h4>
+                    <p>מאמן כושר אישי מקצועי עם 8 שנות ניסיון. מתמחה באימונים אישיים, בניית שריר וירידה במשקל.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="יוטיוב"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>שירותים</h4>
+                    <p><a href="#services">אימונים אישיים</a></p>
+                    <p><a href="#services">אימונים בזוגות</a></p>
+                    <p><a href="#services">תוכניות אימון</a></p>
+                    <p><a href="#services">ייעוץ תזונה</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>יצירת קשר</h4>
+                    <p><i class="fas fa-phone"></i> 052-2345678</p>
+                    <p><i class="fas fa-envelope"></i> info@fitness-co.co.il</p>
+                    <p><i class="fas fa-map-marker-alt"></i> מכון כושר פרמיום, רמת גן</p>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #2d3748; padding-top: 30px; margin-top: 40px; text-align: center; color: #a0aec0;">
+                <p>&copy; 2025 דני פיט - מאמן כושר אישי. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // BMI Calculator
+        function calculateBMI() {
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            
+            if (!height || !weight) {
+                alert('אנא מלא את כל השדות');
+                return;
+            }
+            
+            const heightInM = height / 100;
+            const bmi = (weight / (heightInM * heightInM)).toFixed(1);
+            
+            let category = '';
+            let recommendation = '';
+            let color = '';
+            
+            if (bmi < 18.5) {
+                category = 'תת משקל';
+                recommendation = 'מומלץ לך לעבוד על עלייה במשקל ובניית שריר. בוא נתכנן תוכנית מותאמת!';
+                color = '#3b82f6';
+            } else if (bmi >= 18.5 && bmi < 25) {
+                category = 'משקל תקין';
+                recommendation = 'אלוף! המשקל שלך תקין. אני יכול לעזור לך לשמור על זה או לשפר את הכושר הכללי.';
+                color = '#10b981';
+            } else if (bmi >= 25 && bmi < 30) {
+                category = 'עודף משקל';
+                recommendation = 'יש מקום לשיפור. בואו נתכנן תוכנית לירידה במשקל ושיפור הכושר הכללי.';
+                color = '#f59e0b';
+            } else {
+                category = 'השמנה';
+                recommendation = 'מומלץ מאוד להתחיל תוכנית מסודרת לירידה במשקל. אני כאן לעזור לך!';
+                color = '#ef4444';
+            }
+            
+            document.getElementById('bmiValue').textContent = bmi;
+            document.getElementById('bmiCategory').textContent = category;
+            document.getElementById('bmiCategory').style.color = color;
+            document.getElementById('bmiRecommendation').textContent = recommendation;
+            document.getElementById('bmiResult').style.display = 'block';
+            
+            // Scroll to result
+            document.getElementById('bmiResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const goal = formData.get('goal');
+            const message = formData.get('message');
+            
+            // Create WhatsApp message
+            let whatsappMessage = `שלום דני! אני ${name}%0A` +
+                `טלפון: ${phone}%0A`;
+            
+            if (goal) {
+                const goalText = {
+                    'weight-loss': 'ירידה במשקל',
+                    'muscle-gain': 'בניית שריר',
+                    'fitness': 'שיפור כושר כללי',
+                    'other': 'אחר'
+                };
+                whatsappMessage += `המטרה שלי: ${goalText[goal]}%0A`;
+            }
+            
+            if (message) {
+                whatsappMessage += `הודעה נוספת: ${message}`;
+            } else {
+                whatsappMessage += 'מעוניין/ת לקבל פרטים על אימונים אישיים';
+            }
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/972522345678?text=${whatsappMessage}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            alert('תודה! אתה מועבר לווטסאפ לתיאום פגישת ייעוץ חינם');
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        document.querySelectorAll('.service-card, .achievement-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Stats counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('%') ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '+');
+                }
+            }, 20);
+        }
+
+        // Animate stats when in view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        const number = parseInt(text.replace(/\D/g, ''));
+                        if (number) {
+                            animateCounter(stat, number);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelector('.stats-row') && statsObserver.observe(document.querySelector('.stats-row'));
+    </script>
+</body>
+</html>
