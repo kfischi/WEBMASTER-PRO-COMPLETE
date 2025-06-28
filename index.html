@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebMaster Pro - 12 דמואים מוכנים</title>
+    <title>WebMaster Pro - גלריית דמואים חיים | 11 אתרים מקצועיים מוכנים למכירה</title>
+    <meta name="description" content="WebMaster Pro - מערכת מתקדמת לבניית אתרים עסקיים. 11 דמואים חיים מקצועיים בתחומים רווחיים. אדיטור ויזואלי מתקדם וקוד production-ready.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --success-color: #26de81;
+            --warning-color: #fed330;
+            --danger-color: #f5576c;
+            --text-dark: #2c2c54;
+            --text-light: #40407a;
+            --background: #ffffff;
+            --surface: #f8f9fa;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-success: linear-gradient(135deg, #26de81 0%, #1dd1a1 100%);
+            --gradient-premium: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,39 +32,567 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Heebo', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
             overflow-x: hidden;
         }
 
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .loading-screen.hidden {
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(102, 126, 234, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stat-badge {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="webpattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"><animate attributeName="r" values="1;3;1" dur="4s" repeatCount="indefinite"/></circle><rect x="5" y="5" width="2" height="10" fill="rgba(255,255,255,0.05)"><animate attributeName="height" values="10;15;10" dur="6s" repeatCount="indefinite"/></rect><rect x="13" y="3" width="2" height="14" fill="rgba(255,255,255,0.08)"><animate attributeName="height" values="14;18;14" dur="5s" repeatCount="indefinite"/></rect></pattern></defs><rect width="100%" height="100%" fill="url(%23webpattern)"/></svg>');
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 150px;
+        }
+
+        .hero-stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-stat p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Filters */
+        .filters {
+            background: var(--surface);
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filters-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            background: white;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .filter-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .filter-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            padding: 0.5rem;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            flex: 1;
+            background: transparent;
+        }
+
+        .search-box i {
+            padding: 0.5rem 1rem;
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .websites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .website-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .website-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            z-index: -1;
             opacity: 0;
-            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .website-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .website-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-header {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-preview {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        /* Unique gradients for each website */
+        .card-preview.medical { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-preview.fitness { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .card-preview.yoga { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .card-preview.nutrition { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .card-preview.legal { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-preview.accounting { background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); }
+        .card-preview.beauty { background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); }
+        .card-preview.education { background: linear-gradient(135deg, #4834d4 0%, #686de0 100%); }
+        .card-preview.aesthetic { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); }
+        .card-preview.resort { background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%); }
+        .card-preview.realestate { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+
+        .card-badges {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .badge.premium { background: var(--gradient-premium); }
+        .badge.popular { background: var(--gradient-success); }
+        .badge.new { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+
+        .card-price {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-category {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background: var(--surface);
+            color: var(--text-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Summary Section */
+        .summary {
+            background: var(--surface);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .summary-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .summary-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .summary-card p {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #b8b8b8;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filters-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .websites-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .nav-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filter-tabs {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .card-content {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .main-content {
+                padding: 2rem 0;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        .loading.active {
+            display: block;
         }
 
         .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(255,255,255,0.3);
-            border-top: 4px solid white;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
             border-radius: 50%;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
         }
 
         @keyframes spin {
@@ -54,858 +600,528 @@
             100% { transform: rotate(360deg); }
         }
 
-        .header {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .editor-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .editor-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }
-
-        .demos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .demo-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .demo-card.hidden {
+        /* Fade in animation */
+        .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            pointer-events: none;
+            animation: fadeIn 0.6s ease forwards;
         }
 
-        .demo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .demo-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .demo-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 1rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .demo-info h3 {
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .demo-category {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .demo-description {
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .demo-features {
-            margin-bottom: 1.5rem;
-        }
-
-        .demo-features h4 {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.3rem;
-        }
-
-        .feature-item {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-item i {
-            margin-left: 0.5rem;
-            color: #4ade80;
-        }
-
-        .demo-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .demo-link {
-            flex: 1;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .demo-link:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }
-
-        .demo-link.edit {
-            background: rgba(34, 197, 94, 0.3);
-        }
-
-        .demo-link.edit:hover {
-            background: rgba(34, 197, 94, 0.5);
-        }
-
-        .footer {
-            background: rgba(0,0,0,0.2);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .demos-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .demo-actions {
-                flex-direction: column;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-    <div id="loadingScreen" class="loading-screen">
-        <div class="spinner"></div>
-    </div>
-
+    <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <h1 class="logo">WebMaster Pro</h1>
-            <a href="editor.html" class="editor-btn">
-                <i class="fas fa-edit"></i> פתח אדיטור
-            </a>
-        </div>
+        <nav class="container">
+            <div class="nav">
+                <a href="#" class="logo">WebMaster Pro</a>
+                <div class="nav-stats">
+                    <div class="stat-badge">11 אתרים מוכנים</div>
+                    <div class="stat-badge">₪25,900 שווי כולל</div>
+                    <div class="stat-badge">100% מוכן למכירה</div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <div class="container">
-        <div class="hero">
-            <h1>12 דמואים מוכנים למכירה</h1>
-            <p>אתרים מקצועיים ומעוצבים לכל סוג עסק - מוכנים להתאמה אישית</p>
-        </div>
-
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">הכל</button>
-            <button class="filter-btn" data-filter="medical">רפואה</button>
-            <button class="filter-btn" data-filter="business">עסקים</button>
-            <button class="filter-btn" data-filter="education">חינוך</button>
-            <button class="filter-btn" data-filter="beauty">יופי</button>
-            <button class="filter-btn" data-filter="fitness">כושר</button>
-        </div>
-
-        <div class="demos-grid" id="demosGrid">
-            <!-- ד"ר מיכל רוזן -->
-            <div class="demo-card" data-category="medical">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>ד״ר מיכל רוזן ⭐</h3>
-                        <div class="demo-category">אסתטיקה רפואית</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>WebMaster Pro</h1>
+                <p class="subtitle">מערכת מתקדמת לבניית אתרים עסקיים עם גלריית דמואים חיים ואדיטור ויזואלי מקצועי</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <h3>11</h3>
+                        <p>אתרים מוכנים</p>
                     </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-user-md"></i>
+                    <div class="hero-stat">
+                        <h3>₪25,900</h3>
+                        <p>שווי כולל</p>
                     </div>
-                </div>
-                <div class="demo-description">
-                    מרפאה מתקדמת לאסתטיקה רפואית עם עיצוב יוקרתי ומקצועי
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות מתקדמות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>7 עמודים מלאים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>6 שירותים מפורטים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>גלריית עבודות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>טפסי יצירת קשר
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>SEO מתקדם
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>וואטסאפ אוטומטי
-                        </div>
+                    <div class="hero-stat">
+                        <h3>9</h3>
+                        <p>תחומים עסקיים</p>
                     </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="financial-advisor.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=financial-advisor" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- רופא שיניים -->
-            <div class="demo-card" data-category="medical">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>רופא שיניים</h3>
-                        <div class="demo-category">רפואת שיניים</div>
+                    <div class="hero-stat">
+                        <h3>100%</h3>
+                        <p>production ready</p>
                     </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-tooth"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מתקדם לרופא שיניים עם הזמנת תורים ומידע על טיפולים
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>טיפולים מתקדמים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת תורים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>לפני ואחרי
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מחירון שקוף
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="dentist.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=dentist" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- טכנאי מחשבים -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>טכנאי מחשבים</h3>
-                        <div class="demo-category">טכנולוגיה</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מקצועי לטכנאי מחשבים עם מערכת הזמנת שירות לבית
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>שירותי תיקון
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>תמיכה מרחוק
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מחירון שקוף
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת טכנאי
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="computer-tech.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=computer-tech" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filters-content">
+                <div class="filter-tabs">
+                    <div class="filter-tab active" data-category="all">כל האתרים</div>
+                    <div class="filter-tab" data-category="medical">רפואה</div>
+                    <div class="filter-tab" data-category="business">עסקי</div>
+                    <div class="filter-tab" data-category="lifestyle">לייף סטייל</div>
+                    <div class="filter-tab" data-category="premium">פרמיום</div>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="חפש אתר לפי שם או תחום...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>טוען אתרים...</p>
+            </div>
+            
+            <div class="websites-grid" id="websitesGrid">
+                <!-- Website cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="summary">
+        <div class="container">
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>₪25,900</h3>
+                    <p>שווי כולל של כל האתרים</p>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>11</h3>
+                    <p>אתרים production-ready</p>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>₪3,200</h3>
+                    <p>האתר היקר ביותר</p>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>₪2,355</h3>
+                    <p>מחיר ממוצע לאתר</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 WebMaster Pro - פלטפורמה לבניית אתרים מקצועיים</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>WebMaster Pro</h4>
+                    <p>מערכת מתקדמת לבניית אתרים עסקיים עם גלריית דמואים חיים ואדיטור ויזואלי מקצועי.</p>
+                    <p>כל האתרים כוללים קוד production-ready, עיצוב רספונסיבי ופונקציונליות מלאה.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>תחומים עסקיים</h4>
+                    <ul>
+                        <li>רפואה אסתטית ובריאות</li>
+                        <li>שירותים משפטיים</li>
+                        <li>חינוך ואימונים</li>
+                        <li>יופי ורווחה</li>
+                        <li>נדל"ן והשקעות</li>
+                        <li>נופש ואירועים</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>טכנולוגיות</h4>
+                    <ul>
+                        <li>HTML5 + CSS3 + JavaScript</li>
+                        <li>עיצוב רספונסיבי מלא</li>
+                        <li>אנימציות מתקדמות</li>
+                        <li>אינטגרציה עם WhatsApp</li>
+                        <li>טפסים פונקציונליים</li>
+                        <li>SEO אופטימיזציה</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>סטטיסטיקות</h4>
+                    <ul>
+                        <li>11 אתרים מוכנים למכירה</li>
+                        <li>שווי כולל: ₪25,900</li>
+                        <li>9 תחומים עסקיים</li>
+                        <li>100% production-ready</li>
+                        <li>רמה עולמית</li>
+                        <li>קוד נקי ומקצועי</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WebMaster Pro. כל הזכויות שמורות. | מערכת מתקדמת לבניית אתרים עסקיים</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 1000);
-        });
+        // Website data
+        const websites = [
+            {
+                id: 'dr-michal-rosen',
+                title: 'ד"ר מיכל רוזן',
+                category: 'רפואה אסתטית',
+                price: 2800,
+                description: 'אתר מקצועי לרופאה מומחית ברפואה אסתטית עם 4 שירותים מפורטים, עיצוב רפואי אלגנטי ותהליך הזמנה מלא.',
+                features: ['בוטוקס ומילוי קמטים', 'לייזר להסרת שיער', 'פילינג כימי', 'ייעוץ אישי'],
+                badges: ['popular'],
+                categoryClass: 'medical',
+                type: 'medical',
+                icon: 'fas fa-user-md'
+            },
+            {
+                id: 'fitness-coach',
+                title: 'דני פיט - מאמן כושר',
+                category: 'כושר ובריאות',
+                price: 2200,
+                description: 'אתר אנרגטי למאמן כושר אישי עם מחשבון BMI פונקציונלי, תוכניות אימון מותאמות אישית וטראקינג התקדמות.',
+                features: ['אימונים אישיים', 'תוכניות תזונה', 'מעקב התקדמות', 'מחשבון BMI'],
+                badges: ['new'],
+                categoryClass: 'fitness',
+                type: 'lifestyle',
+                icon: 'fas fa-dumbbell'
+            },
+            {
+                id: 'yoga-studio',
+                title: 'סטודיו אוהם - יוגה',
+                category: 'יוגה ומדיטציה',
+                price: 1900,
+                description: 'אתר רגוע ומרגיע לסטודיו יוגה עם לוח זמנים אינטראקטיבי, סוגי שיעורים מגוונים ופילוסופיה רוחנית.',
+                features: ['האטה יוגה', 'וינייסה פלו', 'מדיטציה', 'שיעורים פרטיים'],
+                badges: [],
+                categoryClass: 'yoga',
+                type: 'lifestyle',
+                icon: 'fas fa-leaf'
+            },
+            {
+                id: 'nutritionist',
+                title: 'ד"ר שרה כהן - תזונאית',
+                category: 'תזונה ובריאות',
+                price: 2400,
+                description: 'אתר מקצועי לתזונאית קלינית עם מחשבון קלוריות, תפריטים מותאמים אישית וטיפי תזונה מועילים.',
+                features: ['ייעוץ תזונתי', 'תפריטים אישיים', 'מעקב תזונתי', 'מחשבון קלוריות'],
+                badges: [],
+                categoryClass: 'nutrition',
+                type: 'medical',
+                icon: 'fas fa-apple-alt'
+            },
+            {
+                id: 'law-firm',
+                title: 'משרד ברקוביץ - עו"ד',
+                category: 'שירותים משפטיים',
+                price: 2500,
+                description: 'אתר מקצועי למשרד עורכי דין עם 6 תחומי התמחות, טופס יצירת קשר מתקדם וסטטיסטיקות מרשימות.',
+                features: ['דיני משפחה', 'דיני עבודה', 'דיני נזיקין', 'ייצוג פלילי'],
+                badges: [],
+                categoryClass: 'legal',
+                type: 'business',
+                icon: 'fas fa-balance-scale'
+            },
+            {
+                id: 'accountant',
+                title: 'רינה לוי - חשבת שכר',
+                category: 'חשבונאות ומס',
+                price: 2000,
+                description: 'אתר צבעוני למומחית חשבות שכר עם מחשבון שכר פונקציונלי, התמחות בהייטק ושירותי ביטוח לאומי.',
+                features: ['חישוב שכר', 'דוחות שכר', 'ביטוח לאומי', 'התמחות הייטק'],
+                badges: [],
+                categoryClass: 'accounting',
+                type: 'business',
+                icon: 'fas fa-calculator'
+            },
+            {
+                id: 'beauty-salon',
+                title: 'מספרה BELLA - יופי',
+                category: 'יופי ועיצוב שיער',
+                price: 1700,
+                description: 'אתר חיוני ומרהיב למספרה מקצועית עם 6 שירותי יופי, גלריית עבודות אינטראקטיבית וטופס קביעת תור מתקדם.',
+                features: ['תספורת ועיצוב', 'צביעה', 'מניקור', 'טיפולי פנים'],
+                badges: [],
+                categoryClass: 'beauty',
+                type: 'lifestyle',
+                icon: 'fas fa-cut'
+            },
+            {
+                id: 'tutor',
+                title: 'ד"ר רונית לוי - מורה פרטית',
+                category: 'חינוך והוראה',
+                price: 2100,
+                description: 'אתר אקדמי אלגנטי למורה פרטית עם מחשבון עלות שיעורים, 6 מקצועות לימוד ואנימציות מתמטיות ייחודיות.',
+                features: ['מתמטיקה', 'פיזיקה', 'אנגלית', 'הכנה לבגרות'],
+                badges: [],
+                categoryClass: 'education',
+                type: 'business',
+                icon: 'fas fa-graduation-cap'
+            },
+            {
+                id: 'aesthetic-clinic',
+                title: 'קליניקת יופי פרמיום',
+                category: 'אסתטיקה רפואית',
+                price: 3200,
+                description: 'אתר יוקרתי לקליניקה אסתטית במגדל עזריאלי עם 6 טיפולים מתקדמים, עיצוב זהוב פרמיום וחוויית לקוח VIP.',
+                features: ['בוטוקס פרמיום', 'לייזר פרקציונלי', 'פילינג יהלום', 'טיפולי היפו'],
+                badges: ['premium'],
+                categoryClass: 'aesthetic',
+                type: 'premium',
+                icon: 'fas fa-gem'
+            },
+            {
+                id: 'multibrawn',
+                title: 'מולטיבראון - נופש ואירועים',
+                category: 'נופש ואירועים',
+                price: 2300,
+                description: 'אתר יוקרתי למרכז נופש ואירועים עם 6 שירותים מקיפים, גלריית תמונות עשירה והמלצות לקוחות מרגשות.',
+                features: ['חתונות', 'אירועי חברה', 'נופש יוקרתי', 'קייטרינג'],
+                badges: [],
+                categoryClass: 'resort',
+                type: 'premium',
+                icon: 'fas fa-mountain'
+            },
+            {
+                id: 'real-estate',
+                title: 'נדל"ן פרמיום',
+                category: 'השקעות נדל"ן',
+                price: 2700,
+                description: 'אתר יוקרתי לחברת נדל"ן עם 6 נכסי פרמיום, מחשבון השקעה מתקדם ו-6 שירותים מקצועיים להשקעות חכמות.',
+                features: ['נכסי יוקרה', 'ייעוץ השקעות', 'ניהול נכסים', 'מחשבון ROI'],
+                badges: ['premium'],
+                categoryClass: 'realestate',
+                type: 'premium',
+                icon: 'fas fa-building'
+            }
+        ];
 
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const demoCards = document.querySelectorAll('.demo-card');
+        // DOM Elements
+        const websitesGrid = document.getElementById('websitesGrid');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const searchInput = document.getElementById('searchInput');
+        const loading = document.getElementById('loading');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filter cards
-                demoCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    
-                    if (filter === 'all' || category === filter) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
+        // Current filter
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        // Render websites
+        function renderWebsites(websitesToRender = websites) {
+            websitesGrid.innerHTML = '';
+            
+            if (websitesToRender.length === 0) {
+                websitesGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-light);">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <h3>לא נמצאו אתרים</h3>
+                        <p>נסה לשנות את מונחי החיפוש או הסינון</p>
+                    </div>
+                `;
+                return;
+            }
+
+            websitesToRender.forEach((website, index) => {
+                const websiteCard = createWebsiteCard(website, index);
+                websitesGrid.appendChild(websiteCard);
+            });
+        }
+
+        // Create website card
+        function createWebsiteCard(website, index) {
+            const card = document.createElement('div');
+            card.className = 'website-card fade-in';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            const badges = website.badges.map(badge => {
+                const badgeText = {
+                    'premium': 'פרמיום',
+                    'popular': 'פופולרי',
+                    'new': 'חדש'
+                };
+                return `<span class="badge ${badge}">${badgeText[badge]}</span>`;
+            }).join('');
+
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="card-preview ${website.categoryClass}">
+                        <i class="${website.icon}"></i>
+                    </div>
+                    <div class="card-badges">
+                        ${badges}
+                    </div>
+                    <div class="card-price">₪${website.price.toLocaleString()}</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${website.title}</h3>
+                    <div class="card-category">
+                        <i class="${website.icon}"></i>
+                        ${website.category}
+                    </div>
+                    <p class="card-description">${website.description}</p>
+                    <div class="card-features">
+                        ${website.features.slice(0, 4).map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary" onclick="viewWebsite('${website.id}')">
+                            <i class="fas fa-eye"></i>
+                            צפה באתר
+                        </a>
+                        <a href="#" class="btn btn-outline" onclick="openEditor('${website.id}')">
+                            <i class="fas fa-edit"></i>
+                            עריכה
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Filter websites
+        function filterWebsites() {
+            let filteredWebsites = websites;
+
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filteredWebsites = filteredWebsites.filter(website => {
+                    switch (currentFilter) {
+                        case 'medical':
+                            return website.type === 'medical';
+                        case 'business':
+                            return website.type === 'business';
+                        case 'lifestyle':
+                            return website.type === 'lifestyle';
+                        case 'premium':
+                            return website.type === 'premium';
+                        default:
+                            return true;
                     }
                 });
+            }
+
+            // Apply search filter
+            if (searchTerm) {
+                filteredWebsites = filteredWebsites.filter(website =>
+                    website.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    website.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    website.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    website.features.some(feature => feature.toLowerCase().includes(searchTerm.toLowerCase()))
+                );
+            }
+
+            return filteredWebsites;
+        }
+
+        // Show loading and render
+        function showLoadingAndRender() {
+            loading.classList.add('active');
+            websitesGrid.style.display = 'none';
+            
+            setTimeout(() => {
+                const filteredWebsites = filterWebsites();
+                renderWebsites(filteredWebsites);
+                loading.classList.remove('active');
+                websitesGrid.style.display = 'grid';
+            }, 500);
+        }
+
+        // Event listeners
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update filter
+                currentFilter = tab.dataset.category;
+                showLoadingAndRender();
             });
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            showLoadingAndRender();
+        });
+
+        // Utility functions
+        function viewWebsite(websiteId) {
+            // In a real implementation, this would open the website in a new tab or modal
+            alert(`צופה באתר: ${websites.find(w => w.id === websiteId)?.title}\n\nבמימוש מלא, כאן ייפתח האתר בטאב חדש או במודל.`);
+        }
+
+        function openEditor(websiteId) {
+            // In a real implementation, this would open the website editor
+            alert(`פותח אדיטור עבור: ${websites.find(w => w.id === websiteId)?.title}\n\nבמימוש מלא, כאן ייפתח האדיטור הויזואלי.`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWebsites();
+            
+            // Add some entrance animations
+            const cards = document.querySelectorAll('.website-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
             });
         });
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Add floating elements animation
+        function createFloatingElement() {
+            const symbols = ['💼', '🎨', '⚡', '🚀', '💎', '🌟'];
+            const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            const element = document.createElement('div');
+            element.textContent = symbol;
+            element.style.position = 'fixed';
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = '100%';
+            element.style.fontSize = Math.random() * 10 + 15 + 'px';
+            element.style.pointerEvents = 'none';
+            element.style.transition = 'all 8s linear';
+            element.style.zIndex = '1';
+            element.style.opacity = '0.7';
+            
+            document.body.appendChild(element);
+            
+            setTimeout(() => {
+                element.style.top = '-50px';
+                element.style.transform = 'translateX(' + (Math.random() * 200 - 100) + 'px) rotate(360deg)';
+                element.style.opacity = '0';
+            }, 100);
+            
+            setTimeout(() => {
+                element.remove();
+            }, 8000);
+        }
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all demo cards
-        demoCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
+        // Create floating elements periodically
+        setInterval(createFloatingElement, 3000);
     </script>
 </body>
-</html>="dr-michal-rosen.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=dr-michal-rosen" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- מורה פרטית -->
-            <div class="demo-card" data-category="education">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>מורה פרטית</h3>
-                        <div class="demo-category">חינוך</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מקצועי למורה פרטית עם מערכת הזמנת שיעורים
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>לוח זמנים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>המלצות תלמידים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>חומרי לימוד
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>צור קשר מהיר
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="private-teacher.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=private-teacher" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- מאמן כושר -->
-            <div class="demo-card" data-category="fitness">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>מאמן כושר</h3>
-                        <div class="demo-category">ספורט</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר דינמי למאמן כושר עם תוכניות אימון ומעקב התקדמות
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>תוכניות אימון
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מעקב התקדמות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>ייעוץ תזונה
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת אימונים
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="fitness-coach.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=fitness-coach" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- משרד עורכי דין -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>משרד עורכי דין</h3>
-                        <div class="demo-category">משפטים</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מקצועי ומכובד למשרד עורכי דין עם דגש על אמינות
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>תחומי התמחות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>תיקי עבר
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>ייעוץ ראשוני
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>צור קשר מאובטח
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="law-firm.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=law-firm" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- סלון יופי -->
-            <div class="demo-card" data-category="beauty">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>סלון יופי</h3>
-                        <div class="demo-category">יופי</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר אלגנטי לסלון יופי עם הזמנת תורים אונליין
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מחירון שירותים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>גלריית עבודות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת תורים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מוצרי טיפוח
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="beauty-salon.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=beauty-salon" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- מסעדה -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>מסעדה יוקרתית</h3>
-                        <div class="demo-category">מזון</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מפתה למסעדה עם תפריט דיגיטלי והזמנת שולחנות
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>תפריט דיגיטלי
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת שולחנות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>גלריית מנות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>דליברי אונליין
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="restaurant.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=restaurant" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- צלם -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>צלם מקצועי</h3>
-                        <div class="demo-category">אמנות</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    פורטפוליו מרשים לצלם עם גלריות מקצועיות ותיאום צילומים
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>גלריות מתקדמות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>חבילות צילום
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>לוח זמנים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת צילום
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="photographer.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=photographer" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- נדל"ן -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>משכיר נדל״ן</h3>
-                        <div class="demo-category">נדל״ן</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מתקדם למשכיר נדל"ן עם חיפוש נכסים ומערכת פניות
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>קטלוג נכסים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>חיפוש מתקדם
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>סיורים וירטואליים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מערכת פניות
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="realtor.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=realtor" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- בית קפה -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>בית קפה</h3>
-                        <div class="demo-category">מזון</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-coffee"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר חם ומזמין לבית קפה עם תפריט והזמנות לטייק-אווי
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>תפריט משקאות
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנה מראש
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>אווירת המקום
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>פרטי הגעה
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href="coffee-shop.html" class="demo-link" target="_blank">
-                        <i class="fas fa-eye"></i> צפה
-                    </a>
-                    <a href="editor.html?site=coffee-shop" class="demo-link edit">
-                        <i class="fas fa-edit"></i> ערוך
-                    </a>
-                </div>
-            </div>
-
-            <!-- יועץ כלכלי -->
-            <div class="demo-card" data-category="business">
-                <div class="demo-header">
-                    <div class="demo-info">
-                        <h3>יועץ כלכלי</h3>
-                        <div class="demo-category">כספים</div>
-                    </div>
-                    <div class="demo-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                </div>
-                <div class="demo-description">
-                    אתר מקצועי ליועץ כלכלי עם כלי חישוב ומערכת יעוץ אונליין
-                </div>
-                <div class="demo-features">
-                    <h4>תכונות עיקריות:</h4>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>כלי חישוב
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>ייעוץ אונליין
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>מאמרים כלכליים
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>הזמנת פגישה
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-actions">
-                    <a href
+</html>
