@@ -981,11 +981,11 @@
                         ${website.features.slice(0, 4).map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
                     </div>
                     <div class="card-actions">
-                        <a href="#" class="btn btn-primary" onclick="viewWebsite('${website.id}')">
+                        <a href="./websites/${website.id}.html" target="_blank" class="btn btn-primary">
                             <i class="fas fa-eye"></i>
                             צפה באתר
                         </a>
-                        <a href="#" class="btn btn-outline" onclick="openEditor('${website.id}')">
+                        <a href="./editor.html?website=${website.id}" target="_blank" class="btn btn-outline">
                             <i class="fas fa-edit"></i>
                             עריכה
                         </a>
@@ -1064,13 +1064,15 @@
 
         // Utility functions
         function viewWebsite(websiteId) {
-            // In a real implementation, this would open the website in a new tab or modal
-            alert(`צופה באתר: ${websites.find(w => w.id === websiteId)?.title}\n\nבמימוש מלא, כאן ייפתח האתר בטאב חדש או במודל.`);
+            // Open the actual website in a new tab
+            const websiteUrl = `./websites/${websiteId}.html`;
+            window.open(websiteUrl, '_blank');
         }
 
         function openEditor(websiteId) {
-            // In a real implementation, this would open the website editor
-            alert(`פותח אדיטור עבור: ${websites.find(w => w.id === websiteId)?.title}\n\nבמימוש מלא, כאן ייפתח האדיטור הויזואלי.`);
+            // Open the editor with the specific website
+            const editorUrl = `./editor.html?website=${websiteId}`;
+            window.open(editorUrl, '_blank');
         }
 
         // Initialize
