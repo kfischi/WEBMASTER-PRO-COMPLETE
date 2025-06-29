@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דני פיט - מאמן כושר אישי | אימונים מקצועיים</title>
-    <meta name="description" content="דני פיט - מאמן כושר אישי מקצועי. אימונים אישיים, תוכניות אימון מותאמות, ייעוץ תזונה ומעקב התקדמות. הצטרפו עכשיו!">
-    <meta name="keywords" content="מאמן כושר, אימונים אישיים, כושר, תזונה, חדר כושר, דני פיט">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>דני פיט | מאמן כושר אישי | אימונים אישיים וקבוצתיים</title>
+    <meta name="description" content="דני פיט - מאמן כושר אישי מקצועי עם 12 שנות ניסיון. אימונים אישיים, קבוצתיים ותוכניות כושר מותאמות אישית. תוצאות מובטחות!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --secondary-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --glass-bg: rgba(255, 255, 255, 0.25);
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
-            --accent-color: #4facfe;
-            --bg-light: #f7fafc;
-            --energy-orange: #ff6b35;
-            --success-green: #10b981;
+            --primary-red: #dc2626;
+            --secondary-red: #ef4444;
+            --accent-orange: #ea580c;
+            --dark-gray: #1f2937;
+            --light-gray: #f3f4f6;
+            --text-dark: #111827;
+            --text-light: #6b7280;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -30,243 +32,257 @@
         }
 
         body {
-            font-family: 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Assistant', sans-serif;
             line-height: 1.6;
-            color: var(--text-primary);
+            color: var(--text-dark);
+            background: var(--bg-white);
             overflow-x: hidden;
-        }
-
-        /* Glass Morphism & Energy Styles */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-        }
-
-        .energy-card {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            position: relative;
-        }
-
-        .energy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--primary-gradient);
-            border-radius: inherit;
-            padding: 2px;
-            mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
-            mask-composite: exclude;
-            z-index: -1;
         }
 
         /* Header */
         .header {
-            background: var(--primary-gradient);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Heebo', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, 
+                var(--dark-gray) 0%, 
+                var(--primary-red) 50%, 
+                var(--secondary-red) 100%);
             color: white;
-            padding: 100px 0;
+            padding: 8rem 2rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="fitness" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><rect x="20" y="20" width="10" height="10" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23fitness)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="gym" width="25" height="25" patternUnits="userSpaceOnUse"><rect width="2" height="15" x="11.5" y="5" fill="rgba(255,255,255,0.05)"/><circle cx="5" cy="12.5" r="2" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="12.5" r="2" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23gym)"/></svg>');
             opacity: 0.3;
         }
 
-        .header-content {
-            max-width: 1200px;
+        .hero-content {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .header h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            letter-spacing: -1px;
+        .hero h1 {
+            font-family: 'Heebo', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .header .subtitle {
-            font-size: 1.4em;
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
             opacity: 0.95;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
             font-weight: 500;
         }
 
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
-            flex-wrap: wrap;
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
-        .stat-item {
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
             text-align: center;
-            padding: 20px;
-            background: var(--glass-bg);
-            border-radius: 15px;
             backdrop-filter: blur(10px);
-            min-width: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
 
         .stat-number {
-            font-size: 2.5em;
-            font-weight: 800;
-            margin-bottom: 5px;
-            color: #fee140;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--accent-orange);
+            display: block;
         }
 
         .stat-label {
-            font-size: 0.9em;
+            font-size: 0.9rem;
             opacity: 0.9;
+            margin-top: 0.5rem;
+            font-weight: 600;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 50px;
+            margin-top: 2rem;
         }
 
         .btn {
-            padding: 18px 35px;
-            border-radius: 50px;
+            padding: 15px 35px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.1em;
+            gap: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background: white;
-            color: var(--accent-color);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #c2410c;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong);
         }
 
         .btn-secondary {
-            background: var(--glass-bg);
+            background: transparent;
             color: white;
-            border: 2px solid var(--glass-border);
+            border: 2px solid white;
         }
 
-        .btn-energy {
-            background: var(--accent-gradient);
-            color: white;
-            font-weight: 700;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        /* Navigation */
-        .nav {
+        .btn-secondary:hover {
             background: white;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            padding: 0 20px;
-        }
-
-        .nav-item {
-            padding: 25px 30px;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border-bottom: 4px solid transparent;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-item:hover {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-            background: rgba(79, 172, 254, 0.05);
+            color: var(--primary-red);
         }
 
         /* Sections */
         .section {
-            padding: 100px 0;
+            padding: 4rem 2rem;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 3em;
-            margin-bottom: 25px;
-            color: var(--text-primary);
+            font-family: 'Heebo', sans-serif;
+            font-size: 2.8rem;
             font-weight: 700;
-        }
-
-        .section-subtitle {
             text-align: center;
-            font-size: 1.3em;
-            color: var(--text-secondary);
-            margin-bottom: 70px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Services Grid */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-orange);
+            border-radius: 2px;
+        }
+
+        /* Services */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
-            padding: 50px 40px;
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
             text-align: center;
-            transition: all 0.4s ease;
-            border-radius: 25px;
-            background: white;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
         }
@@ -277,326 +293,331 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: var(--primary-gradient);
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--accent-orange));
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(79, 172, 254, 0.2);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
         }
 
         .service-icon {
-            width: 100px;
-            height: 100px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5em;
-            color: white;
-            position: relative;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
         }
 
-        .service-icon::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            opacity: 0.2;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.1); opacity: 0.1; }
-        }
-
-        .service-title {
-            font-size: 1.6em;
-            margin-bottom: 20px;
-            color: var(--text-primary);
+        .service-card h3 {
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.4rem;
             font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
         }
 
-        .service-description {
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-            line-height: 1.7;
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .service-price {
-            font-size: 1.4em;
-            font-weight: 800;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 25px;
-        }
-
-        /* BMI Calculator */
-        .calculator-section {
-            background: var(--bg-light);
-            padding: 80px 0;
-        }
-
-        .calculator-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 50px;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        }
-
-        .calculator-title {
-            text-align: center;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            color: var(--text-primary);
+            font-size: 1.2rem;
             font-weight: 700;
+            color: var(--accent-orange);
+            margin-top: 1rem;
         }
 
-        .calc-grid {
+        .service-duration {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Programs */
+        .programs {
+            background: var(--light-gray);
+        }
+
+        .programs-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .calc-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .calc-group label {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .calc-group input {
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1.1em;
-            transition: border-color 0.3s ease;
-        }
-
-        .calc-group input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
-        }
-
-        .calc-button {
-            width: 100%;
-            padding: 18px;
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.2em;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .calc-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
-        }
-
-        .calc-result {
-            margin-top: 30px;
-            padding: 25px;
-            background: var(--bg-light);
+        .program-card {
+            background: white;
             border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .program-header {
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+            color: white;
+            padding: 2rem;
             text-align: center;
-            display: none;
         }
 
-        .result-bmi {
-            font-size: 3em;
-            font-weight: 800;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .program-title {
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
-        .result-category {
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-top: 10px;
+        .program-subtitle {
+            opacity: 0.9;
         }
 
-        /* About Section */
-        .about {
-            background: var(--bg-light);
+        .program-content {
+            padding: 2rem;
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+        .program-features {
+            list-style: none;
+            margin-bottom: 2rem;
         }
 
-        .about-image {
-            width: 100%;
-            height: 500px;
-            background: var(--primary-gradient);
-            border-radius: 25px;
+        .program-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 5em;
-            position: relative;
-            overflow: hidden;
+            gap: 0.5rem;
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.15)"/></svg>');
-            opacity: 0.5;
+        .program-features li::before {
+            content: '✓';
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        .about-content h3 {
-            font-size: 2.5em;
-            margin-bottom: 25px;
-            color: var(--text-primary);
+        .program-price {
+            font-family: 'Heebo', sans-serif;
+            font-size: 2rem;
             font-weight: 700;
-        }
-
-        .about-content p {
-            margin-bottom: 25px;
-            color: var(--text-secondary);
-            font-size: 1.2em;
-            line-height: 1.7;
-        }
-
-        .achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .achievement-item {
-            padding: 25px;
-            background: white;
-            border-radius: 18px;
+            color: var(--primary-red);
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
         }
 
-        .achievement-item:hover {
-            transform: translateY(-5px);
+        /* About */
+        .about {
+            background: var(--bg-white);
         }
 
-        .achievement-item i {
-            font-size: 2.5em;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-        }
-
-        .achievement-item h4 {
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--primary-gradient);
-            color: white;
-        }
-
-        .contact-grid {
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .contact-info h3 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
+        .about-text h3 {
+            font-family: 'Heebo', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
             font-weight: 700;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cert-item {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-text {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            background: var(--light-gray);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border-left: 4px solid var(--primary-red);
+            position: relative;
+        }
+
+        .story-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 4rem;
+            color: var(--light-gray);
+            font-family: serif;
+        }
+
+        .story-text {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .story-result {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .result-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .author-info h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            color: var(--accent-orange);
+            margin-left: auto;
+            font-size: 1.2rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--dark-gray);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            padding: 2rem 0;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            font-size: 1.2em;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
 
-        .contact-item i {
-            width: 60px;
-            height: 60px;
-            background: var(--glass-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3em;
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+            width: 40px;
+            text-align: center;
         }
 
         .contact-form {
-            background: var(--glass-bg);
-            padding: 50px;
-            border-radius: 25px;
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
         }
 
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
-            font-size: 1.1em;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 18px;
-            border: 2px solid var(--glass-border);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.9);
-            font-size: 1.1em;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .form-group textarea {
@@ -604,97 +625,111 @@
             resize: vertical;
         }
 
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 70px;
-            height: 70px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8em;
-            text-decoration: none;
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
         /* Footer */
         .footer {
-            background: #1a202c;
+            background: var(--text-dark);
             color: white;
-            padding: 80px 0 40px;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .footer-section h4 {
-            margin-bottom: 25px;
-            font-size: 1.4em;
-            font-weight: 700;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #a0aec0;
-            text-decoration: none;
-            line-height: 1.8;
-            font-size: 1.1em;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-links {
+        .footer-links {
             display: flex;
-            gap: 20px;
-            margin-top: 25px;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: var(--accent-color);
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             text-decoration: none;
-            transition: transform 0.3s ease;
-            font-size: 1.2em;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
         }
 
-        .social-links a:hover {
+        .floating-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .floating-btn.phone {
+            background: var(--primary-red);
+        }
+
+        .floating-btn:hover {
             transform: scale(1.1);
+            box-shadow: var(--shadow-strong);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.8em;
+            .nav-links {
+                display: none;
             }
 
-            .stats-row {
-                flex-direction: column;
-                align-items: center;
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .certifications {
+                grid-template-columns: 1fr;
             }
 
             .cta-buttons {
@@ -702,159 +737,193 @@
                 align-items: center;
             }
 
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
+            .section-title {
+                font-size: 2.2rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .nav {
+                padding: 0 1rem;
             }
 
-            .calc-grid {
-                grid-template-columns: 1fr;
+            .section {
+                padding: 3rem 1rem;
             }
 
-            .nav-content {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .achievements {
+            .programs-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/972522345678?text=שלום דני! אני מעוניין/ת באימונים אישיים" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <h1 data-editable="main-title">דני פיט</h1>
-            <p class="subtitle" data-editable="subtitle">מאמן כושר אישי - הגשמת חלומות הכושר שלך</p>
-            
-            <div class="stats-row">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">מתאמנים מרוצים</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">שנות ניסיון</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">הגיעו למטרה</div>
-                </div>
-            </div>
-            
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-dumbbell"></i>
-                    התחל עכשיו
-                </a>
-                <a href="tel:052-2345678" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i>
-                    052-2345678
-                </a>
-                <a href="#calculator" class="btn btn-energy">
-                    <i class="fas fa-calculator"></i>
-                    מחשבון BMI
-                </a>
-            </div>
-        </div>
+        <nav class="nav">
+            <a href="#" class="logo">DANNY FIT</a>
+            <ul class="nav-links">
+                <li><a href="#home">בית</a></li>
+                <li><a href="#services">שירותים</a></li>
+                <li><a href="#programs">תוכניות</a></li>
+                <li><a href="#about">אודות</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="#services" class="nav-item">שירותים</a>
-            <a href="#calculator" class="nav-item">מחשבון BMI</a>
-            <a href="#about" class="nav-item">אודות</a>
-            <a href="#contact" class="nav-item">יצירת קשר</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>DANNY FIT 💪</h1>
+            <p class="subtitle">מאמן כושר אישי מקצועי - הדרך שלך לגוף חזק ובריא</p>
+            
+            <div class="hero-stats">
+                <div class="stat-card scroll-animate">
+                    <span class="stat-number">12+</span>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-card scroll-animate">
+                    <span class="stat-number">850+</span>
+                    <div class="stat-label">לקוחות מרוצים</div>
+                </div>
+                <div class="stat-card scroll-animate">
+                    <span class="stat-number">95%</span>
+                    <div class="stat-label">הגיעו למטרה</div>
+                </div>
+                <div class="stat-card scroll-animate">
+                    <span class="stat-number">24/7</span>
+                    <div class="stat-label">תמיכה וליווי</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">🔥 התחל היום</a>
+                <a href="#programs" class="btn btn-secondary">📋 תוכניות אימון</a>
+            </div>
         </div>
-    </nav>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="section">
         <div class="container">
-            <h2 class="section-title" data-editable="services-title">השירותים שלי</h2>
-            <p class="section-subtitle" data-editable="services-subtitle">אימונים מותאמים אישית שיביאו אותך למטרה בצורה הכי יעילה ובטוחה</p>
-            
+            <h2 class="section-title scroll-animate">שירותי אימון</h2>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3 class="service-title" data-editable="service1-title">אימונים אישיים</h3>
-                    <p class="service-description" data-editable="service1-desc">אימון אחד על אחד עם התאמה מלאה למטרות שלך, לרמת הכושר ולמגבלות. כל תרגיל מותאם בדיוק עבורך.</p>
-                    <div class="service-price">₪300 לאימון</div>
-                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">🏋️‍♂️</div>
+                    <h3>אימון אישי</h3>
+                    <p>אימון אישי מותאם במיוחד עבורך עם תוכנית מותאמת למטרות שלך ומעקב צמוד.</p>
+                    <div class="service-price">₪250</div>
+                    <div class="service-duration">אימון של 60 דקות</div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="service-title" data-editable="service2-title">אימונים בזוגות</h3>
-                    <p class="service-description" data-editable="service2-desc">אימון עם חבר/ה או בן/בת זוג. מניעות הדדית, כיף רב יותר ועלות נמוכה יותר לאדם.</p>
-                    <div class="service-price">₪200 לאדם</div>
-                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">👥</div>
+                    <h3>אימון קבוצתי</h3>
+                    <p>אימונים בקבוצות קטנות (2-4 אנשים) באווירה מעודדת ומאתגרת.</p>
+                    <div class="service-price">₪120</div>
+                    <div class="service-duration">אימון של 45 דקות</div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-list"></i>
-                    </div>
-                    <h3 class="service-title" data-editable="service3-title">תוכנית אימונים</h3>
-                    <p class="service-description" data-editable="service3-desc">תוכנית אימונים מפורטת למשך חודש שלם עם הסברים ווידאו לכל תרגיל. מתאים למי שרוצה להתאמן בעצמאות.</p>
-                    <div class="service-price">₪400 לחודש</div>
-                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">📱</div>
+                    <h3>אימון אונליין</h3>
+                    <p>תוכנית אימון מותאמת אישית עם הדרכה בווידאו וליווי יומיומי מרחוק.</p>
+                    <div class="service-price">₪300</div>
+                    <div class="service-duration">חבילה חודשית</div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-apple-alt"></i>
-                    </div>
-                    <h3 class="service-title" data-editable="service4-title">ייעוץ תזונה</h3>
-                    <p class="service-description" data-editable="service4-desc">תפריט מותאם אישית למטרות שלך - בניית שריר, ירידה במשקל או שמירה על משקל יציב.</p>
-                    <div class="service-price">₪250 לחודש</div>
-                    <a href="#contact" class="btn btn-primary">פרטים נוספים</a>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">🏃‍♂️</div>
+                    <h3>הכנה לתחרויות</h3>
+                    <p>אימונים מתקדמים לספורטאים המתכוננים לתחרויות ואירועי ספורט.</p>
+                    <div class="service-price">₪350</div>
+                    <div class="service-duration">אימון של 90 דקות</div>
+                </div>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">⚖️</div>
+                    <h3>הרזיה ועיצוב</h3>
+                    <p>תוכנית שילוב של אימוני כוח וקרדיו מותאמת להרזיה ועיצוב הגוף.</p>
+                    <div class="service-price">₪280</div>
+                    <div class="service-duration">תוכנית 8 שבועות</div>
+                </div>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">🧘‍♂️</div>
+                    <h3>שיקום וחיזוק</h3>
+                    <p>אימונים מותאמים לשיקום אחרי פציעות וחיזוק שרירי ליבה.</p>
+                    <div class="service-price">₪220</div>
+                    <div class="service-duration">אימון של 50 דקות</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BMI Calculator Section -->
-    <section id="calculator" class="calculator-section">
+    <!-- Programs Section -->
+    <section id="programs" class="section programs">
         <div class="container">
-            <div class="calculator-container">
-                <h2 class="calculator-title" data-editable="calc-title">מחשבון BMI</h2>
-                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">בדוק מה מצב המשקל שלך ותקבל המלצות מותאמות</p>
-                
-                <div class="calc-grid">
-                    <div class="calc-group">
-                        <label for="height">גובה (ס"מ)</label>
-                        <input type="number" id="height" placeholder="לדוגמה: 175">
+            <h2 class="section-title scroll-animate">תוכניות אימון</h2>
+            <div class="programs-grid">
+                <div class="program-card scroll-animate">
+                    <div class="program-header">
+                        <h3 class="program-title">STARTER</h3>
+                        <p class="program-subtitle">למתחילים</p>
                     </div>
-                    <div class="calc-group">
-                        <label for="weight">משקל (ק"ג)</label>
-                        <input type="number" id="weight" placeholder="לדוגמה: 70">
+                    <div class="program-content">
+                        <ul class="program-features">
+                            <li>4 אימונים אישיים בחודש</li>
+                            <li>תוכנית אימון בבית</li>
+                            <li>ייעוץ תזונה בסיסי</li>
+                            <li>מעקב התקדמות שבועי</li>
+                            <li>גישה לאפליקציה</li>
+                        </ul>
+                        <div class="program-price">₪800/חודש</div>
+                        <button class="btn btn-primary" style="width: 100%;">בחר תוכנית</button>
                     </div>
                 </div>
-                
-                <button class="calc-button" onclick="calculateBMI()">חשב BMI</button>
-                
-                <div class="calc-result" id="bmiResult">
-                    <div class="result-bmi" id="bmiValue"></div>
-                    <div class="result-category" id="bmiCategory"></div>
-                    <p id="bmiRecommendation" style="margin-top: 15px; color: var(--text-secondary);"></p>
+
+                <div class="program-card scroll-animate">
+                    <div class="program-header">
+                        <h3 class="program-title">PRO</h3>
+                        <p class="program-subtitle">הכי פופולרי</p>
+                    </div>
+                    <div class="program-content">
+                        <ul class="program-features">
+                            <li>8 אימונים אישיים בחודש</li>
+                            <li>תוכנית אימון מלאה</li>
+                            <li>ייעוץ תזונה מקצועי</li>
+                            <li>מעקב התקדמות יומי</li>
+                            <li>גישה לכל השירותים</li>
+                            <li>תמיכה 24/7</li>
+                        </ul>
+                        <div class="program-price">₪1,400/חודש</div>
+                        <button class="btn btn-primary" style="width: 100%;">בחר תוכנית</button>
+                    </div>
+                </div>
+
+                <div class="program-card scroll-animate">
+                    <div class="program-header">
+                        <h3 class="program-title">ELITE</h3>
+                        <p class="program-subtitle">לרציניים</p>
+                    </div>
+                    <div class="program-content">
+                        <ul class="program-features">
+                            <li>12 אימונים אישיים בחודש</li>
+                            <li>תוכנית אימון VIP</li>
+                            <li>ייעוץ תזונה מתקדם</li>
+                            <li>מעקב ביומטרי</li>
+                            <li>אימוני קבוצה ללא הגבלה</li>
+                            <li>ליווי אישי מלא</li>
+                        </ul>
+                        <div class="program-price">₪2,000/חודש</div>
+                        <button class="btn btn-primary" style="width: 100%;">בחר תוכנית</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -863,31 +932,83 @@
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <i class="fas fa-dumbbell"></i>
+            <h2 class="section-title scroll-animate">אודות דני פיט</h2>
+            <div class="about-content">
+                <div class="about-text scroll-animate">
+                    <h3>12 שנות מסירות לעולם הכושר</h3>
+                    <p>דני פיט הוא מאמן כושר אישי מקצועי ומוסמך עם 12 שנות ניסיון בתחום. בוגר לימודי מדעי הספורט מאוניברסיטת תל אביב ובעל תעודות מקצועיות מהמוסדות המובילים בעולם.</p>
+                    <p>הגישה שלו משלבת מדע מתקדם עם הבנה עמיקה של צרכי הלקוח האישיים. דני מאמין שכל אדם יכול להגיע לכושר המיטבי שלו עם הליווי והמוטיבציה הנכונים.</p>
+                    <p>במהלך הקריירה שלו, דני הכשיר מאות לקוחות, מספורטאים מקצועיים ועד אנשים הרוצים לשפר את איכות החיים שלהם. התמחותו העיקרית היא בהרזיה בריאה, בניית מסת שריר ושיקום אחרי פציעות.</p>
                 </div>
-                <div class="about-content">
-                    <h3 data-editable="about-title">אודות דני פיט</h3>
-                    <p data-editable="about-desc1">שלום! אני דני, מאמן כושר מוסמך עם 8 שנות ניסיון בתחום. התמחותי היא באימונים אישיים, בניית שריר וירידה במשקל. אני מאמין שכושר זה לא רק מראה חיצוני, אלא אורח חיים שמשפיע על כל היבט בחיים.</p>
-                    <p data-editable="about-desc2">המטרה שלי היא לעזור לך להגיע ליעדים שלך בצורה בטוחה, יעילה ומהנה. כל מתאמן מקבל תוכנית מותאמת אישית ותמיכה מלאה לאורך כל הדרך.</p>
-                    
-                    <div class="achievements">
-                        <div class="achievement-item">
-                            <i class="fas fa-certificate"></i>
-                            <h4>הסמכות</h4>
-                            <p>מאמן מוסמך ACSM</p>
+                <div class="certifications scroll-animate">
+                    <div class="cert-item">
+                        <div class="cert-icon">🎓</div>
+                        <div class="cert-text">מדעי הספורט ת"א</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🏆</div>
+                        <div class="cert-text">ACSM Certified</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">💪</div>
+                        <div class="cert-text">NASM Personal Trainer</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">⚕️</div>
+                        <div class="cert-text">מתמחה בשיקום</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="section success-stories">
+        <div class="container">
+            <h2 class="section-title scroll-animate">סיפורי הצלחה</h2>
+            <div class="stories-grid">
+                <div class="story-card scroll-animate">
+                    <p class="story-text">התחלתי לעבוד עם דני אחרי שלא הצלחתי לרדת במשקל בכוחות עצמי. בתוך 6 חודשים הוא עזר לי להגיע לכושר הטוב ביותר שהיה לי אי פעם!</p>
+                    <div class="story-result">
+                        <div class="result-number">-22 קילו</div>
+                        <div class="result-text">ב-6 חודשים</div>
+                    </div>
+                    <div class="story-author">
+                        <div class="author-info">
+                            <h4>רונית שמואל</h4>
+                            <span>מנהלת משאבי אנוש, גיל 42</span>
                         </div>
-                        <div class="achievement-item">
-                            <i class="fas fa-trophy"></i>
-                            <h4>הישגים</h4>
-                            <p>500+ מתאמנים הגיעו למטרה</p>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="story-card scroll-animate">
+                    <p class="story-text">כבן 55, חשבתי שכבר מאוחר לי להתחיל להתאמן. דני הוכיח לי שזה לא נכון! היום אני חזק יותר ממה שהייתי בגיל 30.</p>
+                    <div class="story-result">
+                        <div class="result-number">+15 ק"ג</div>
+                        <div class="result-text">מסת שריר</div>
+                    </div>
+                    <div class="story-author">
+                        <div class="author-info">
+                            <h4>אבי כהן</h4>
+                            <span>עורך דין, גיל 55</span>
                         </div>
-                        <div class="achievement-item">
-                            <i class="fas fa-heart"></i>
-                            <h4>התמחות</h4>
-                            <p>כושר אישי ותזונה</p>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="story-card scroll-animate">
+                    <p class="story-text">אחרי פציעה קשה בגב, דני עזר לי לחזור לפעילות ספורטיבית מלאה. הוא לא רק מאמן, הוא ממש משנה חיים!</p>
+                    <div class="story-result">
+                        <div class="result-number">100%</div>
+                        <div class="result-text">שיקום מלא</div>
+                    </div>
+                    <div class="story-author">
+                        <div class="author-info">
+                            <h4>יוסי לוי</h4>
+                            <span>ספורטאי חובב, גיל 38</span>
                         </div>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
             </div>
@@ -897,170 +1018,127 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title" data-editable="contact-title">בואו נתחיל!</h2>
-            <p class="section-subtitle" data-editable="contact-subtitle">מוכן להתחיל את המסע לכושר הטוב ביותר שלך? צור קשר עוד היום</p>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>פרטי התקשרות</h3>
+            <h2 class="section-title scroll-animate" style="color: white;">צור קשר</h2>
+            <div class="contact-content">
+                <div class="contact-info scroll-animate">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">פרטי התקשרות</h3>
                     
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
+                        <span class="contact-icon">📍</span>
                         <div>
-                            <strong>טלפון</strong><br>
-                            <a href="tel:052-2345678" data-editable="phone">052-2345678</a>
+                            <strong>מיקום:</strong><br>
+                            חדר כושר פרימיום<br>
+                            רחוב הרצל 45, תל אביב
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                        <span class="contact-icon">📞</span>
                         <div>
-                            <strong>אימייל</strong><br>
-                            <a href="mailto:info@fitness-co.co.il" data-editable="email">info@fitness-co.co.il</a>
+                            <strong>טלפון:</strong><br>
+                            054-7777777<br>
+                            03-5555555 (משרד)
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="contact-icon">📧</span>
                         <div>
-                            <strong>מיקום</strong><br>
-                            <span data-editable="address">מכון כושר פרמיום, רמת גן</span>
+                            <strong>אימייל:</strong><br>
+                            danny.fit.coach@gmail.com
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
-                        <i class="fas fa-clock"></i>
+                        <span class="contact-icon">🕐</span>
                         <div>
-                            <strong>שעות פעילות</strong><br>
-                            א'-ה': 06:00-22:00<br>
-                            ו': 07:00-15:00<br>
-                            ש': 08:00-20:00
+                            <strong>שעות פעילות:</strong><br>
+                            א'-ו': 06:00-22:00<br>
+                            שבת: 08:00-20:00
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <h3>השאר פרטים לייעוץ חינם</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">שם מלא *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">טלפון *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="goal">מה המטרה שלך?</label>
-                            <select id="goal" name="goal">
-                                <option value="">בחר מטרה...</option>
-                                <option value="weight-loss">ירידה במשקל</option>
-                                <option value="muscle-gain">בניית שריר</option>
-                                <option value="fitness">שיפור כושר כללי</option>
-                                <option value="other">אחר</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">הודעה נוספת</label>
-                            <textarea id="message" name="message" placeholder="ספר לי קצת על עצמך ועל המטרות שלך..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-energy" style="width: 100%;">
-                            <i class="fas fa-rocket"></i>
-                            שלח ובואו נתחיל!
-                        </button>
-                    </form>
-                </div>
+
+                <form class="contact-form scroll-animate" onsubmit="sendToWhatsApp(event)">
+                    <h3 style="margin-bottom: 1.5rem;">התחל את המסע שלך</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">שם מלא:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">טלפון:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">גיל:</label>
+                        <input type="number" id="age" name="age" min="16" max="80" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">רמת ניסיון:</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">בחר רמה</option>
+                            <option value="מתחיל">מתחיל</option>
+                            <option value="בינוני">בינוני</option>
+                            <option value="מתקדם">מתקדם</option>
+                            <option value="מקצועי">מקצועי</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">סוג השירות:</label>
+                        <select id="service" name="service" required>
+                            <option value="">בחר שירות</option>
+                            <option value="אימון אישי">אימון אישי - ₪250</option>
+                            <option value="אימון קבוצתי">אימון קבוצתי - ₪120</option>
+                            <option value="אימון אונליין">אימון אונליין - ₪300</option>
+                            <option value="הכנה לתחרויות">הכנה לתחרויות - ₪350</option>
+                            <option value="הרזיה ועיצוב">הרזיה ועיצוב - ₪280</option>
+                            <option value="שיקום וחיזוק">שיקום וחיזוק - ₪220</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goals">המטרות שלך:</label>
+                        <textarea id="goals" name="goals" placeholder="תאר את המטרות שלך - הרזיה, עלייה במסת שריר, שיפור כושר, וכו'..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">🔥 שלח בקשה</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>דני פיט</h4>
-                    <p>מאמן כושר אישי מקצועי עם 8 שנות ניסיון. מתמחה באימונים אישיים, בניית שריר וירידה במשקל.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="יוטיוב"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>שירותים</h4>
-                    <p><a href="#services">אימונים אישיים</a></p>
-                    <p><a href="#services">אימונים בזוגות</a></p>
-                    <p><a href="#services">תוכניות אימון</a></p>
-                    <p><a href="#services">ייעוץ תזונה</a></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>יצירת קשר</h4>
-                    <p><i class="fas fa-phone"></i> 052-2345678</p>
-                    <p><i class="fas fa-envelope"></i> info@fitness-co.co.il</p>
-                    <p><i class="fas fa-map-marker-alt"></i> מכון כושר פרמיום, רמת גן</p>
-                </div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">בית</a>
+                <a href="#services">שירותים</a>
+                <a href="#programs">תוכניות</a>
+                <a href="#about">אודות</a>
+                <a href="#contact">צור קשר</a>
+                <a href="#">תקנון</a>
             </div>
             
-            <div style="border-top: 1px solid #2d3748; padding-top: 30px; margin-top: 40px; text-align: center; color: #a0aec0;">
-                <p>&copy; 2025 דני פיט - מאמן כושר אישי. כל הזכויות שמורות.</p>
+            <div class="copyright">
+                <p>&copy; 2025 דני פיט - מאמן כושר אישי מקצועי. כל הזכויות שמורות.</p>
+                <p>מוסמך ACSM & NASM | ביטוח אחריות מקצועית: פעיל</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // BMI Calculator
-        function calculateBMI() {
-            const height = document.getElementById('height').value;
-            const weight = document.getElementById('weight').value;
-            
-            if (!height || !weight) {
-                alert('אנא מלא את כל השדות');
-                return;
-            }
-            
-            const heightInM = height / 100;
-            const bmi = (weight / (heightInM * heightInM)).toFixed(1);
-            
-            let category = '';
-            let recommendation = '';
-            let color = '';
-            
-            if (bmi < 18.5) {
-                category = 'תת משקל';
-                recommendation = 'מומלץ לך לעבוד על עלייה במשקל ובניית שריר. בוא נתכנן תוכנית מותאמת!';
-                color = '#3b82f6';
-            } else if (bmi >= 18.5 && bmi < 25) {
-                category = 'משקל תקין';
-                recommendation = 'אלוף! המשקל שלך תקין. אני יכול לעזור לך לשמור על זה או לשפר את הכושר הכללי.';
-                color = '#10b981';
-            } else if (bmi >= 25 && bmi < 30) {
-                category = 'עודף משקל';
-                recommendation = 'יש מקום לשיפור. בואו נתכנן תוכנית לירידה במשקל ושיפור הכושר הכללי.';
-                color = '#f59e0b';
-            } else {
-                category = 'השמנה';
-                recommendation = 'מומלץ מאוד להתחיל תוכנית מסודרת לירידה במשקל. אני כאן לעזור לך!';
-                color = '#ef4444';
-            }
-            
-            document.getElementById('bmiValue').textContent = bmi;
-            document.getElementById('bmiCategory').textContent = category;
-            document.getElementById('bmiCategory').style.color = color;
-            document.getElementById('bmiRecommendation').textContent = recommendation;
-            document.getElementById('bmiResult').style.display = 'block';
-            
-            // Scroll to result
-            document.getElementById('bmiResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/972547777777" class="floating-btn whatsapp" title="וואטסאפ">💬</a>
+        <a href="tel:0547777777" class="floating-btn phone" title="התקשר">📞</a>
+    </div>
 
-        // Smooth scrolling for navigation links
+    <script>
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1074,42 +1152,16 @@
             });
         });
 
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const goal = formData.get('goal');
-            const message = formData.get('message');
-            
-            // Create WhatsApp message
-            let whatsappMessage = `שלום דני! אני ${name}%0A` +
-                `טלפון: ${phone}%0A`;
-            
-            if (goal) {
-                const goalText = {
-                    'weight-loss': 'ירידה במשקל',
-                    'muscle-gain': 'בניית שריר',
-                    'fitness': 'שיפור כושר כללי',
-                    'other': 'אחר'
-                };
-                whatsappMessage += `המטרה שלי: ${goalText[goal]}%0A`;
-            }
-            
-            if (message) {
-                whatsappMessage += `הודעה נוספת: ${message}`;
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
             } else {
-                whatsappMessage += 'מעוניין/ת לקבל פרטים על אימונים אישיים';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
             }
-            
-            // Open WhatsApp
-            window.open(`https://wa.me/972522345678?text=${whatsappMessage}`, '_blank');
-            
-            // Reset form
-            this.reset();
-            alert('תודה! אתה מועבר לווטסאפ לתיאום פגישת ייעוץ חינם');
         });
 
         // Scroll animations
@@ -1121,53 +1173,50 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animate');
                 }
             });
         }, observerOptions);
 
-        // Observe all service cards
-        document.querySelectorAll('.service-card, .achievement-item').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
         });
 
-        // Stats counter animation
-        function animateCounter(element, target) {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + (element.textContent.includes('%') ? '%' : '+');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '+');
-                }
-            }, 20);
+        // WhatsApp form submission
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const experience = document.getElementById('experience').value;
+            const service = document.getElementById('service').value;
+            const goals = document.getElementById('goals').value;
+            
+            const whatsappMessage = `שלום דני! 💪
+
+👤 שם: ${name}
+📞 טלפון: ${phone}
+🎂 גיל: ${age}
+📊 רמת ניסיון: ${experience}
+🏋️‍♂️ שירות מבוקש: ${service}
+
+🎯 המטרות שלי:
+${goals}
+
+מעוניין להתחיל לאמן! מתי נוכל לקבוע פגישה?`;
+            
+            const whatsappUrl = `https://wa.me/972547777777?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        // Animate stats when in view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const text = stat.textContent;
-                        const number = parseInt(text.replace(/\D/g, ''));
-                        if (number) {
-                            animateCounter(stat, number);
-                        }
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelector('.stats-row') && statsObserver.observe(document.querySelector('.stats-row'));
+        // Console log for updates
+        console.log('💪 דני פיט - מאמן כושר אישי - האתר עודכן בהצלחה!');
+        console.log('✅ עיצוב ספורטיבי אגרסיבי ברמה מקצועית');
+        console.log('🏋️‍♂️ 6 שירותי אימון מקצועיים עם מחירים');
+        console.log('📋 3 תוכניות אימון מפורטות');
+        console.log('💰 מחירים: ₪120-350 לאימון, ₪800-2,000 לחבילות');
+        console.log('📱 רספונסיבי ומותאם לכל מכשיר');
     </script>
 </body>
 </html>
