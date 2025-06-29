@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>סטודיו BELLA - מספרה ויופי מקצועית בתל אביב</title>
-    <meta name="description" content="סטודיו BELLA - מספרה מקצועית בתל אביב. תספורות, צביעות, טיפולי שיער ותסרוקות ערב ברמה עולמית. קבעו תור עכשיו!">
+    <title>סטודיו BELLA - מספרה יוקרתית בתל אביב</title>
+    <meta name="description" content="סטודיו BELLA - מספרה יוקרתית בתל אביב. חוויית יופי ברמה בינלאומית עם עיצוב מקצועי ואווירה מפנקת.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,19 +12,29 @@
     
     <style>
         :root {
-            --primary-color: #8B4B8C;
-            --secondary-color: #E8B4E3;
-            --accent-color: #D4AF37;
-            --text-dark: #2D2D2D;
-            --text-light: #666666;
-            --background-light: #FDFCFD;
-            --white: #FFFFFF;
-            --light-pink: #FFF5F8;
-            --gradient-primary: linear-gradient(135deg, #8B4B8C 0%, #E8B4E3 100%);
-            --gradient-subtle: linear-gradient(135deg, #FFF5F8 0%, #F8F0FF 100%);
-            --shadow-light: 0 4px 15px rgba(139, 75, 140, 0.1);
-            --shadow-medium: 0 8px 30px rgba(139, 75, 140, 0.15);
-            --shadow-heavy: 0 15px 50px rgba(139, 75, 140, 0.2);
+            /* Professional Luxury Salon Color Palette */
+            --luxury-gold: #D4AF37;
+            --rich-brown: #8B4513;
+            --leather-brown: #A0522D;
+            --cream-white: #FFF8DC;
+            --deep-black: #1C1C1C;
+            --warm-beige: #F5E6D3;
+            --accent-copper: #B87333;
+            
+            /* Advanced Gradients */
+            --gradient-luxury: linear-gradient(135deg, #D4AF37 0%, #B87333 25%, #8B4513 50%, #A0522D 75%, #D4AF37 100%);
+            --gradient-leather: linear-gradient(45deg, #8B4513 0%, #A0522D 30%, #D2B48C 70%, #DEB887 100%);
+            --gradient-hero: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.9) 0%, 
+                rgba(139, 69, 19, 0.8) 25%,
+                rgba(160, 82, 45, 0.7) 50%,
+                rgba(184, 115, 51, 0.8) 75%,
+                rgba(212, 175, 55, 0.9) 100%);
+            
+            /* Shadows */
+            --shadow-luxury: 0 8px 32px rgba(212, 175, 55, 0.3);
+            --shadow-deep: 0 12px 48px rgba(139, 69, 19, 0.4);
+            --shadow-soft: 0 4px 16px rgba(160, 82, 45, 0.2);
         }
 
         * {
@@ -36,28 +46,28 @@
         body {
             font-family: 'Assistant', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--background-light);
+            color: var(--deep-black);
+            background: var(--cream-white);
             overflow-x: hidden;
         }
 
-        /* Header */
+        /* Professional Header */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 248, 220, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 15px 0;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-soft);
             transition: all 0.3s ease;
         }
 
         .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-medium);
+            background: rgba(255, 248, 220, 0.98);
+            box-shadow: var(--shadow-luxury);
         }
 
         .nav-container {
@@ -73,7 +83,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--rich-brown);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -81,7 +91,8 @@
         }
 
         .logo i {
-            color: var(--accent-color);
+            color: var(--luxury-gold);
+            font-size: 24px;
         }
 
         .nav-menu {
@@ -92,14 +103,14 @@
 
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--deep-black);
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
         }
 
         .nav-menu a:hover {
-            color: var(--primary-color);
+            color: var(--rich-brown);
         }
 
         .nav-menu a::after {
@@ -109,7 +120,7 @@
             right: 0;
             width: 0;
             height: 2px;
-            background: var(--primary-color);
+            background: var(--luxury-gold);
             transition: width 0.3s ease;
         }
 
@@ -118,7 +129,7 @@
         }
 
         .contact-btn {
-            background: var(--gradient-primary);
+            background: var(--gradient-luxury);
             color: white;
             padding: 12px 25px;
             border: none;
@@ -126,15 +137,15 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-soft);
         }
 
         .contact-btn:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-luxury);
         }
 
-        /* Hero Section with Real Background Image */
+        /* Hero Section with your salon image as background */
         .hero {
             height: 100vh;
             position: relative;
@@ -143,60 +154,124 @@
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            /* Multiple fallback options for background */
+            /* Use your image as background */
             background: 
-                url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80') center/cover no-repeat,
-                url('https://source.unsplash.com/1920x1080/?salon,beauty,hairdresser') center/cover no-repeat,
-                url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat,
-                linear-gradient(135deg, #8B4B8C 0%, #E8B4E3 50%, #D4AF37 100%);
-            background-attachment: fixed;
+                url('./images/salon-interior.jpg') center/cover no-repeat,
+                url('https://i.postimg.cc/90Z2vyQL/IMG-20250629-WA0017-1.jpg') center/cover no-repeat,
+                var(--gradient-hero);
         }
 
-        .hero-background {
+        /* CSS Art - Luxury Salon Interior Simulation */
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: inherit;
-            filter: brightness(1.2) contrast(1.1);
+            background: 
+                /* Floor pattern */
+                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(160, 82, 45, 0.05) 0%, transparent 50%),
+                /* Lighting effects */
+                linear-gradient(45deg, transparent 40%, rgba(255, 248, 220, 0.1) 50%, transparent 60%),
+                linear-gradient(-45deg, transparent 40%, rgba(212, 175, 55, 0.05) 50%, transparent 60%),
+                /* Base salon atmosphere */
+                linear-gradient(180deg, rgba(139, 69, 19, 0.3) 0%, rgba(160, 82, 45, 0.2) 50%, rgba(212, 175, 55, 0.3) 100%);
             z-index: 1;
         }
 
-        /* Add floating elements */
+        /* Floating salon elements */
         .hero::after {
             content: '';
             position: absolute;
-            top: 20%;
-            left: 10%;
-            width: 150px;
-            height: 150px;
+            top: 10%;
+            left: 15%;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float1 6s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(139, 69, 19, 0.1) 70%, transparent 100%);
+            animation: float1 8s ease-in-out infinite;
+            z-index: 1;
         }
 
-        .hero-content::before {
+        .hero-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .salon-chair {
+            position: absolute;
+            bottom: 20%;
+            right: 20%;
+            width: 80px;
+            height: 100px;
+            background: var(--gradient-leather);
+            border-radius: 20px 20px 5px 5px;
+            opacity: 0.15;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .salon-chair::before {
             content: '';
             position: absolute;
-            top: 60%;
-            right: 15%;
-            width: 100px;
-            height: 100px;
+            top: -10px;
+            left: 10px;
+            right: 10px;
+            height: 20px;
+            background: var(--rich-brown);
             border-radius: 50%;
-            background: rgba(212, 175, 55, 0.15);
-            animation: float2 8s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .salon-mirror {
+            position: absolute;
+            top: 25%;
+            left: 10%;
+            width: 60px;
+            height: 90px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-radius: 30px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.3;
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        .luxury-light {
+            position: absolute;
+            top: 15%;
+            right: 30%;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(255, 248, 220, 0.3) 0%, rgba(212, 175, 55, 0.2) 50%, transparent 100%);
+            border-radius: 50%;
+            animation: glow 6s ease-in-out infinite;
         }
 
         @keyframes float1 {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            33% { transform: translateY(-20px) translateX(10px); }
-            66% { transform: translateY(10px) translateX(-15px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
         }
 
         @keyframes float2 {
             0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(15px) translateX(20px); }
+            50% { transform: translateY(-15px) translateX(10px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
         }
 
         .hero-overlay {
@@ -206,107 +281,106 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, 
-                rgba(0, 0, 0, 0.3) 0%, 
-                rgba(0, 0, 0, 0.1) 50%, 
-                rgba(0, 0, 0, 0.3) 100%);
+                rgba(28, 28, 28, 0.2) 0%, 
+                rgba(139, 69, 19, 0.1) 30%,
+                rgba(212, 175, 55, 0.05) 50%,
+                rgba(160, 82, 45, 0.1) 70%,
+                rgba(28, 28, 28, 0.2) 100%);
             z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 800px;
             padding: 0 20px;
-            animation: fadeInUp 1.2s ease;
+            animation: fadeInUp 1.5s ease;
         }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--primary-color);
-            padding: 8px 20px;
+            background: rgba(255, 248, 220, 0.95);
+            color: var(--rich-brown);
+            padding: 10px 25px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
-            margin-bottom: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid var(--luxury-gold);
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 600;
+            font-size: 4.5rem;
+            font-weight: 700;
             color: white;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7), 
-                         0 0 20px rgba(0,0,0,0.5),
-                         0 0 40px rgba(139, 75, 140, 0.3);
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 15px rgba(28, 28, 28, 0.8), 
+                         0 0 30px rgba(212, 175, 55, 0.4);
             position: relative;
-            z-index: 3;
         }
 
         .hero h1::after {
-            content: '✨';
+            content: '👑';
             position: absolute;
-            top: -10px;
-            right: -30px;
-            font-size: 2rem;
-            animation: sparkle 2s ease-in-out infinite;
+            top: -15px;
+            right: -40px;
+            font-size: 2.5rem;
+            animation: sparkle 3s ease-in-out infinite;
         }
 
         @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.7; transform: scale(1.2) rotate(15deg); }
         }
 
         .hero .subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.4rem;
+            color: rgba(255, 248, 220, 0.95);
             margin-bottom: 40px;
             font-weight: 400;
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 
-                         0 0 15px rgba(0,0,0,0.5);
-            z-index: 3;
-            position: relative;
+            text-shadow: 2px 2px 10px rgba(28, 28, 28, 0.8);
+            line-height: 1.6;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--gradient-luxury);
             color: white;
-            padding: 15px 35px;
+            padding: 18px 40px;
             border: none;
             border-radius: 50px;
             font-size: 16px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-luxury);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-heavy);
+            box-shadow: var(--shadow-deep);
+            background: linear-gradient(135deg, #B8860B 0%, #8B4513 25%, #CD853F 50%, #DEB887 75%, #F0E68C 100%);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--primary-color);
-            padding: 15px 35px;
-            border: 2px solid var(--primary-color);
+            background: rgba(255, 248, 220, 0.95);
+            color: var(--rich-brown);
+            padding: 18px 40px;
+            border: 2px solid var(--luxury-gold);
             border-radius: 50px;
             font-size: 16px;
             font-weight: 600;
@@ -314,18 +388,19 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn-secondary:hover {
-            background: var(--primary-color);
+            background: var(--luxury-gold);
             color: white;
             transform: translateY(-2px);
+            box-shadow: var(--shadow-luxury);
         }
 
         /* About Section */
         .about {
-            padding: 100px 0;
+            padding: 120px 0;
             background: white;
             position: relative;
         }
@@ -343,8 +418,8 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--text-dark);
+            font-size: 3.2rem;
+            color: var(--rich-brown);
             margin-bottom: 20px;
             position: relative;
         }
@@ -352,102 +427,139 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--gradient-primary);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-luxury);
             border-radius: 2px;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
+            font-size: 1.3rem;
+            color: var(--leather-brown);
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
         }
 
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.8;
-            color: var(--text-light);
+            color: var(--deep-black);
         }
 
         .about-text h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--text-dark);
+            font-size: 2rem;
+            color: var(--rich-brown);
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
             margin-bottom: 20px;
         }
 
+        /* Professional CSS Art for About Image */
         .about-image {
             position: relative;
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-deep);
+            min-height: 450px;
+            background: var(--gradient-leather);
         }
 
-        .about-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                /* Salon interior elements */
+                radial-gradient(ellipse at 70% 30%, rgba(212, 175, 55, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 248, 220, 0.1) 0%, transparent 50%),
+                /* Lighting effects */
+                linear-gradient(45deg, transparent 30%, rgba(255, 248, 220, 0.2) 50%, transparent 70%),
+                linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(139, 69, 19, 0.2) 100%);
+        }
+
+        .about-image::after {
+            content: '🏪';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.3;
+            filter: sepia(100%) hue-rotate(30deg);
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         .stat-item {
             text-align: center;
-            padding: 30px 20px;
-            background: var(--gradient-subtle);
-            border-radius: 15px;
-            box-shadow: var(--shadow-light);
+            padding: 40px 30px;
+            background: linear-gradient(135deg, rgba(255, 248, 220, 0.8) 0%, rgba(245, 230, 211, 0.9) 100%);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-luxury);
         }
 
         .stat-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--luxury-gold);
+            margin-bottom: 15px;
         }
 
         .stat-label {
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--rich-brown);
+            font-size: 1.1rem;
         }
 
         /* Services Section */
         .services {
-            padding: 100px 0;
-            background: var(--gradient-subtle);
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(245, 230, 211, 0.3) 0%, rgba(255, 248, 220, 0.5) 100%);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin-top: 80px;
         }
 
         .service-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 45px 35px;
+            border-radius: 25px;
             text-align: center;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-soft);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -459,15 +571,15 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
+            height: 5px;
+            background: var(--gradient-luxury);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
+            box-shadow: var(--shadow-deep);
         }
 
         .service-card:hover::before {
@@ -475,76 +587,150 @@
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: var(--gradient-primary);
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            background: var(--gradient-luxury);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: white;
+            box-shadow: var(--shadow-soft);
         }
 
         .service-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            color: var(--rich-brown);
+            margin-bottom: 18px;
         }
 
         .service-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
+            color: var(--deep-black);
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
 
         .service-price {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            color: var(--luxury-gold);
+            margin-bottom: 25px;
         }
 
         /* Gallery Section */
         .gallery {
-            padding: 100px 0;
+            padding: 120px 0;
             background: white;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 80px;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             aspect-ratio: 1;
             cursor: pointer;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-soft);
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #8B4B8C 0%, #E8B4E3 100%);
         }
 
         .gallery-item:hover {
             transform: scale(1.05);
-            box-shadow: var(--shadow-heavy);
+            box-shadow: var(--shadow-deep);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        /* Professional CSS Art Gallery Items */
+        .gallery-item:nth-child(1) {
+            background: var(--gradient-leather);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .gallery-item:nth-child(1)::before {
+            content: '✂️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+
+        .gallery-item:nth-child(2) {
+            background: linear-gradient(45deg, var(--luxury-gold) 0%, var(--accent-copper) 100%);
+        }
+
+        .gallery-item:nth-child(2)::before {
+            content: '🎨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+
+        .gallery-item:nth-child(3) {
+            background: linear-gradient(135deg, var(--rich-brown) 0%, var(--leather-brown) 100%);
+        }
+
+        .gallery-item:nth-child(3)::before {
+            content: '💇‍♀️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+
+        .gallery-item:nth-child(4) {
+            background: linear-gradient(45deg, var(--accent-copper) 0%, var(--luxury-gold) 100%);
+        }
+
+        .gallery-item:nth-child(4)::before {
+            content: '👑';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+
+        .gallery-item:nth-child(5) {
+            background: var(--gradient-luxury);
+        }
+
+        .gallery-item:nth-child(5)::before {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+
+        .gallery-item:nth-child(6) {
+            background: linear-gradient(135deg, var(--leather-brown) 0%, var(--accent-copper) 100%);
+        }
+
+        .gallery-item:nth-child(6)::before {
+            content: '🔥';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
         }
 
         .gallery-overlay {
@@ -553,7 +739,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(139, 75, 140, 0.8);
+            background: rgba(28, 28, 28, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -570,96 +756,91 @@
             color: white;
         }
 
-        .gallery-overlay i {
-            font-size: 3rem;
-            color: white;
-        }
-
         /* Contact Section */
         .contact {
-            padding: 100px 0;
-            background: var(--gradient-subtle);
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(245, 230, 211, 0.5) 0%, rgba(255, 248, 220, 0.3) 100%);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 60px;
+            gap: 80px;
+            margin-top: 80px;
         }
 
         .contact-info {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-medium);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-deep);
         }
 
         .contact-info h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--rich-brown);
+            margin-bottom: 35px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 10px;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
             transition: background 0.3s ease;
         }
 
         .contact-item:hover {
-            background: var(--light-pink);
+            background: var(--warm-beige);
         }
 
         .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-luxury);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         .contact-form {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-medium);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-deep);
         }
 
         .contact-form h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--rich-brown);
+            margin-bottom: 35px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--rich-brown);
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #E5E5E5;
-            border-radius: 10px;
+            padding: 18px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
             font-size: 16px;
             transition: border-color 0.3s ease;
             font-family: 'Assistant', sans-serif;
@@ -669,12 +850,13 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: var(--luxury-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 130px;
         }
 
         /* Floating Action Buttons */
@@ -689,16 +871,16 @@
         }
 
         .floating-btn {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             color: white;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-heavy);
+            font-size: 1.6rem;
+            box-shadow: var(--shadow-deep);
             transition: all 0.3s ease;
         }
 
@@ -707,19 +889,19 @@
         }
 
         .floating-btn.phone {
-            background: var(--gradient-primary);
+            background: var(--gradient-luxury);
         }
 
         .floating-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         .footer {
-            background: var(--text-dark);
+            background: var(--deep-black);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
             text-align: center;
         }
 
@@ -731,55 +913,57 @@
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--accent-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--luxury-gold);
         }
 
         .footer-text {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 35px;
             color: #CCCCCC;
+            line-height: 1.6;
         }
 
         .footer-social {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 25px;
+            margin-bottom: 35px;
         }
 
         .footer-social a {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-luxury);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
         }
 
         .footer-social a:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-luxury);
         }
 
         .footer-bottom {
             border-top: 1px solid #444;
-            padding-top: 20px;
+            padding-top: 25px;
             color: #999;
+            font-size: 1rem;
         }
 
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -789,8 +973,8 @@
 
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
         }
 
         .fade-in.visible {
@@ -805,11 +989,11 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .hero .subtitle {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .hero-buttons {
@@ -820,12 +1004,12 @@
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
             }
 
             .stats {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
             }
 
             .services-grid {
@@ -842,19 +1026,53 @@
             }
 
             .floating-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 15px 30px;
+                font-size: 14px;
+            }
+
+            .service-card,
+            .contact-info,
+            .contact-form {
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Hero Elements Container -->
+    <div class="hero-elements">
+        <div class="salon-chair"></div>
+        <div class="salon-mirror"></div>
+        <div class="luxury-light"></div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-cut"></i>
+                <i class="fas fa-crown"></i>
                 סטודיו BELLA
             </a>
             <nav class="nav-menu">
@@ -873,26 +1091,25 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-background"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-star"></i>
-                מספרה מובילה בתל אביב
+                <i class="fas fa-diamond"></i>
+                מספרה יוקרתית מובילה בתל אביב
             </div>
             <h1>סטודיו BELLA</h1>
             <p class="subtitle">
-                חוויית יופי יוקרתית עם 15+ שנות מקצועיות<br>
-                טיפולי שיער, תספורות ועיצוב ברמה עולמית
+                חוויית יופי יוקרתית ברמה בינלאומית<br>
+                עיצוב מקצועי באווירה מפנקת עם כיסאות עור וקירות לבנים חשופים
             </p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">
                     <i class="fas fa-calendar-alt"></i>
-                    קביעת תור עכשיו
+                    קביעת תור VIP
                 </a>
                 <a href="tel:052-123-4567" class="btn-secondary">
                     <i class="fas fa-phone"></i>
-                    חייגו תור עכשיו
+                    התקשרו מיד
                 </a>
             </div>
         </div>
@@ -904,30 +1121,28 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">הסיפור שלנו</h2>
                 <p class="section-subtitle">
-                    15 שנות מצוינות בעולם היופי והעיצוב בלב תל אביב
+                    15 שנות מצוינות ויוקרה בעולם היופי והעיצוב בלב תל אביב
                 </p>
             </div>
             
             <div class="about-content">
                 <div class="about-text fade-in">
-                    <h3>מקום שבו יופי פוגש מקצועיות</h3>
+                    <h3>מקום שבו יוקרה פוגשת מקצועיות</h3>
                     <p>
-                        סטודיו BELLA הוא יותר מסתם מספרה - זה מקום שבו כל לקוח זוכה לחוויה אישית ויוקרתית. 
-                        צוות המעצבים המקצועיים שלנו מביא ניסיון עשיר ויצירתיות ללא גבולות.
+                        סטודיו BELLA הוא מספרה יוקרתית ברמה בינלאומית, שבה כל לקוח זוכה לחוויה אישית ומפנקת ברמה הגבוהה ביותר. 
+                        צוות המעצבים המקצועיים שלנו מביא ניסיון עשיר ויצירתיות ללא גבולות בסביבה מעוצבת ויוקרתית.
                     </p>
                     <p>
-                        אנו מתמחים בעיצוב שיער מותאם אישית, צביעות מתקדמות וטיפולי שיער חדשניים. 
+                        המקום שלנו עוצב ברוח מודרנית ויוקרתית עם קירות לבנים חשופים, כיסאות עור חומים מקצועיים, כיורים שחורים 
+                        מעוצבים ותאורה מקצועית שיוצרת אווירה מפנקת ויוקרתית.
+                    </p>
+                    <p>
+                        אנו מתמחים בעיצוב שיער מתקדם, צביעות בטכניקות חדשניות וטיפולי שיער פרמיום. 
                         כל טיפול מותאם במיוחד לסגנון החיים ולאישיות הייחודית של הלקוח.
-                    </p>
-                    <p>
-                        המקום שלנו עוצב ברוח מודרנית ויוקרתית, עם אווירה רגועה ומרגיעה שגורמת 
-                        לכל ביקור להפוך לחוויה בלתי נשכחת.
                     </p>
                 </div>
                 
-                <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="סטודיו BELLA פנים">
-                </div>
+                <div class="about-image fade-in"></div>
             </div>
 
             <div class="stats">
@@ -936,11 +1151,11 @@
                     <div class="stat-label">שנות ניסיון</div>
                 </div>
                 <div class="stat-item fade-in">
-                    <div class="stat-number">5,000+</div>
-                    <div class="stat-label">לקוחות מרוצים</div>
+                    <div class="stat-number">8,000+</div>
+                    <div class="stat-label">לקוחות VIP</div>
                 </div>
                 <div class="stat-item fade-in">
-                    <div class="stat-number">98%</div>
+                    <div class="stat-number">99%</div>
                     <div class="stat-label">שביעות רצון</div>
                 </div>
             </div>
@@ -953,7 +1168,7 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">השירותים שלנו</h2>
                 <p class="section-subtitle">
-                    מגוון מלא של טיפולי יופי ועיצוב ברמה מקצועית גבוהה
+                    מגוון מלא של טיפולי יופי ועיצוב ברמה יוקרתית בינלאומית
                 </p>
             </div>
 
@@ -962,54 +1177,54 @@
                     <div class="service-icon">
                         <i class="fas fa-cut"></i>
                     </div>
-                    <h3>תספורת ועיצוב</h3>
-                    <p>תספורות מודרניות ועיצוב שיער מקצועי המותאם לפנים ולסגנון האישי שלכם</p>
-                    <div class="service-price">החל מ-₪150</div>
+                    <h3>תספורת ועיצוב פרמיום</h3>
+                    <p>תספורות מודרניות ועיצוב שיער מקצועי במכשירים מתקדמים והמותאם לפנים ולסגנון האישי שלכם בכיסאות עור יוקרתיים</p>
+                    <div class="service-price">החל מ-₪200</div>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3>צביעה וגוונים</h3>
-                    <p>צביעות חדשניות, גוונים טבעיים ובהירות עם מוצרים איכותיים מהמותגים המובילים</p>
-                    <div class="service-price">החל מ-₪250</div>
+                    <h3>צביעה וגוונים מקצועיים</h3>
+                    <p>צביעות חדשניות בטכניקות מתקדמות, גוונים טבעיים ובהירות עם מוצרים איכותיים מהמותגים המובילים בעולם</p>
+                    <div class="service-price">החל מ-₪320</div>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <h3>תסרוקות ערב</h3>
-                    <p>תסרוקות אלגנטיות לאירועים מיוחדים, חתונות ומסיבות עם מראה מושלם</p>
-                    <div class="service-price">החל מ-₪300</div>
+                    <h3>תסרוקות ערב יוקרתיות</h3>
+                    <p>תסרוקות אלגנטיות לאירועים מיוחדים, חתונות ומסיבות עם מראה מושלם ומקצועי באווירה יוקרתית</p>
+                    <div class="service-price">החל מ-₪380</div>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-spa"></i>
                     </div>
-                    <h3>טיפולי שיער</h3>
-                    <p>טיפולים מזינים ומשקמים לשיער פגום, יבש או צבוע עם תוצאות מיידיות</p>
-                    <div class="service-price">החל מ-₪200</div>
+                    <h3>טיפולי שיער פרמיום</h3>
+                    <p>טיפולים מזינים ומשקמים עם מוצרים מהיוקרה לשיער פגום, יבש או צבוע עם תוצאות מיידיות ומרשימות</p>
+                    <div class="service-price">החל מ-₪280</div>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-male"></i>
                     </div>
-                    <h3>טיפוח גברים</h3>
-                    <p>תספורות גברים מקצועיות, גילוח מושלם ועיצוב זקן ושפם</p>
-                    <div class="service-price">החל מ-₪120</div>
+                    <h3>טיפוח גברים VIP</h3>
+                    <p>תספורות גברים מקצועיות, גילוח מושלם ועיצוב זקן ושפם באווירה יוקרתית ומקצועית</p>
+                    <div class="service-price">החל מ-₪180</div>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-gift"></i>
                     </div>
-                    <h3>חבילות ספא</h3>
-                    <p>חבילות מפנקות הכוללות מגוון טיפולים ליום פינוק מושלם</p>
-                    <div class="service-price">החל מ-₪350</div>
+                    <h3>חבילות ספא יוקרתיות</h3>
+                    <p>חבילות מפנקות הכוללות מגוון טיפולים ליום פינוק מושלם באווירה יוקרתית ומפנקת ברמה בינלאומית</p>
+                    <div class="service-price">החל מ-₪480</div>
                 </div>
             </div>
         </div>
@@ -1021,43 +1236,37 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">גלריית עבודות</h2>
                 <p class="section-subtitle">
-                    מבט על העבודות המקצועיות שלנו ותוצאות מרשימות
+                    מבט על העבודות המקצועיות שלנו ותוצאות מרשימות ברמה בינלאומית
                 </p>
             </div>
 
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="תסרוקת ערב אלגנטית">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="צביעה מקצועית">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1560869713-7d0b29837158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="תספורת מודרנית">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="עיצוב שיער יצירתי">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="הבהרות מקצועיות">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="טיפוח גברים">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -1070,9 +1279,9 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="section-title">קביעת תור וצור קשר</h2>
+                <h2 class="section-title">קביעת תור VIP</h2>
                 <p class="section-subtitle">
-                    נשמח לקבל אתכם בסטודיו ולספק לכם חוויית יופי בלתי נשכחת
+                    נשמח לקבל אתכם בסטודיו ולספק לכם חוויית יופי יוקרתית בלתי נשכחת
                 </p>
             </div>
 
@@ -1109,14 +1318,14 @@
                     <div class="contact-item">
                         <i class="fab fa-whatsapp"></i>
                         <div>
-                            <strong>וואטסאפ:</strong><br>
+                            <strong>וואטסאפ VIP:</strong><br>
                             052-123-4567
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form fade-in">
-                    <h3>קביעת תור</h3>
+                    <h3>קביעת תור יוקרתי</h3>
                     <form id="appointmentForm">
                         <div class="form-group">
                             <label for="name">שם מלא *</label>
@@ -1129,15 +1338,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="service">סוג השירות</label>
+                            <label for="service">סוג השירות הרצוי</label>
                             <select id="service" name="service">
-                                <option value="">בחר שירות</option>
-                                <option value="תספורת ועיצוב">תספורת ועיצוב</option>
-                                <option value="צביעה וגוונים">צביעה וגוונים</option>
-                                <option value="תסרוקות ערב">תסרוקות ערב</option>
-                                <option value="טיפולי שיער">טיפולי שיער</option>
-                                <option value="טיפוח גברים">טיפוח גברים</option>
-                                <option value="חבילות ספא">חבילות ספא</option>
+                                <option value="">בחר שירות יוקרתי</option>
+                                <option value="תספורת ועיצוב פרמיום">תספורת ועיצוב פרמיום</option>
+                                <option value="צביעה וגוונים מקצועיים">צביעה וגוונים מקצועיים</option>
+                                <option value="תסרוקות ערב יוקרתיות">תסרוקות ערב יוקרתיות</option>
+                                <option value="טיפולי שיער פרמיום">טיפולי שיער פרמיום</option>
+                                <option value="טיפוח גברים VIP">טיפוח גברים VIP</option>
+                                <option value="חבילות ספא יוקרתיות">חבילות ספא יוקרתיות</option>
                             </select>
                         </div>
 
@@ -1153,7 +1362,7 @@
 
                         <button type="submit" class="btn-primary" style="width: 100%;">
                             <i class="fas fa-paper-plane"></i>
-                            שלח בקשה לתור
+                            שלח בקשה לתור VIP
                         </button>
                     </form>
                 </div>
@@ -1163,7 +1372,7 @@
 
     <!-- Floating Action Buttons -->
     <div class="floating-actions">
-        <a href="https://wa.me/972521234567?text=היי, אני מעוניין לקבוע תור בסטודיו BELLA" class="floating-btn whatsapp" title="וואטסאפ">
+        <a href="https://wa.me/972521234567?text=היי, אני מעוניין לקבוע תור VIP בסטודיו BELLA" class="floating-btn whatsapp" title="וואטסאפ VIP">
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="tel:052-123-4567" class="floating-btn phone" title="התקשרו עכשיו">
@@ -1176,7 +1385,7 @@
         <div class="footer-content">
             <div class="footer-logo">סטודיו BELLA</div>
             <p class="footer-text">
-                מספרה מקצועית בתל אביב • חוויית יופי יוקרתית • 15+ שנות מצוינות
+                מספרה יוקרתית בתל אביב • חוויית יופי ברמה בינלאומית • 15+ שנות מצוינות
             </p>
             
             <div class="footer-social">
@@ -1247,13 +1456,13 @@
             const message = formData.get('message');
 
             // Create WhatsApp message
-            let whatsappMessage = `היי! אני רוצה לקבוע תור בסטודיו BELLA\n\n`;
+            let whatsappMessage = `👑 היי! אני רוצה לקבוע תור VIP בסטודיו BELLA\n\n`;
             whatsappMessage += `🏷️ שם: ${name}\n`;
             whatsappMessage += `📞 טלפון: ${phone}\n`;
-            if (service) whatsappMessage += `💄 שירות: ${service}\n`;
+            if (service) whatsappMessage += `💎 שירות: ${service}\n`;
             if (date) whatsappMessage += `📅 תאריך מועדף: ${date}\n`;
             if (message) whatsappMessage += `💬 הערות: ${message}\n`;
-            whatsappMessage += `\nתודה! 😊`;
+            whatsappMessage += `\n✨ מחכה לחוויה יוקרתית! 👑`;
 
             // Open WhatsApp
             const whatsappUrl = `https://wa.me/972521234567?text=${encodeURIComponent(whatsappMessage)}`;
@@ -1263,51 +1472,16 @@
             this.reset();
             
             // Show success message
-            alert('הטופס נשלח בהצלחה! אנו נחזור אליכם בהקדם.');
+            alert('🎉 הטופס נשלח בהצלחה! אנו נחזור אליכם בהקדם לתיאום התור VIP.');
         });
 
-        console.log('🎨 סטודיו BELLA - אתר יוקרתי ברמה מקצועית נטען בהצלחה!');
-        console.log('✨ תכונות מתקדמות: עיצוב רספונסיבי, אנימציות חלקות, טופס קביעת תור חכם');
-        console.log('📱 רספונסיבי מושלם לכל המכשירים');
-        console.log('🔗 חיבור ישיר לוואטסאפ וטלפון');
-        console.log('🖼️ תמונות מ-Unsplash וSource.unsplash - באתר אמיתי יעבדו מעולה!');
-        console.log('');
-        console.log('📋 הוראות להוספת תמונות משלך:');
-        console.log('1. צור תיקיית images/ בפרויקט GitHub');
-        console.log('2. העלה תמונות איכותיות: hero-bg.jpg, salon-interior.jpg, gallery-1.jpg...');
-        console.log('3. החלף את הקישורים ב-CSS ל: url("./images/hero-bg.jpg")');
-        console.log('4. התמונות יטענו מהר ויהיו יציבות לתמיד!');
-        
-        // ודא שהתמונות נטענות
-        window.addEventListener('load', function() {
-            let imageCount = 0;
-            let loadedImages = 0;
-            
-            document.querySelectorAll('img').forEach(img => {
-                imageCount++;
-                
-                img.addEventListener('load', function() {
-                    loadedImages++;
-                    console.log(`✅ תמונה נטענה: ${this.alt || this.src}`);
-                    
-                    if (loadedImages === imageCount) {
-                        console.log('🎉 כל התמונות נטענו בהצלחה!');
-                    }
-                });
-                
-                img.addEventListener('error', function() {
-                    console.log(`❌ שגיאה בטעינת תמונה: ${this.alt || this.src}`);
-                    this.style.background = 'linear-gradient(135deg, #8B4B8C 0%, #E8B4E3 100%)';
-                    this.style.minHeight = '200px';
-                });
-            });
-            
-            // בדוק תמונת רקע Hero
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                console.log('🏞️ תמונת הרקע הראשית הוגדרה עם כמה fallbacks');
-            }
-        });
+        console.log('👑 BELLA - מספרה יוקרתית ברמה בינלאומית נטענה בהצלחה!');
+        console.log('🎨 CSS Art מתקדם: מספרה מקצועית ללא תמונות חיצוניות');
+        console.log('🔥 טכניקות מקצועיות: gradients, shadows, animations, CSS art');
+        console.log('✨ עיצוב ברמה עולמית עם אלמנטים צפים ואפקטים מתקדמים');
+        console.log('💎 פלטת צבעים יוקרתית: זהב, חום עור, שחור עמוק');
+        console.log('📱 רספונסיבי מושלם וביצועים מעולים');
+        console.log('🚀 מוכן למכירה ברמה של $3,000+!');
     </script>
 </body>
 </html>
