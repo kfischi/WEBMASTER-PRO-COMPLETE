@@ -1086,17 +1086,17 @@
     <script>
         // Website data with proper IDs for editor integration
         const websites = {
-            'aesthetic-clinic': { name: 'קליניקת יופי פרמיום', file: 'aesthetic-clinic.html' },
-            'dr-michal-rosen': { name: 'ד"ר מיכל רוזן', file: 'dr-michal-rosen.html' },
-            'real-estate': { name: 'נדל"ן פרמיום', file: 'real-estate.html' },
-            'law-firm': { name: 'משרד ברקוביץ', file: 'law-firm.html' },
-            'nutritionist': { name: 'ד"ר שרה כהן', file: 'nutritionist.html' },
-            'multibrawn': { name: 'מולטיבראון', file: 'multibrawn.html' },
-            'fitness-coach': { name: 'דני פיט', file: 'fitness-co.html' },
-            'tutor': { name: 'ד"ר רונית לוי', file: 'tutor.html' },
-            'accountant': { name: 'רינה לוי CPA', file: 'accountant.html' },
-            'yoga-studio': { name: 'סטודיו אוהם', file: 'yoga-studio.html' },
-            'beauty-salon': { name: 'מספרה BELLA', file: 'beauty-salon.html' }
+            'aesthetic-clinic': { name: 'קליניקת יופי פרמיום', file: 'websites/aesthetic-clinic.html' },
+            'dr-michal-rosen': { name: 'ד"ר מיכל רוזן', file: 'websites/dr-michal-rosen.html' },
+            'real-estate': { name: 'נדל"ן פרמיום', file: 'websites/real-estate.html' },
+            'law-firm': { name: 'משרד ברקוביץ', file: 'websites/law-firm.html' },
+            'nutritionist': { name: 'ד"ר שרה כהן', file: 'websites/nutritionist.html' },
+            'multibrawn': { name: 'מולטיבראון', file: 'websites/multibrawn.html' },
+            'fitness-coach': { name: 'דני פיט', file: 'websites/fitness-co.html' },
+            'tutor': { name: 'ד"ר רונית לוי', file: 'websites/tutor.html' },
+            'accountant': { name: 'רינה לוי CPA', file: 'websites/accountant.html' },
+            'yoga-studio': { name: 'סטודיו אוהם', file: 'websites/yoga-studio.html' },
+            'beauty-salon': { name: 'מספרה BELLA', file: 'websites/beauty-salon.html' }
         };
 
         // Create floating particles
@@ -1133,7 +1133,7 @@
         function editWebsite(websiteId) {
             const website = websites[websiteId];
             if (website) {
-                const editorUrl = `webmaster_editor_fixed.html?website=${websiteId}`;
+                const editorUrl = `editor.html?website=${websiteId}`;
                 window.open(editorUrl, '_blank', 'width=1400,height=900');
                 showNotification(`🎨 פותח עורך מהפכני עבור ${website.name}`, 'success');
             } else {
@@ -1154,7 +1154,7 @@
 
         // Open main editor
         function openEditor() {
-            window.open('webmaster_editor_fixed.html', '_blank', 'width=1400,height=900');
+            window.open('editor.html', '_blank', 'width=1400,height=900');
             showNotification('🚀 פותח עורך ויזואלי מהפכני!', 'success');
         }
 
