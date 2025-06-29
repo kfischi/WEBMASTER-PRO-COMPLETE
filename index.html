@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebMaster Pro - גלריית דמואים יוקרתית | 8 אתרים מקצועיים</title>
-    <meta name="description" content="WebMaster Pro - מערכת מתקדמת לבניית אתרים עסקיים. 8 דמואים יוקרתיים בתחומים רווחיים. מראה מיליון דולר!">
+    <title>WebMaster Pro - גלריית דמואים מתקדמת | 11 אתרים מקצועיים מחוברים לעורך</title>
+    <meta name="description" content="WebMaster Pro - מערכת מתקדמת לבניית אתרים עסקיים. 11 דמואים מלאים מחוברים לעורך ויזואלי מתקדם. מראה יוקרתי ופונקציונליות מלאה!">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
-            --success-color: #26de81;
-            --warning-color: #fed330;
-            --danger-color: #f5576c;
-            --text-dark: #2c2c54;
-            --text-light: #40407a;
-            --background: #ffffff;
-            --surface: #f8f9fa;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-success: linear-gradient(135deg, #26de81 0%, #1dd1a1 100%);
-            --gradient-premium: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #26de81;
+            --warning: #fed330;
+            --danger: #f5576c;
+            --dark: #1a1a2e;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
         }
 
         * {
@@ -32,11 +34,28 @@
         }
 
         body {
-            font-family: 'Heebo', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--background);
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* Glass morphism background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.3) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
         }
 
         .container {
@@ -47,215 +66,202 @@
 
         /* Header */
         .header {
-            background: white;
-            box-shadow: 0 2px 20px rgba(102, 126, 234, 0.1);
+            backdrop-filter: blur(20px);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
+            margin: 20px;
+            border-radius: 20px;
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 20px 30px;
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            background: var(--gradient-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
-            letter-spacing: 2px;
-            text-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
         .logo:hover {
             transform: scale(1.05);
-            text-shadow: 0 6px 30px rgba(102, 126, 234, 0.5);
+            filter: drop-shadow(0 4px 20px rgba(255,255,255,0.3));
         }
 
         .nav-stats {
             display: flex;
-            gap: 2rem;
+            gap: 15px;
             align-items: center;
         }
 
         .stat-badge {
-            background: var(--gradient-primary);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            animation: pulse 2s infinite;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
+            color: white;
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
             font-weight: 900;
-            margin-bottom: 2rem;
-            background: var(--gradient-primary);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
-            letter-spacing: 1px;
-            text-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
-            position: relative;
-            z-index: 2;
         }
 
         .hero p {
-            font-size: 1.6rem;
-            margin-bottom: 3rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            max-width: 800px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 400;
-            position: relative;
-            z-index: 2;
+            line-height: 1.7;
         }
 
-        .stats-grid {
+        .hero-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 2;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
         }
 
-        .stats-grid .stat-card {
-            background: white;
-            padding: 2.5rem;
+        .hero-stat {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .stats-grid .stat-card:hover {
+        .hero-stat:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .stats-grid .stat-card .icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .stats-grid .stat-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: var(--gradient-premium);
+        .hero-stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: var(--gradient-2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1;
-            text-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
         }
 
-        .stats-grid .stat-card p {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .hero-stat p {
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
         /* Gallery Section */
         .gallery-section {
-            padding: 100px 0;
-            background: var(--background);
+            padding: 100px 20px;
+            background: var(--light);
+            border-radius: 40px 40px 0 0;
+            margin-top: 50px;
+            position: relative;
         }
 
         .gallery-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
             text-align: center;
-            margin-bottom: 3rem;
-            background: var(--gradient-primary);
+            margin-bottom: 20px;
+            background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 1px;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .websites-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .website-card {
             background: white;
-            border-radius: 25px;
-            padding: 0;
-            text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            position: relative;
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .website-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.25);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
         }
 
-        .website-card .card-image {
+        .card-image {
             width: 100%;
-            height: 250px;
+            height: 220px;
             background-size: cover;
             background-position: center;
-            border-radius: 25px 25px 0 0;
             position: relative;
             overflow: hidden;
         }
 
-        .website-card .card-image::before {
+        .card-image::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.6));
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.6));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -264,176 +270,147 @@
             opacity: 1;
         }
 
-        .website-card .card-content {
-            padding: 40px 30px;
-            position: relative;
+        .card-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
         }
 
-        .website-card .icon-wrapper {
-            width: 80px;
-            height: 80px;
-            margin: -60px auto 30px;
-            background: white;
-            border-radius: 20px;
+        .price-badge {
+            background: var(--gradient-2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+        }
+
+        .popular-badge {
+            background: var(--gradient-4);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-            z-index: 2;
-        }
-
-        .website-card .icon-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: var(--gradient-primary);
-            border-radius: 23px;
-            z-index: -1;
-        }
-
-        .website-card .icon-wrapper i {
-            font-size: 40px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .website-card:hover .icon-wrapper {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6);
-        }
-
-        .website-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-        }
-
-        .website-card .price {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            background: var(--gradient-premium);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .website-card .category {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
 
-        .website-card .description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
+        .card-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .card-category {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-description {
+            color: #64748b;
+            font-size: 0.95rem;
             line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        .website-card .features {
+        .card-features {
             list-style: none;
-            margin-bottom: 30px;
-            text-align: right;
+            margin-bottom: 25px;
         }
 
-        .website-card .features li {
-            padding: 8px 0;
-            color: var(--text-light);
-            font-size: 1rem;
+        .card-features li {
+            padding: 4px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
         }
 
-        .website-card .features li i {
-            color: var(--success-color);
-            margin-left: 10px;
+        .card-features li i {
+            color: var(--success);
+            margin-left: 8px;
+            font-size: 12px;
         }
 
         .card-actions {
             display: flex;
-            gap: 15px;
-            justify-content: center;
+            gap: 12px;
         }
 
-        .btn-primary, .btn-secondary {
-            padding: 18px 35px;
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             text-decoration: none;
+            text-align: center;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
 
         .btn-secondary {
             background: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--gradient-premium);
+        .btn-secondary:hover {
+            background: var(--primary);
             color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 3;
-            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
-            animation: pulse 2s infinite;
+            transform: translateY(-2px);
         }
 
         /* CTA Section */
         .cta-section {
-            background: var(--gradient-primary);
-            padding: 100px 0;
+            background: var(--dark);
+            padding: 80px 20px;
             text-align: center;
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -445,42 +422,58 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
         }
 
         .cta-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 2rem;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
         }
 
         .cta-section p {
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 3rem;
-            font-weight: 400;
-            max-width: 700px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             position: relative;
             z-index: 2;
         }
 
-        .cta-section .btn-primary {
-            background: white;
-            color: var(--primary-color);
+        .cta-btn {
+            background: var(--gradient-2);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
             position: relative;
             z-index: 2;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
         }
 
         /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -491,46 +484,26 @@
             to { transform: rotate(360deg); }
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .websites-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-stats {
-                gap: 1rem;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .websites-grid { grid-template-columns: 1fr; gap: 20px; }
+            .hero-stats { grid-template-columns: 1fr; gap: 20px; }
+            .nav { flex-direction: column; gap: 20px; }
+            .nav-stats { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .card-actions { flex-direction: column; }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav">
             <a href="#" class="logo">WebMaster Pro</a>
             <div class="nav-stats">
-                <div class="stat-badge">8+ אתרים מוכנים</div>
-                <div class="stat-badge">₪25,900 ערך כולל</div>
-                <div class="stat-badge">רמה עולמית</div>
+                <div class="stat-badge">11 אתרים מוכנים</div>
+                <div class="stat-badge">₪29,600 ערך כולל</div>
+                <div class="stat-badge">מחובר לעורך</div>
             </div>
         </nav>
     </header>
@@ -539,29 +512,24 @@
     <section class="hero">
         <div class="container">
             <h1>WebMaster Pro</h1>
-            <p>מערכת מתקדמת לבניית אתרים עסקיים עם גלריית דמואים חיים ואדיטור ויזואלי מקצועי. 8 אתרים יוקרתיים מוכנים למכירה במראה מיליון דולר!</p>
+            <p>מערכת מתקדמת לבניית אתרים עסקיים עם גלריית דמואים חיים ואדיטור ויזואלי מקצועי. 11 אתרים יוקרתיים מוכנים למכירה עם חיבור ישיר לעורך!</p>
             
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>8</h3>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <h3>11</h3>
                     <p>אתרים מוכנים</p>
                 </div>
-                <div class="stat-card">
-                    <div class="icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3>₪25,900</h3>
+                <div class="hero-stat">
+                    <h3>₪29,600</h3>
                     <p>ערך כולל</p>
                 </div>
-                <div class="stat-card">
-                    <div class="icon">
-                        <i class="fas fa-star"></i>
-                    </div>
+                <div class="hero-stat">
                     <h3>100%</h3>
                     <p>רמה עולמית</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>⚡</h3>
+                    <p>עריכה מיידית</p>
                 </div>
             </div>
         </div>
@@ -570,198 +538,294 @@
     <!-- Gallery Section -->
     <section class="gallery-section">
         <div class="container">
-            <h2>גלריית אתרים יוקרתיים</h2>
+            <h2>גלריית אתרים מתקדמת</h2>
+            <p class="gallery-subtitle">11 אתרים מקצועיים מוכנים לעריכה מיידית עם עורך ויזואלי מתקדם ברמה עולמית</p>
             
             <div class="websites-grid">
-                <!-- Website Card 1 - Medical -->
+                <!-- Website 1 - Medical Premium -->
+                <div class="website-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪3,200</div>
+                        <div class="popular-badge">פרמיום</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="card-title">קליניקת יופי פרמיום</h3>
+                        <p class="card-category">אסתטיקה רפואית</p>
+                        <p class="card-description">מרכז רפואה אסתטית מתקדמת במגדל עזריאלי עם 6 טיפולים יוקרתיים ועיצוב זהוב פרמיום.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-check"></i> בוטוקס פרמיום</li>
+                            <li><i class="fas fa-check"></i> לייזר פרקציונלי</li>
+                            <li><i class="fas fa-check"></i> פילינג יהלום</li>
+                            <li><i class="fas fa-check"></i> טיפולי היפו מתקדמים</li>
+                        </ul>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="editWebsite('aesthetic-clinic')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('aesthetic-clinic')">תצוגה מקדימה</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Website 2 - Medical -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="popular-badge">פופולרי</div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,800</div>
+                        <div class="popular-badge">פופולרי</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-stethoscope"></i>
                         </div>
-                        <h3>ד"ר מיכל רוזן</h3>
-                        <div class="price">₪2,800</div>
-                        <div class="category">רפואה אסתטית</div>
-                        <p class="description">אתר מקצועי למרפאה אסתטית עם 6 טיפולים מתקדמים, מחשבון מחירים, וגלריית לפני-אחרי.</p>
-                        <ul class="features">
+                        <h3 class="card-title">ד"ר מיכל רוזן</h3>
+                        <p class="card-category">רפואה אסתטית</p>
+                        <p class="card-description">אתר מקצועי למרפאה אסתטית עם 6 טיפולים מתקדמים, מחשבון מחירים וגלריית לפני-אחרי.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 טיפולים אסתטיים מפורטים</li>
                             <li><i class="fas fa-check"></i> מחשבון מחירים אינטראקטיבי</li>
                             <li><i class="fas fa-check"></i> גלריית תוצאות לפני-אחרי</li>
                             <li><i class="fas fa-check"></i> הזמנת תורים אונליין</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('dr-michal-rosen')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('dr-michal-rosen')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 2 - Legal -->
+                <!-- Website 3 - Real Estate -->
+                <div class="website-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,700</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="card-title">נדל"ן פרמיום</h3>
+                        <p class="card-category">השקעות נדל"ן</p>
+                        <p class="card-description">אתר יוקרתי לחברת נדל"ן עם 6 נכסי פרמיום, מחשבון השקעה מתקדם ושירותים מקצועיים.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-check"></i> מכירת נכסי יוקרה</li>
+                            <li><i class="fas fa-check"></i> השקעות נדל"ן מתקדמות</li>
+                            <li><i class="fas fa-check"></i> מחשבון ROI נדל"ן</li>
+                            <li><i class="fas fa-check"></i> ייעוץ השקעות אישי</li>
+                        </ul>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="editWebsite('real-estate')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('real-estate')">תצוגה מקדימה</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Website 4 - Legal -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,500</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-balance-scale"></i>
                         </div>
-                        <h3>משרד ברקוביץ</h3>
-                        <div class="price">₪2,500</div>
-                        <div class="category">שירותים משפטיים</div>
-                        <p class="description">אתר מקצועי למשרד עורכי דין עם 6 התמחויות משפטיות, טפסי ייעוץ מקוונים ומערכת הזמנת פגישות.</p>
-                        <ul class="features">
+                        <h3 class="card-title">משרד ברקוביץ</h3>
+                        <p class="card-category">שירותים משפטיים</p>
+                        <p class="card-description">אתר מקצועי למשרד עורכי דין עם 6 התמחויות משפטיות וטפסי ייעוץ מקוונים.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 תחומי משפט מתמחים</li>
                             <li><i class="fas fa-check"></i> טפסי ייעוץ מקצועיים</li>
                             <li><i class="fas fa-check"></i> מערכת הזמנת פגישות</li>
                             <li><i class="fas fa-check"></i> אזור לקוחות מוגן</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('law-firm')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('law-firm')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 3 - Nutrition -->
+                <!-- Website 5 - Nutrition -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,400</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-apple-alt"></i>
                         </div>
-                        <h3>ד"ר שרה כהן</h3>
-                        <div class="price">₪2,400</div>
-                        <div class="category">תזונה קלינית</div>
-                        <p class="description">אתר מקצועי לתזונאית קלינית עם 6 שירותי תזונה מתמחים, מחשבון BMI ותוכניות תזונה מותאמות אישית.</p>
-                        <ul class="features">
+                        <h3 class="card-title">ד"ר שרה כהן</h3>
+                        <p class="card-category">תזונה קלינית</p>
+                        <p class="card-description">אתר מקצועי לתזונאית קלינית עם 6 שירותי תזונה ומחשבון BMI אינטראקטיבי.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 שירותי תזונה מתמחים</li>
                             <li><i class="fas fa-check"></i> מחשבון BMI אינטראקטיבי</li>
                             <li><i class="fas fa-check"></i> תוכניות תזונה מותאמות</li>
                             <li><i class="fas fa-check"></i> מעקב התקדמות אישי</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('nutritionist')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('nutritionist')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 4 - Fitness -->
+                <!-- Website 6 - Events -->
+                <div class="website-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f29c853cb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,300</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 class="card-title">מולטיבראון - נופש ואירועים</h3>
+                        <p class="card-category">נופש ואירועים</p>
+                        <p class="card-description">אתר יוקרתי למרכז נופש ואירועים עם 6 שירותים מקיפים וגלריית תמונות עשירה.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-check"></i> חתונות וחגיגות</li>
+                            <li><i class="fas fa-check"></i> אירועי חברה יוקרתיים</li>
+                            <li><i class="fas fa-check"></i> נופש בוטיק מותאם</li>
+                            <li><i class="fas fa-check"></i> קייטרינג מקצועי</li>
+                        </ul>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="editWebsite('multibrawn')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('multibrawn')">תצוגה מקדימה</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Website 7 - Fitness -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,200</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-dumbbell"></i>
                         </div>
-                        <h3>דני פיט</h3>
-                        <div class="price">₪2,200</div>
-                        <div class="category">אימון אישי</div>
-                        <p class="description">אתר מקצועי למאמן כושר אישי עם 6 שירותי אימון, 3 תוכניות אימון מובנות ומערכת מעקב התקדמות.</p>
-                        <ul class="features">
+                        <h3 class="card-title">דני פיט</h3>
+                        <p class="card-category">אימון אישי</p>
+                        <p class="card-description">אתר מקצועי למאמן כושר אישי עם 6 שירותי אימון ו-3 תוכניות אימון מובנות.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 שירותי אימון מגוונים</li>
                             <li><i class="fas fa-check"></i> 3 תוכניות אימון מוכנות</li>
                             <li><i class="fas fa-check"></i> מערכת מעקב התקדמות</li>
                             <li><i class="fas fa-check"></i> הזמנת אימונים אונליין</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('fitness-coach')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('fitness-coach')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 5 - Education -->
+                <!-- Website 8 - Education -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,100</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3>ד"ר רונית לוי</h3>
-                        <div class="price">₪2,100</div>
-                        <div class="category">חינוך פרטי</div>
-                        <p class="description">אתר מקצועי למורה פרטית עם 6 מקצועות הוראה, מחשבון ציונים לבגרות ומערכת הזמנת שיעורים.</p>
-                        <ul class="features">
+                        <h3 class="card-title">ד"ר רונית לוי</h3>
+                        <p class="card-category">חינוך פרטי</p>
+                        <p class="card-description">אתר מקצועי למורה פרטית עם 6 מקצועות הוראה ומחשבון ציונים לבגרות.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 מקצועות הוראה מגוונים</li>
                             <li><i class="fas fa-check"></i> מחשבון ציונים לבגרות</li>
                             <li><i class="fas fa-check"></i> מערכת הזמנת שיעורים</li>
                             <li><i class="fas fa-check"></i> מעקב התקדמות תלמידים</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('tutor')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('tutor')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 6 - Finance -->
+                <!-- Website 9 - Finance -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪2,000</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-calculator"></i>
                         </div>
-                        <h3>רינה לוי CPA</h3>
-                        <div class="price">₪2,000</div>
-                        <div class="category">חשבונות ושכר</div>
-                        <p class="description">אתר מקצועי לחשבת מוסמכת עם 6 שירותי חשבונות, מחשבון שכר נטו ומערכת העלאת מסמכים מאובטחת.</p>
-                        <ul class="features">
+                        <h3 class="card-title">רינה לוי CPA</h3>
+                        <p class="card-category">חשבונות ושכר</p>
+                        <p class="card-description">אתר מקצועי לחשבת מוסמכת עם 6 שירותי חשבונות ומחשבון שכר נטו.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 שירותי חשבונות מקצועיים</li>
                             <li><i class="fas fa-check"></i> מחשבון שכר נטו</li>
                             <li><i class="fas fa-check"></i> העלאת מסמכים מאובטחת</li>
                             <li><i class="fas fa-check"></i> דוחות מס אוטומטיים</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('accountant')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('accountant')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 7 - Yoga -->
+                <!-- Website 10 - Yoga -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪1,900</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-om"></i>
                         </div>
-                        <h3>סטודיו אוהם</h3>
-                        <div class="price">₪1,900</div>
-                        <div class="category">יוגה ומדיטציה</div>
-                        <p class="description">אתר מקצועי לסטודיו יוגה עם 6 סוגי שיעורים, לוח זמנים שבועי אינטראקטיבי ומערכת הזמנה מקוונת.</p>
-                        <ul class="features">
+                        <h3 class="card-title">סטודיו אוהם</h3>
+                        <p class="card-category">יוגה ומדיטציה</p>
+                        <p class="card-description">אתר מקצועי לסטודיו יוגה עם 6 סוגי שיעורים ולוח זמנים אינטראקטיבי.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 סוגי שיעורי יוגה</li>
                             <li><i class="fas fa-check"></i> לוח זמנים אינטראקטיבי</li>
                             <li><i class="fas fa-check"></i> הזמנת שיעורים אונליין</li>
                             <li><i class="fas fa-check"></i> מעקב מנויים וכרטיסיות</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('yoga-studio')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('yoga-studio')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Website Card 8 - Beauty -->
+                <!-- Website 11 - Beauty -->
                 <div class="website-card">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-overlay">
+                        <div class="price-badge">₪1,700</div>
+                    </div>
                     <div class="card-content">
-                        <div class="icon-wrapper">
+                        <div class="card-icon">
                             <i class="fas fa-cut"></i>
                         </div>
-                        <h3>מספרה BELLA</h3>
-                        <div class="price">₪1,700</div>
-                        <div class="category">יופי ועיצוב שיער</div>
-                        <p class="description">אתר מקצועי למספרה יוקרתית עם 6 שירותי יופי, גלריית עבודות מרהיבה ומערכת הזמנת תורים חכמה.</p>
-                        <ul class="features">
+                        <h3 class="card-title">מספרה BELLA</h3>
+                        <p class="card-category">יופי ועיצוב שיער</p>
+                        <p class="card-description">אתר מקצועי למספרה יוקרתית עם 6 שירותי יופי וגלריית עבודות מרהיבה.</p>
+                        <ul class="card-features">
                             <li><i class="fas fa-check"></i> 6 שירותי יופי יוקרתיים</li>
                             <li><i class="fas fa-check"></i> גלריית עבודות מקצועית</li>
                             <li><i class="fas fa-check"></i> הזמנת תורים חכמה</li>
                             <li><i class="fas fa-check"></i> ניהול צוות ועובדים</li>
                         </ul>
                         <div class="card-actions">
-                            <button class="btn-primary">צפייה בדמו</button>
-                            <button class="btn-secondary">ערוך</button>
+                            <button class="btn btn-primary" onclick="editWebsite('beauty-salon')">עריכה מיידית</button>
+                            <button class="btn btn-secondary" onclick="viewDemo('beauty-salon')">תצוגה מקדימה</button>
                         </div>
                     </div>
                 </div>
@@ -773,9 +837,148 @@
     <section class="cta-section">
         <div class="container">
             <h2>מוכן לבנות את האתר שלך?</h2>
-            <p>הצטרף לאלפי לקוחות מרוצים שבחרו ב-WebMaster Pro ליצירת אתרים מקצועיים ברמה עולמית</p>
-            <button class="btn-primary">התחל עכשיו</button>
+            <p>הצטרף לאלפי לקוחות מרוצים שבחרו ב-WebMaster Pro ליצירת אתרים מקצועיים ברמה עולמית עם עורך מתקדם</p>
+            <a href="#" class="cta-btn" onclick="openEditor()">פתח את העורך המתקדם</a>
         </div>
     </section>
+
+    <script>
+        // Website data with proper IDs for editor integration
+        const websites = {
+            'aesthetic-clinic': { 
+                name: 'קליניקת יופי פרמיום', 
+                file: 'aesthetic-clinic.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'dr-michal-rosen': { 
+                name: 'ד"ר מיכל רוזן', 
+                file: 'dr-michal-rosen.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'real-estate': { 
+                name: 'נדל"ן פרמיום', 
+                file: 'real-estate.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'law-firm': { 
+                name: 'משרד ברקוביץ', 
+                file: 'law-firm.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'nutritionist': { 
+                name: 'ד"ר שרה כהן', 
+                file: 'nutritionist.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'multibrawn': { 
+                name: 'מולטיבראון', 
+                file: 'multibrawn.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'fitness-coach': { 
+                name: 'דני פיט', 
+                file: 'fitness-co.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'tutor': { 
+                name: 'ד"ר רונית לוי', 
+                file: 'tutor.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'accountant': { 
+                name: 'רינה לוי CPA', 
+                file: 'accountant.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'yoga-studio': { 
+                name: 'סטודיו אוהם', 
+                file: 'yoga-studio.html',
+                editor: 'webmaster_editor_fixed.html'
+            },
+            'beauty-salon': { 
+                name: 'מספרה BELLA', 
+                file: 'beauty-salon.html',
+                editor: 'webmaster_editor_fixed.html'
+            }
+        };
+
+        // Edit website function - opens editor with specific website
+        function editWebsite(websiteId) {
+            const website = websites[websiteId];
+            if (website) {
+                // Open editor with website parameter
+                const editorUrl = `${website.editor}?website=${websiteId}`;
+                window.open(editorUrl, '_blank', 'width=1400,height=900');
+                
+                // Show confirmation
+                showNotification(`🎨 פותח עורך ויזואלי עבור ${website.name}`, 'success');
+            } else {
+                showNotification('❌ שגיאה: אתר לא נמצא', 'error');
+            }
+        }
+
+        // View demo function - opens website preview
+        function viewDemo(websiteId) {
+            const website = websites[websiteId];
+            if (website) {
+                window.open(website.file, '_blank');
+                showNotification(`👀 פותח תצוגה מקדימה של ${website.name}`, 'info');
+            } else {
+                showNotification('❌ שגיאה: קובץ לא נמצא', 'error');
+            }
+        }
+
+        // Open main editor
+        function openEditor() {
+            window.open('webmaster_editor_fixed.html', '_blank', 'width=1400,height=900');
+            showNotification('🚀 פותח עורך ויזואלי מתקדם', 'success');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="padding: 15px 20px; background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin: 10px; border-left: 4px solid ${type === 'success' ? '#26de81' : type === 'error' ? '#f5576c' : '#667eea'};">
+                    <strong style="color: ${type === 'success' ? '#26de81' : type === 'error' ? '#f5576c' : '#667eea'};">${message}</strong>
+                </div>
+            `;
+            
+            // Add to top of page
+            document.body.appendChild(notification);
+            
+            // Position fixed
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.zIndex = '10000';
+            notification.style.transition = 'all 0.3s ease';
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Show welcome message
+            setTimeout(() => {
+                showNotification('🎉 גלריה עם 11 אתרים מוכנה לעריכה!', 'success');
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
