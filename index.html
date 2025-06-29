@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebMaster Pro - גלריית דמואים מהממת | 11 אתרים יוקרתיים ברמה עולמית</title>
-    <meta name="description" content="WebMaster Pro - המערכת המתקדמת בעולם לבניית אתרים עסקיים. 11 דמואים מהממים מחוברים לעורך ויזואלי מהפכני!">
+    <title>WebMaster Pro - גלריית אתרים מקצועיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    
     <style>
         :root {
             --primary: #667eea;
             --secondary: #764ba2;
             --accent: #f093fb;
-            --gold: #ffd700;
-            --platinum: #e5e4e2;
+            --success: #26de81;
+            --warning: #fed330;
+            --danger: #f5576c;
             --dark: #0a0a0a;
+            --dark-light: #1a1a2e;
+            --dark-lighter: #2d2d4a;
             --light: #ffffff;
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-strong: rgba(255, 255, 255, 0.15);
-            --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
-            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.3);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
-            --gradient-rainbow: linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            --gray: #8b8b8b;
+            --gray-light: #f5f5f5;
+            
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-success: linear-gradient(135deg, #26de81 0%, #4ade80 100%);
+            --gradient-glass: rgba(255, 255, 255, 0.1);
+            
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 20px 80px rgba(0, 0, 0, 0.25);
+            
+            --border-radius: 16px;
+            --border-radius-small: 8px;
+            --border-radius-large: 24px;
         }
 
         * {
@@ -35,1189 +42,1133 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: white;
-            overflow-x: hidden;
+            font-family: 'Assistant', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2d2d4a 100%);
+            color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Animated background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-        }
-
-        .animated-bg::before {
+        /* Animated Background */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(79, 172, 254, 0.2) 0%, transparent 50%);
-            animation: gradientShift 15s ease-in-out infinite;
-        }
-
-        /* Floating particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+                radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(38, 222, 129, 0.05) 0%, transparent 50%);
+            animation: gradientShift 30s ease-in-out infinite;
             z-index: -1;
-            pointer-events: none;
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
+        @keyframes gradientShift {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
         }
 
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 60px;
-            padding: 15px 30px;
+        .header-content {
             display: flex;
             align-items: center;
-            gap: 40px;
-            transition: all 0.3s ease;
-        }
-
-        .nav:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            justify-content: space-between;
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient-rainbow);
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-decoration: none;
-            background-size: 200% 200%;
-            animation: gradientMove 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .nav-stats {
+        .logo i {
+            font-size: 36px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-actions {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
         }
 
-        .stat-badge {
+        .nav-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-small);
+            color: var(--light);
+            padding: 12px 20px;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
         }
 
-        .stat-badge:hover {
+        .nav-btn:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .nav-btn.primary {
+            background: var(--gradient-primary);
+            border-color: var(--primary);
+        }
+
+        .nav-btn.primary:hover {
+            box-shadow: var(--shadow-medium);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 80px 0;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         .hero-content {
-            z-index: 2;
-            max-width: 1000px;
-            animation: fadeInUp 1.5s ease-out;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 800;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #667eea 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            opacity: 0.8;
-            margin-bottom: 50px;
-            font-weight: 300;
-            line-height: 1.7;
-        }
-
-        .hero-cta {
-            background: var(--gradient-rainbow);
-            border: none;
-            padding: 20px 50px;
-            border-radius: 60px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: inline-block;
-            background-size: 200% 200%;
-            animation: gradientMove 3s ease-in-out infinite;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
-        }
-
-        .hero-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .hero-cta:hover::before {
-            left: 100%;
-        }
-
-        /* Stats Grid */
-        .stats-section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-rainbow);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .stat-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            font-weight: 500;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 50%, #26de81 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
         }
 
-        .section-subtitle {
-            font-size: 1.3rem;
-            opacity: 0.7;
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-
-        /* Premium Grid Layout */
-        .websites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap: 40px;
-            perspective: 1000px;
-        }
-
-        /* Website Cards */
-        .website-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 32px;
-            overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            transform-style: preserve-3d;
-            height: fit-content;
-        }
-
-        .website-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(-5deg);
-            box-shadow: 
-                0 50px 100px rgba(0, 0, 0, 0.4),
-                0 0 80px rgba(102, 126, 234, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .card-header {
-            position: relative;
-            height: 280px;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-        }
-
-        .card-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(102, 126, 234, 0.6) 100%);
-            transition: opacity 0.4s ease;
-        }
-
-        .website-card:hover .card-header::before {
-            opacity: 0.7;
-        }
-
-        .card-overlay {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            z-index: 10;
-        }
-
-        .price-tag {
-            background: var(--gradient-gold);
-            color: #000;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4);
-            animation: pulse 2s infinite;
-        }
-
-        .premium-badge {
-            background: var(--gradient-2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 12px;
-            display: block;
-            text-align: center;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .card-content {
-            padding: 40px 32px;
-            position: relative;
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-rainbow);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
-            transition: all 0.4s ease;
-            background-size: 200% 200%;
-            animation: gradientMove 3s ease-in-out infinite;
-        }
-
-        .website-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.5);
-        }
-
-        .card-icon i {
-            font-size: 32px;
-            color: white;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-
-        .card-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: white;
-            line-height: 1.3;
-        }
-
-        .card-category {
-            color: #667eea;
-            font-size: 1rem;
-            font-weight: 500;
+        .hero-subtitle {
+            font-size: 1.4rem;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            opacity: 0.9;
+            font-weight: 500;
         }
 
-        .card-description {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .card-features {
-            list-style: none;
-            margin-bottom: 32px;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .card-features li {
-            padding: 8px 0;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .card-features li:hover {
-            color: white;
-            transform: translateX(5px);
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
 
-        .card-features li i {
-            color: #26de81;
-            margin-left: 12px;
-            font-size: 14px;
-            width: 16px;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
         }
 
-        .card-actions {
-            display: flex;
-            gap: 16px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 16px 24px;
-            border: none;
-            border-radius: 50px;
+        .stat-label {
             font-size: 1rem;
+            opacity: 0.9;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
         }
 
-        .btn-primary {
-            background: var(--gradient-1);
-            color: white;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+        /* Filters */
+        .filters {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
-        .btn-secondary {
+        .filter-btn {
             background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-small);
+            color: var(--light);
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.4);
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gradient-primary);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-light);
         }
 
-        /* Special premium card styling */
-        .premium-card {
-            position: relative;
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.3);
+        .search-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-small);
+            padding: 12px 15px;
+            color: var(--light);
+            font-size: 14px;
+            width: 250px;
+            transition: all 0.3s ease;
         }
 
-        .premium-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-gold);
-            border-radius: 34px;
-            z-index: -1;
-            opacity: 0.1;
-            animation: glow 2s ease-in-out infinite alternate;
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-rainbow);
-            opacity: 0.1;
-            animation: gradientMove 10s ease-in-out infinite;
+        /* Websites Grid */
+        .websites-section {
+            padding: 40px 0 80px;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .section-title {
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+            text-align: center;
+            margin-bottom: 50px;
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .cta-subtitle {
-            font-size: 1.3rem;
+        .websites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .website-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .website-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .website-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .website-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .website-content {
+            padding: 25px;
+        }
+
+        .website-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .website-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .website-category {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .website-price {
+            background: var(--gradient-success);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .website-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .website-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .website-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-small);
+            color: var(--light);
+            padding: 12px 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .action-btn.primary {
+            background: var(--gradient-primary);
+            border-color: var(--primary);
+        }
+
+        .action-btn.primary:hover {
+            box-shadow: var(--shadow-medium);
+        }
+
+        .action-btn.success {
+            background: var(--gradient-success);
+            border-color: var(--success);
+        }
+
+        /* Special badges */
+        .website-card.premium::before {
+            content: '⭐ פרמיום';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        .website-card.popular::before {
+            content: '🔥 פופולרי';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
             opacity: 0.8;
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .cta-button {
-            background: var(--gradient-rainbow);
+            background: var(--gradient-primary);
             border: none;
-            padding: 24px 60px;
-            border-radius: 60px;
+            border-radius: var(--border-radius);
             color: white;
-            font-size: 1.3rem;
+            padding: 20px 40px;
+            font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            background-size: 200% 200%;
-            animation: gradientMove 3s ease-in-out infinite;
-            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .cta-button:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 32px 80px rgba(102, 126, 234, 0.5);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
         }
 
-        /* Animations */
-        @keyframes gradientShift {
-            0%, 100% { 
-                background-position: 0% 50%;
-            }
-            50% { 
-                background-position: 100% 50%;
-            }
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 20px 25px;
+            color: var(--light);
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            min-width: 300px;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .notification.show {
+            transform: translateX(0);
         }
 
-        @keyframes float {
-            0% { 
-                transform: translateY(100vh) translateX(0px) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(-100px) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
+        .notification.success {
+            border-left: 4px solid var(--success);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .notification.error {
+            border-left: 4px solid var(--danger);
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
-            to { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+        .notification.warning {
+            border-left: 4px solid var(--warning);
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .websites-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
             
-            .nav {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header-content {
                 flex-direction: column;
                 gap: 20px;
-                padding: 20px;
             }
             
-            .nav-stats {
-                flex-wrap: wrap;
+            .nav-actions {
+                width: 100%;
                 justify-content: center;
-                gap: 10px;
-            }
-            
-            .card-actions {
-                flex-direction: column;
             }
             
             .hero {
-                height: auto;
-                padding: 120px 0;
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .websites-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: center;
+            }
+            
+            .search-box {
+                width: 100%;
             }
         }
 
-        /* Scroll animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .scroll-animate.animate {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .website-actions {
+                flex-direction: column;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
-    
-    <!-- Floating Particles -->
-    <div class="particles" id="particles"></div>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="#" class="logo">WebMaster Pro</a>
-        <div class="nav-stats">
-            <div class="stat-badge">11 אתרים מהממים</div>
-            <div class="stat-badge">₪29,600 ערך כולל</div>
-            <div class="stat-badge">🚀 עורך AI</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-magic"></i>
+                    WebMaster Pro
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="#" class="nav-btn" onclick="openEditor()">
+                        <i class="fas fa-edit"></i>
+                        פתח אדיטור
+                    </a>
+                    <a href="#websites" class="nav-btn">
+                        <i class="fas fa-globe"></i>
+                        אתרים
+                    </a>
+                    <a href="#" class="nav-btn primary">
+                        <i class="fas fa-rocket"></i>
+                        התחל עכשיו
+                    </a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>WebMaster Pro</h1>
-            <p>המערכת המתקדמת בעולם לבניית אתרים עסקיים עם בינה מלאכותית.<br>
-            11 דמואים מהממים ברמה עולמית מחוברים לעורך ויזואלי מהפכני!</p>
-            <a href="#gallery" class="hero-cta">גלה את הקסם ✨</a>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
         <div class="container">
-            <div class="stats-grid scroll-animate">
-                <div class="stat-card">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label">אתרים מהממים</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">₪29,600</div>
-                    <div class="stat-label">ערך כולל</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">רמה עולמית</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">⚡</div>
-                    <div class="stat-label">עריכה מיידית</div>
+            <div class="hero-content">
+                <h1 class="hero-title">WebMaster Pro</h1>
+                <p class="hero-subtitle">מערכת מתקדמת לבניית אתרים עסקיים מקצועיים</p>
+                <p class="hero-description">
+                    11 אתרים מוכנים ברמה עולמית עם אדיטור ויזואלי מתקדם. 
+                    בחר, התאם אישית והשק את האתר החדש שלך תוך 24 שעות!
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">אתרים מוכנים</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24 שעות</div>
+                        <div class="stat-label">זמן הכנה</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">תחומי התמחות</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">רספונסיבי</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="container">
-            <div class="section-header scroll-animate">
-                <h2 class="section-title">גלריית אתרים מהממת</h2>
-                <p class="section-subtitle">11 אתרים יוקרתיים ברמה עולמית שיהמם כל מי שרואה אותם</p>
+    <!-- Filters -->
+    <section class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterWebsites('all')">הכל</button>
+                <button class="filter-btn" onclick="filterWebsites('medical')">רפואה</button>
+                <button class="filter-btn" onclick="filterWebsites('business')">עסקים</button>
+                <button class="filter-btn" onclick="filterWebsites('fitness')">כושר</button>
+                <button class="filter-btn" onclick="filterWebsites('education')">חינוך</button>
+                <button class="filter-btn" onclick="filterWebsites('beauty')">יופי</button>
             </div>
             
-            <div class="websites-grid">
-                <!-- Premium Website -->
-                <div class="website-card premium-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪3,200</div>
-                        <div class="premium-badge">✨ פרמיום VIP</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3 class="card-title">קליניקת יופי פרמיום</h3>
-                        <p class="card-category">אסתטיקה רפואית VIP</p>
-                        <p class="card-description">מרכז רפואה אסתטית יוקרתי במגדל עזריאלי עם 6 טיפולים פרמיום ועיצוב זהוב מהמם שמרשים כל לקוח.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> בוטוקס פרמיום VIP</li>
-                            <li><i class="fas fa-check"></i> לייזר פרקציונלי מתקדם</li>
-                            <li><i class="fas fa-check"></i> פילינג יהלום יוקרתי</li>
-                            <li><i class="fas fa-check"></i> טיפולי היפו מהפכניים</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('aesthetic-clinic')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('aesthetic-clinic')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Medical Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,800</div>
-                        <div class="premium-badge">🔥 פופולרי</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-stethoscope"></i>
-                        </div>
-                        <h3 class="card-title">ד"ר מיכל רוזן</h3>
-                        <p class="card-category">רפואה אסתטית</p>
-                        <p class="card-description">אתר מהמם למרפאה אסתטית עם 6 טיפולים מתקדמים, מחשבון מחירים אינטראקטיבי וגלריית לפני-אחרי מרשימה.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> 6 טיפולים אסתטיים מפורטים</li>
-                            <li><i class="fas fa-check"></i> מחשבון מחירים חכם</li>
-                            <li><i class="fas fa-check"></i> גלריית תוצאות מרהיבה</li>
-                            <li><i class="fas fa-check"></i> הזמנת תורים אונליין</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('dr-michal-rosen')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('dr-michal-rosen')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Real Estate Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,700</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3 class="card-title">נדל"ן פרמיום</h3>
-                        <p class="card-category">השקעות נדל"ן יוקרתיות</p>
-                        <p class="card-description">אתר יוקרתי מהמם לחברת נדל"ן עם 6 נכסי פרמיום, מחשבון השקעה מתקדם ושירותים מקצועיים ברמה עולמית.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> נכסי יוקרה ייחודיים</li>
-                            <li><i class="fas fa-check"></i> השקעות נדל"ן חכמות</li>
-                            <li><i class="fas fa-check"></i> מחשבון ROI מתקדם</li>
-                            <li><i class="fas fa-check"></i> ייעוץ השקעות VIP</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('real-estate')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('real-estate')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Legal Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,500</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h3 class="card-title">משרד ברקוביץ</h3>
-                        <p class="card-category">שירותים משפטיים מובילים</p>
-                        <p class="card-description">אתר מקצועי מהמם למשרד עורכי דין מוביל עם 6 התמחויות משפטיות, טפסי ייעוץ חכמים ומערכת ניהול לקוחות מתקדמת.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> 6 תחומי משפט מתמחים</li>
-                            <li><i class="fas fa-check"></i> טפסי ייעוץ חכמים</li>
-                            <li><i class="fas fa-check"></i> מערכת פגישות מתקדמת</li>
-                            <li><i class="fas fa-check"></i> אזור לקוחות מאובטח</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('law-firm')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('law-firm')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nutrition Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,400</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-apple-alt"></i>
-                        </div>
-                        <h3 class="card-title">ד"ר שרה כהן</h3>
-                        <p class="card-category">תזונה קלינית מתקדמת</p>
-                        <p class="card-description">אתר מקצועי מהמם לתזונאית קלינית מובילה עם 6 שירותי תזונה מתמחים, מחשבון BMI חכם ותוכניות תזונה מותאמות אישית.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> שירותי תזונה מתמחים</li>
-                            <li><i class="fas fa-check"></i> מחשבון BMI אינטראקטיבי</li>
-                            <li><i class="fas fa-check"></i> תוכניות תזונה חכמות</li>
-                            <li><i class="fas fa-check"></i> מעקב התקדמות דיגיטלי</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('nutritionist')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('nutritionist')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Events Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f29c853cb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,300</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <h3 class="card-title">מולטיבראון</h3>
-                        <p class="card-category">נופש ואירועים יוקרתיים</p>
-                        <p class="card-description">אתר יוקרתי מהמם למרכז נופש ואירועים עם 6 שירותים מקיפים, גלריית תמונות עשירה וחוויות בלתי נשכחות.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> חתונות וחגיגות VIP</li>
-                            <li><i class="fas fa-check"></i> אירועי חברה יוקרתיים</li>
-                            <li><i class="fas fa-check"></i> נופש בוטיק מותאם</li>
-                            <li><i class="fas fa-check"></i> קייטרינג גורמה</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('multibrawn')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('multibrawn')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fitness Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,200</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-dumbbell"></i>
-                        </div>
-                        <h3 class="card-title">דני פיט</h3>
-                        <p class="card-category">אימון אישי מתקדם</p>
-                        <p class="card-description">אתר מקצועי מהמם למאמן כושר מוביל עם 6 שירותי אימון חדשניים, 3 תוכניות אימון מובנות ומערכת מעקב התקדמות חכמה.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> שירותי אימון מגוונים</li>
-                            <li><i class="fas fa-check"></i> תוכניות אימון מוכנות</li>
-                            <li><i class="fas fa-check"></i> מעקב התקדמות חכם</li>
-                            <li><i class="fas fa-check"></i> הזמנת אימונים דיגיטלית</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('fitness-coach')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('fitness-coach')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,100</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="card-title">ד"ר רונית לוי</h3>
-                        <p class="card-category">חינוך פרטי מתקדם</p>
-                        <p class="card-description">אתר מקצועי מהמם למורה פרטית מובילה עם 6 מקצועות הוראה, מחשבון ציונים לבגרות ומערכת למידה דיגיטלית חכמה.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> מקצועות הוראה מגוונים</li>
-                            <li><i class="fas fa-check"></i> מחשבון ציונים חכם</li>
-                            <li><i class="fas fa-check"></i> מערכת הזמנת שיעורים</li>
-                            <li><i class="fas fa-check"></i> מעקב התקדמות תלמידים</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('tutor')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('tutor')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Finance Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪2,000</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3 class="card-title">רינה לוי CPA</h3>
-                        <p class="card-category">חשבונות ושכר מתקדם</p>
-                        <p class="card-description">אתר מקצועי מהמם לחשבת מוסמכת עם 6 שירותי חשבונות מתקדמים, מחשבון שכר נטו חכם ומערכת ניהול פיננסי דיגיטלית.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> שירותי חשבונות מקצועיים</li>
-                            <li><i class="fas fa-check"></i> מחשבון שכר נטו חכם</li>
-                            <li><i class="fas fa-check"></i> העלאת מסמכים מאובטחת</li>
-                            <li><i class="fas fa-check"></i> דוחות מס אוטומטיים</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('accountant')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('accountant')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Yoga Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪1,900</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-om"></i>
-                        </div>
-                        <h3 class="card-title">סטודיו אוהם</h3>
-                        <p class="card-category">יוגה ומדיטציה מתקדמת</p>
-                        <p class="card-description">אתר מקצועי מהמם לסטודיו יוגה עם 6 סוגי שיעורים, לוח זמנים אינטראקטיבי ומערכת הזמנה דיגיטלית חכמה.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> סוגי שיעורי יוגה מגוונים</li>
-                            <li><i class="fas fa-check"></i> לוח זמנים אינטראקטיבי</li>
-                            <li><i class="fas fa-check"></i> הזמנת שיעורים דיגיטלית</li>
-                            <li><i class="fas fa-check"></i> מעקב מנויים חכם</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('yoga-studio')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('yoga-studio')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Beauty Website -->
-                <div class="website-card scroll-animate">
-                    <div class="card-header" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="card-overlay">
-                        <div class="price-tag">₪1,700</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-cut"></i>
-                        </div>
-                        <h3 class="card-title">מספרה BELLA</h3>
-                        <p class="card-category">יופי ועיצוב שיער יוקרתי</p>
-                        <p class="card-description">אתר מקצועי מהמם למספרה יוקרתית עם 6 שירותי יופי חדשניים, גלריית עבודות מרהיבה ומערכת הזמנת תורים חכמה.</p>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> שירותי יופי יוקרתיים</li>
-                            <li><i class="fas fa-check"></i> גלריית עבודות מקצועית</li>
-                            <li><i class="fas fa-check"></i> הזמנת תורים חכמה</li>
-                            <li><i class="fas fa-check"></i> ניהול צוות דיגיטלי</li>
-                        </ul>
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="editWebsite('beauty-salon')">🎨 עריכה מיידית</button>
-                            <button class="btn btn-secondary" onclick="viewDemo('beauty-salon')">👀 תצוגה מקדימה</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <input type="text" class="search-box" placeholder="חפש אתר..." onkeyup="searchWebsites(this.value)">
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Websites Section -->
+    <section class="websites-section" id="websites">
         <div class="container">
-            <div class="cta-content scroll-animate">
-                <h2 class="cta-title">מוכן לחוות את העתיד?</h2>
-                <p class="cta-subtitle">הצטרף למהפכת האתרים הדיגיטלית עם WebMaster Pro - המערכת המתקדמת בעולם עם עורך ויזואלי מהפכני ובינה מלאכותית</p>
-                <a href="#" class="cta-button" onclick="openEditor()">🚀 פתח את העורך המהפכני</a>
+            <h2 class="section-title">גלריית האתרים המקצועיים</h2>
+            
+            <div class="websites-grid" id="websitesGrid">
+                <!-- האתרים יטענו כאן דינמית -->
             </div>
         </div>
     </section>
+
+    <!-- Footer CTA -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-title">מוכן להתחיל?</h2>
+                <p class="footer-text">
+                    בחר אתר מהגלריה, התאם אותו לצרכים שלך עם האדיטור המתקדם, 
+                    והתחל למכור אתרים מקצועיים היום!
+                </p>
+                <button class="cta-button" onclick="openEditor()">
+                    <i class="fas fa-rocket"></i>
+                    פתח את האדיטור
+                </button>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Website data with proper IDs for editor integration
-        const websites = {
-            'aesthetic-clinic': { name: 'קליניקת יופי פרמיום', file: 'websites/aesthetic-clinic.html' },
-            'dr-michal-rosen': { name: 'ד"ר מיכל רוזן', file: 'websites/dr-michal-rosen.html' },
-            'real-estate': { name: 'נדל"ן פרמיום', file: 'websites/real-estate.html' },
-            'law-firm': { name: 'משרד ברקוביץ', file: 'websites/law-firm.html' },
-            'nutritionist': { name: 'ד"ר שרה כהן', file: 'websites/nutritionist.html' },
-            'multibrawn': { name: 'מולטיבראון', file: 'websites/multibrawn.html' },
-            'fitness-coach': { name: 'דני פיט', file: 'websites/fitness-co.html' },
-            'tutor': { name: 'ד"ר רונית לוי', file: 'websites/tutor.html' },
-            'accountant': { name: 'רינה לוי CPA', file: 'websites/accountant.html' },
-            'yoga-studio': { name: 'סטודיו אוהם', file: 'websites/yoga-studio.html' },
-            'beauty-salon': { name: 'מספרה BELLA', file: 'websites/beauty-salon.html' }
+        // ========== Website Database ==========
+        const availableWebsites = {
+            'aesthetic-clinic': {
+                id: 'aesthetic-clinic',
+                name: 'קליניקת יופי פרמיום',
+                category: 'אסתטיקה רפואית',
+                price: 3200,
+                file: 'websites/aesthetic-clinic.html',
+                businessName: 'קליניקת יופי פרמיום',
+                description: 'מרכז רפואה אסתטית מתקדמת עם 6 שירותים מפורטים, גלריה לפני-אחרי ומערכת הזמנות מקוונת.',
+                tags: ['רפואה', 'יופי', 'אסתטיקה', 'פרמיום'],
+                filterCategory: 'medical',
+                badge: 'premium',
+                icon: '💎'
+            },
+            'dr-michal-rosen': {
+                id: 'dr-michal-rosen',
+                name: 'ד"ר מיכל רוזן',
+                category: 'רפואה אסתטית',
+                price: 2800,
+                file: 'websites/dr-michal-rosen.html',
+                businessName: 'ד"ר מיכל רוזן',
+                description: 'אתר רופא אסתטיקה מקצועי עם מחשבון BMI, גלריית טיפולים ומערכת תורים מתקדמת.',
+                tags: ['רפואה', 'רופא', 'אסתטיקה', 'פופולרי'],
+                filterCategory: 'medical',
+                badge: 'popular',
+                icon: '👩‍⚕️'
+            },
+            'real-estate': {
+                id: 'real-estate',
+                name: 'נדל"ן פרמיום',
+                category: 'השקעות נדל"ן',
+                price: 2700,
+                file: 'websites/real-estate.html',
+                businessName: 'נדל"ן פרמיום',
+                description: 'פלטפורמת נדל"ן יוקרתית עם חיפוש מתקדם, גלריית נכסים ומחשבון משכנתא מקצועי.',
+                tags: ['נדל"ן', 'השקעות', 'יוקרה', 'מחשבון'],
+                filterCategory: 'business',
+                icon: '🏢'
+            },
+            'law-firm': {
+                id: 'law-firm',
+                name: 'משרד ברקוביץ',
+                category: 'שירותים משפטיים',
+                price: 2500,
+                file: 'websites/law-firm.html',
+                businessName: 'משרד ברקוביץ',
+                description: 'אתר משרד עורכי דין מקצועי עם תחומי התמחות, צוות מקצועי ומערכת יעוץ מקוונת.',
+                tags: ['משפטים', 'עורכי דין', 'יעוץ', 'מקצועי'],
+                filterCategory: 'business',
+                icon: '⚖️'
+            },
+            'nutritionist': {
+                id: 'nutritionist',
+                name: 'ד"ר שרה כהן',
+                category: 'תזונה קלינית',
+                price: 2400,
+                file: 'websites/nutritionist.html',
+                businessName: 'ד"ר שרה כהן',
+                description: 'אתר תזונאית קלינית עם מחשבון תזונה, תפריטים מותאמים ומערכת מעקב אישית.',
+                tags: ['תזונה', 'בריאות', 'דיאטה', 'מחשבון'],
+                filterCategory: 'medical',
+                icon: '🥗'
+            },
+            'multibrawn': {
+                id: 'multibrawn',
+                name: 'מולטיבראון',
+                category: 'נופש ואירועים',
+                price: 2300,
+                file: 'websites/multibrawn.html',
+                businessName: 'מולטיבראון',
+                description: 'פלטפורמת נופש ואירועים יוקרתית עם גלריית יעדים, מערכת הזמנות ותכנון אירועים.',
+                tags: ['נופש', 'אירועים', 'יוקרה', 'הזמנות'],
+                filterCategory: 'business',
+                icon: '🏖️'
+            },
+            'fitness-coach': {
+                id: 'fitness-coach',
+                name: 'דני פיט',
+                category: 'אימון אישי',
+                price: 2200,
+                file: 'websites/fitness-co.html',
+                businessName: 'דני פיט',
+                description: 'אתר מאמן כושר אישי עם תוכניות אימון, מחשבון BMI ומערכת מעקב התקדמות.',
+                tags: ['כושר', 'אימון', 'בריאות', 'מחשבון'],
+                filterCategory: 'fitness',
+                icon: '💪'
+            },
+            'tutor': {
+                id: 'tutor',
+                name: 'ד"ר רונית לוי',
+                category: 'חינוך פרטי',
+                price: 2100,
+                file: 'websites/tutor.html',
+                businessName: 'ד"ר רונית לוי',
+                description: 'אתר מורה פרטית מומחית עם תחומי לימוד, שיטות הוראה ומערכת שיעורים מקוונת.',
+                tags: ['חינוך', 'הוראה', 'לימודים', 'פרטי'],
+                filterCategory: 'education',
+                icon: '🎓'
+            },
+            'accountant': {
+                id: 'accountant',
+                name: 'רינה לוי CPA',
+                category: 'חשבונות ושכר',
+                price: 2000,
+                file: 'websites/accountant.html',
+                businessName: 'רינה לוי CPA',
+                description: 'אתר חשבת שכר מוסמכת עם מחשבון שכר, שירותי חשבונות ומערכת דיווחים.',
+                tags: ['חשבונות', 'שכר', 'מסים', 'מחשבון'],
+                filterCategory: 'business',
+                icon: '📊'
+            },
+            'yoga-studio': {
+                id: 'yoga-studio',
+                name: 'סטודיו אוהם',
+                category: 'יוגה ומדיטציה',
+                price: 1900,
+                file: 'websites/yoga-studio.html',
+                businessName: 'סטודיו אוהם',
+                description: 'סטודיו יוגה ומדיטציה עם לוח שיעורים, מורות מקצועיות ומדיטציות מודרכות.',
+                tags: ['יוגה', 'מדיטציה', 'רוגע', 'בריאות'],
+                filterCategory: 'fitness',
+                icon: '🧘‍♀️'
+            },
+            'beauty-salon': {
+                id: 'beauty-salon',
+                name: 'מספרה BELLA',
+                category: 'יופי ועיצוב שיער',
+                price: 1700,
+                file: 'websites/beauty-salon.html',
+                businessName: 'מספרה BELLA',
+                description: 'מספרה יוקרתית עם גלריית עבודות, מחירון שירותים ומערכת הזמנות מקוונת.',
+                tags: ['יופי', 'שיער', 'מספרה', 'עיצוב'],
+                filterCategory: 'beauty',
+                icon: '💇‍♀️'
+            }
         };
 
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+        // ========== Global Variables ==========
+        let currentFilter = 'all';
+        let currentSearch = '';
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
+        // ========== Core Functions ==========
+        function initializeGallery() {
+            console.log('🚀 Initializing WebMaster Pro Gallery...');
+            populateWebsiteGrid();
+            updateStats();
+            console.log('✅ Gallery initialized successfully');
         }
 
-        // Scroll animations
-        function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, { threshold: 0.1 });
+        function populateWebsiteGrid() {
+            const grid = document.getElementById('websitesGrid');
+            grid.innerHTML = '';
 
-            document.querySelectorAll('.scroll-animate').forEach(el => {
-                observer.observe(el);
+            const filteredWebsites = filterAndSearchWebsites();
+
+            if (filteredWebsites.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 50px;">
+                        <i class="fas fa-search" style="font-size: 3rem; opacity: 0.5; margin-bottom: 20px;"></i>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 10px;">לא נמצאו אתרים</h3>
+                        <p style="opacity: 0.7;">נסה לשנות את הפילטרים או החיפוש</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredWebsites.forEach(website => {
+                const websiteCard = createWebsiteCard(website);
+                grid.appendChild(websiteCard);
             });
         }
 
-        // Edit website function
-        function editWebsite(websiteId) {
-            const website = websites[websiteId];
-            if (website) {
-                const editorUrl = `editor.html?website=${websiteId}`;
-                window.open(editorUrl, '_blank', 'width=1400,height=900');
-                showNotification(`🎨 פותח עורך מהפכני עבור ${website.name}`, 'success');
-            } else {
-                showNotification('❌ שגיאה: אתר לא נמצא', 'error');
-            }
-        }
+        function createWebsiteCard(website) {
+            const card = document.createElement('div');
+            card.className = `website-card ${website.badge || ''}`;
+            card.setAttribute('data-category', website.filterCategory);
+            card.setAttribute('data-name', website.name.toLowerCase());
 
-        // View demo function
-        function viewDemo(websiteId) {
-            const website = websites[websiteId];
-            if (website) {
-                window.open(website.file, '_blank');
-                showNotification(`👀 פותח תצוגה מקדימה של ${website.name}`, 'info');
-            } else {
-                showNotification('❌ שגיאה: קובץ לא נמצא', 'error');
-            }
-        }
-
-        // Open main editor
-        function openEditor() {
-            window.open('editor.html', '_blank', 'width=1400,height=900');
-            showNotification('🚀 פותח עורך ויזואלי מהפכני!', 'success');
-        }
-
-        // Notification system
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                z-index: 10000;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                color: #333;
-                padding: 20px;
-                border-radius: 16px;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                transition: all 0.3s ease;
-                transform: translateX(100px);
-                opacity: 0;
-                max-width: 350px;
-                font-weight: 500;
+            card.innerHTML = `
+                <div class="website-image">
+                    <span style="font-size: 4rem;">${website.icon}</span>
+                </div>
+                
+                <div class="website-content">
+                    <div class="website-header">
+                        <div>
+                            <h3 class="website-title">${website.name}</h3>
+                            <p class="website-category">${website.category}</p>
+                        </div>
+                        <div class="website-price">₪${website.price.toLocaleString()}</div>
+                    </div>
+                    
+                    <p class="website-description">${website.description}</p>
+                    
+                    <div class="website-tags">
+                        ${website.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    
+                    <div class="website-actions">
+                        <button class="action-btn" onclick="previewWebsite('${website.id}')">
+                            <i class="fas fa-eye"></i>
+                            תצוגה מקדימה
+                        </button>
+                        <button class="action-btn primary" onclick="editWebsite('${website.id}')">
+                            <i class="fas fa-edit"></i>
+                            ערוך עכשיו
+                        </button>
+                    </div>
+                </div>
             `;
+
+            return card;
+        }
+
+        function filterAndSearchWebsites() {
+            let websites = Object.values(availableWebsites);
+
+            // Filter by category
+            if (currentFilter !== 'all') {
+                websites = websites.filter(website => website.filterCategory === currentFilter);
+            }
+
+            // Filter by search
+            if (currentSearch) {
+                websites = websites.filter(website => 
+                    website.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                    website.category.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                    website.description.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                    website.tags.some(tag => tag.toLowerCase().includes(currentSearch.toLowerCase()))
+                );
+            }
+
+            // Sort by price (highest first)
+            websites.sort((a, b) => b.price - a.price);
+
+            return websites;
+        }
+
+        function filterWebsites(category) {
+            currentFilter = category;
             
-            notification.innerHTML = message;
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            populateWebsiteGrid();
+            showNotification(`סונן לפי: ${getCategoryName(category)}`, 'success');
+        }
+
+        function searchWebsites(query) {
+            currentSearch = query;
+            populateWebsiteGrid();
+            
+            if (query) {
+                showNotification(`מחפש: "${query}"`, 'success');
+            }
+        }
+
+        function getCategoryName(category) {
+            const categoryNames = {
+                'all': 'כל האתרים',
+                'medical': 'רפואה',
+                'business': 'עסקים',
+                'fitness': 'כושר',
+                'education': 'חינוך',
+                'beauty': 'יופי'
+            };
+            return categoryNames[category] || category;
+        }
+
+        function updateStats() {
+            const websites = Object.values(availableWebsites);
+            const totalWebsites = websites.length;
+            const categories = [...new Set(websites.map(w => w.filterCategory))].length;
+
+            // Update DOM elements
+            const statCards = document.querySelectorAll('.stat-card');
+            if (statCards.length >= 4) {
+                statCards[0].querySelector('.stat-number').textContent = totalWebsites;
+                statCards[1].querySelector('.stat-number').textContent = '24 שעות';
+                statCards[2].querySelector('.stat-number').textContent = categories;
+                statCards[3].querySelector('.stat-number').textContent = '100%';
+            }
+        }
+
+        // ========== Website Actions ==========
+        function previewWebsite(websiteId) {
+            const website = availableWebsites[websiteId];
+            if (!website) {
+                showNotification('❌ אתר לא נמצא!', 'error');
+                return;
+            }
+
+            // Try to open the actual website file
+            const newWindow = window.open('', '_blank');
+            
+            fetch(website.file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('File not found');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    newWindow.document.write(html);
+                    newWindow.document.close();
+                    showNotification(`👁️ פתח תצוגה מקדימה של ${website.name}`, 'success');
+                })
+                .catch(error => {
+                    console.log('File not found, loading template:', error);
+                    // Load template if file doesn't exist
+                    const templateHTML = generatePreviewTemplate(website);
+                    newWindow.document.write(templateHTML);
+                    newWindow.document.close();
+                    showNotification(`📝 פתח תבנית של ${website.name}`, 'success');
+                });
+        }
+
+        function editWebsite(websiteId) {
+            const website = availableWebsites[websiteId];
+            if (!website) {
+                showNotification('❌ אתר לא נמצא!', 'error');
+                return;
+            }
+
+            // Open editor with specific website
+            const editorUrl = `editor.html?website=${websiteId}`;
+            window.open(editorUrl, '_blank', 'width=1400,height=900');
+            
+            showNotification(`🎨 פותח עורך עבור ${website.name}`, 'success');
+        }
+
+        function openEditor() {
+            // Open editor without specific website
+            window.open('editor.html', '_blank', 'width=1400,height=900');
+            showNotification('🚀 פותח את האדיטור הויזואלי', 'success');
+        }
+
+        function generatePreviewTemplate(website) {
+            return `
+                <!DOCTYPE html>
+                <html lang="he" dir="rtl">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${website.businessName}</title>
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 20px; text-align: center; }
+                        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+                        .section { padding: 80px 20px; }
+                        h1 { font-size: 3rem; margin-bottom: 20px; }
+                        h2 { font-size: 2.5rem; margin-bottom: 30px; text-align: center; }
+                        .btn { background: #667eea; color: white; padding: 15px 30px; border: none; border-radius: 25px; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 20px; }
+                    </style>
+                </head>
+                <body>
+                    <header class="hero">
+                        <div class="container">
+                            <h1>${website.businessName}</h1>
+                            <p style="font-size: 1.3rem; margin-bottom: 10px;">${website.description}</p>
+                            <p style="font-size: 1.1rem;">שירות מקצועי ואמין בתחום ${website.category}</p>
+                            <a href="#" class="btn">צור קשר עכשיו</a>
+                        </div>
+                    </header>
+                    
+                    <section class="section">
+                        <div class="container">
+                            <h2>השירותים שלנו</h2>
+                            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                                אנחנו מתמחים ב${website.category} ומעניקים שירות מקצועי ואישי לכל לקוח. 
+                                עם ניסיון של שנים רבות בתחום, אנחנו מבטיחים את השירות הטוב ביותר.
+                            </p>
+                        </div>
+                    </section>
+                    
+                    <footer style="background: #333; color: white; padding: 40px 20px; text-align: center;">
+                        <div class="container">
+                            <h3>${website.businessName} - צרו קשר</h3>
+                            <p>📞 050-1234567</p>
+                            <p>✉️ info@${website.id}.co.il</p>
+                            <p>📍 ישראל</p>
+                            <p style="margin-top: 20px; opacity: 0.7;">© 2025 ${website.businessName}. כל הזכויות שמורות.</p>
+                        </div>
+                    </footer>
+                </body>
+                </html>
+            `;
+        }
+
+        // ========== Utility Functions ==========
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
             document.body.appendChild(notification);
             
-            // Animate in
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-                notification.style.opacity = '1';
-            }, 100);
+            setTimeout(() => notification.classList.add('show'), 100);
             
-            // Remove after 4 seconds
             setTimeout(() => {
-                notification.style.transform = 'translateX(100px)';
-                notification.style.opacity = '0';
+                notification.classList.remove('show');
                 setTimeout(() => notification.remove(), 300);
-            }, 4000);
+            }, 3000);
         }
 
-        // Smooth scroll for anchor links
-        document.addEventListener('click', (e) => {
-            if (e.target.getAttribute('href')?.startsWith('#')) {
+        // ========== Smooth Scrolling ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = e.target.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            }
+            });
         });
 
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            initScrollAnimations();
-            
-            // Welcome message
-            setTimeout(() => {
-                showNotification('✨ ברוכים הבאים לגלריה המהממת של WebMaster Pro!', 'success');
-            }, 1500);
+        // ========== Initialize ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeGallery();
+            console.log('🎯 WebMaster Pro Gallery מוכן!');
         });
     </script>
 </body>
