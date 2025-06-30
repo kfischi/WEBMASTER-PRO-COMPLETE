@@ -921,6 +921,11 @@
                     <option value="">בחר אתר לעריכה...</option>
                 </select>
                 
+                <button class="action-btn" onclick="loadDemoWebsite()">
+                    <i class="fas fa-rocket"></i>
+                    דמו מהיר
+                </button>
+                
                 <button class="action-btn" onclick="togglePreview()">
                     <i class="fas fa-eye"></i>
                     תצוגה מקדימה
@@ -1453,16 +1458,40 @@
 
         function initializeEditor() {
             try {
+                console.log('🚀 Starting editor initialization...');
+                
+                console.log('📱 Loading website gallery...');
                 loadWebsiteGallery();
+                
+                console.log('🔄 Populating website selector...');
                 populateWebsiteSelector();
+                
+                console.log('🎨 Initializing color palette...');
                 initializeColorPalette();
+                
+                console.log('📁 Initializing media manager...');
                 initializeMediaManager();
+                
+                console.log('⏰ Starting time update...');
                 startTimeUpdate();
+                
+                console.log('👋 Showing welcome notification...');
                 showWelcomeNotification();
-                console.log('Editor initialization completed successfully');
+                
+                console.log('✅ Editor initialization completed successfully');
+                
+                // Validate critical elements
+                const validation = validateEditorState();
+                if (validation) {
+                    console.log('✅ All critical elements found and ready');
+                    showNotification('success', 'WebMaster Pro הותחל בהצלחה!');
+                } else {
+                    console.warn('⚠️ Some elements missing - editor may not work properly');
+                }
+                
             } catch (error) {
-                console.error('Editor initialization failed:', error);
-                showNotification('error', 'שגיאה באתחול האדיטור');
+                console.error('❌ Editor initialization failed:', error);
+                showNotification('error', 'שגיאה באתחול האדיטור: ' + error.message);
             }
         }
 
@@ -1491,7 +1520,12 @@
         function createWebsiteCard(website) {
             const card = document.createElement('div');
             card.className = 'website-card';
-            card.onclick = () => loadWebsite(website);
+            card.setAttribute('data-website-id', website.id);
+            
+            // Make sure the click handler is properly bound
+            card.addEventListener('click', function() {
+                loadWebsite(website);
+            });
             
             card.innerHTML = `
                 <div class="card-header">
@@ -1533,32 +1567,68 @@
         }
 
         function loadWebsite(website) {
+            console.log('Loading website:', website.name);
             currentWebsite = website;
             
-            // Update UI state
+            // Update UI state immediately
             updateActiveCard(website.id);
             updateWebsiteSelector(website.id);
             
+            // Show loading notification
+            showNotification('info', `טוען את אתר ${website.name}...`);
+            
             // Generate and load website content
-            const websiteHTML = generateAdvancedWebsiteHTML(website);
-            loadWebsiteInFrame(websiteHTML);
-            
-            // Update design tools
-            updateColorPalette(website.primaryColor);
-            updateElementInspector(website);
-            
-            // Add to activity feed
-            addActivity(`נטען אתר: ${website.name}`);
-            
-            // Show success notification
-            showNotification('success', `האתר "${website.name}" נטען בהצלחה!`);
-            
-            // Save state
-            saveCurrentState();
+            try {
+                const websiteHTML = generateAdvancedWebsiteHTML(website);
+                console.log('Generated HTML for:', website.name);
+                
+                // Load website in frame
+                const frame = document.getElementById('previewFrame');
+                if (!frame) {
+                    console.error('Preview frame not found!');
+                    showNotification('error', 'שגיאה: לא נמצא אלמנט התצוגה');
+                    return;
+                }
+                
+                // Create blob URL and load
+                const blob = new Blob([websiteHTML], { type: 'text/html; charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                
+                frame.onload = function() {
+                    console.log('Website loaded in frame');
+                    setupFrameCommunication();
+                    URL.revokeObjectURL(url);
+                    
+                    // Success feedback
+                    showNotification('success', `האתר "${website.name}" נטען בהצלחה!`);
+                    addActivity(`נטען אתר: ${website.name}`);
+                    
+                    // Update tools
+                    updateColorPalette(website.primaryColor);
+                    updateElementInspector(null);
+                };
+                
+                frame.onerror = function() {
+                    console.error('Failed to load website in frame');
+                    showNotification('error', 'שגיאה בטעינת האתר');
+                };
+                
+                frame.src = url;
+                
+                // Save state
+                saveCurrentState();
+                
+            } catch (error) {
+                console.error('Error loading website:', error);
+                showNotification('error', 'שגיאה ביצירת האתר: ' + error.message);
+            }
         }
 
         function generateAdvancedWebsiteHTML(website) {
             const colorScheme = generateColorScheme(website.primaryColor);
+            
+            // Generate unique content based on website type
+            const websiteContent = generateWebsiteContent(website);
             
             return `<!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -1631,30 +1701,23 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            data-editable="true";
         }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+        [data-editable="true"] {
+            position: relative;
+            cursor: pointer;
+            border-radius: 4px;
             transition: all 0.3s ease;
+            padding: 2px;
         }
 
-        .nav-menu a:hover {
-            background: var(--gradient-primary);
-            color: white;
+        [data-editable="true"]:hover {
+            outline: 2px dashed var(--primary);
+            outline-offset: 2px;
+            background: rgba(0,0,0,0.02);
         }
 
-        /* Revolutionary Hero Section */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, 
                 ${colorScheme.primary}10 0%, 
@@ -1666,28 +1729,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, ${colorScheme.primary}20 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, ${colorScheme.accent}20 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
@@ -1696,7 +1737,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            data-editable="true";
         }
 
         .hero p {
@@ -1706,7 +1746,6 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            data-editable="true";
         }
 
         .cta-button {
@@ -1731,7 +1770,7 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.2);
         }
 
-        /* Advanced Services Section */
+        /* Services Section */
         .services {
             padding: 6rem 0;
             background: var(--surface);
@@ -1746,7 +1785,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            data-editable="true";
         }
 
         .services-grid {
@@ -1763,23 +1801,6 @@
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, var(--glass-bg), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
         }
 
         .service-card:hover {
@@ -1798,76 +1819,15 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--text-primary);
-            data-editable="true";
         }
 
         .service-card p {
             color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            data-editable="true";
         }
 
-        .service-price {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* Advanced Gallery Section */
-        .gallery {
-            padding: 6rem 0;
-            background: var(--background);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-primary);
-            opacity: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 0.9;
-        }
-
-        /* Advanced Contact Section */
+        /* Contact Section */
         .contact {
             padding: 6rem 0;
             background: var(--surface);
@@ -1885,17 +1845,6 @@
             padding: 3rem;
             border-radius: 20px;
             box-shadow: var(--shadow);
-        }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            data-editable="true";
         }
 
         .contact-item {
@@ -1924,180 +1873,44 @@
             font-size: 1.2rem;
         }
 
-        .contact-text {
-            flex: 1;
-        }
-
-        .contact-text strong {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-            data-editable="true";
-        }
-
-        .contact-text span {
-            color: var(--text-secondary);
-            data-editable="true";
-        }
-
-        .contact-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--glass-border);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--surface);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-
-        .submit-btn {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        /* Advanced Footer */
-        .footer {
-            background: var(--text-primary);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .footer-content {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-        }
-
-        /* Editable Elements */
-        [data-editable="true"] {
-            position: relative;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        [data-editable="true"]:hover {
-            outline: 2px dashed var(--primary);
-            outline-offset: 2px;
-            background: rgba(0,0,0,0.02);
-        }
-
-        [data-editable="true"].editing {
-            outline: 2px solid var(--primary);
-            background: rgba(0,0,0,0.05);
-        }
-
-        /* Loading States */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            .hero h1 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Advanced Header -->
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <div class="logo" data-editable="true">${website.name}</div>
-                <ul class="nav-menu">
-                    <li><a href="#home">בית</a></li>
-                    <li><a href="#services">שירותים</a></li>
-                    <li><a href="#gallery">גלריה</a></li>
-                    <li><a href="#about">אודות</a></li>
-                    <li><a href="#contact">צור קשר</a></li>
-                </ul>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="#services" style="text-decoration: none; color: var(--text-primary);">שירותים</a>
+                    <a href="#contact" style="text-decoration: none; color: var(--text-primary);">צור קשר</a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Revolutionary Hero Section -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h1 data-editable="true">ברוכים הבאים ל${website.name}</h1>
-                <p data-editable="true">${website.description} - מקצועיות ברמה הגבוהה ביותר</p>
-                <a href="#contact" class="cta-button">
-                    <i class="fas fa-phone"></i>
-                    צור קשר עכשיו
-                </a>
-            </div>
+            <h1 data-editable="true">${websiteContent.heroTitle}</h1>
+            <p data-editable="true">${websiteContent.heroDescription}</p>
+            <a href="#contact" class="cta-button">
+                <i class="fas fa-phone"></i>
+                צור קשר עכשיו
+            </a>
         </div>
     </section>
 
-    <!-- Advanced Services Section -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title" data-editable="true">השירותים המקצועיים שלנו</h2>
+            <h2 class="section-title" data-editable="true">השירותים שלנו</h2>
             <div class="services-grid">
                 ${website.features.slice(0, 6).map((feature, index) => `
                     <div class="service-card">
@@ -2105,33 +1918,14 @@
                             <i class="fas fa-${getServiceIcon(feature)}"></i>
                         </div>
                         <h3 data-editable="true">${feature}</h3>
-                        <p data-editable="true">שירות מקצועי ואמין ב${feature} ברמה הגבוהה ביותר עם ניסיון רב שנים ומומחיות מוכחת</p>
-                        <div class="service-price">₪${(200 + index * 50)}</div>
+                        <p data-editable="true">${websiteContent.serviceDescriptions[index] || 'שירות מקצועי ואמין ברמה הגבוהה ביותר'}</p>
                     </div>
                 `).join('')}
             </div>
         </div>
     </section>
 
-    <!-- Advanced Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title" data-editable="true">גלריית עבודות</h2>
-            <div class="gallery-grid">
-                ${Array.from({length: 6}, (_, i) => `
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-${1500000000000 + i * 1000000}?w=400&h=250&fit=crop&auto=format" 
-                             alt="עבודה ${i + 1}" loading="lazy">
-                        <div class="gallery-overlay">
-                            <span>עבודה מספר ${i + 1}</span>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- Advanced Contact Section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-grid">
@@ -2142,9 +1936,9 @@
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <div class="contact-text">
-                            <strong data-editable="true">טלפון</strong>
-                            <span data-editable="true">050-123-4567</span>
+                        <div>
+                            <strong data-editable="true">טלפון</strong><br>
+                            <span data-editable="true">${websiteContent.phone}</span>
                         </div>
                     </div>
 
@@ -2152,9 +1946,9 @@
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="contact-text">
-                            <strong data-editable="true">אימייל</strong>
-                            <span data-editable="true">info@${website.id}.co.il</span>
+                        <div>
+                            <strong data-editable="true">אימייל</strong><br>
+                            <span data-editable="true">${websiteContent.email}</span>
                         </div>
                     </div>
 
@@ -2162,9 +1956,9 @@
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="contact-text">
-                            <strong data-editable="true">כתובת</strong>
-                            <span data-editable="true">רחוב הדקל 15, תל אביב</span>
+                        <div>
+                            <strong data-editable="true">כתובת</strong><br>
+                            <span data-editable="true">${websiteContent.address}</span>
                         </div>
                     </div>
 
@@ -2172,250 +1966,107 @@
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <div class="contact-text">
-                            <strong data-editable="true">שעות פעילות</strong>
-                            <span data-editable="true">ראשון-חמישי 9:00-18:00</span>
+                        <div>
+                            <strong data-editable="true">שעות פעילות</strong><br>
+                            <span data-editable="true">${websiteContent.hours}</span>
                         </div>
                     </div>
                 </div>
                 
-                <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label>שם מלא</label>
-                        <input type="text" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label>אימייל</label>
-                        <input type="email" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label>טלפון</label>
-                        <input type="tel" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label>נושא</label>
-                        <select class="form-input">
-                            ${website.features.map(feature => `<option value="${feature}">${feature}</option>`).join('')}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>הודעה</label>
-                        <textarea class="form-input" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        שלח הודעה
-                    </button>
-                </form>
+                <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow);">
+                    <h3 data-editable="true">שלח הודעה</h3>
+                    <form style="margin-top: 2rem;">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" placeholder="שם מלא" required style="width: 100%; padding: 1rem; border: 2px solid #eee; border-radius: 10px; font-size: 1rem;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" placeholder="אימייל" required style="width: 100%; padding: 1rem; border: 2px solid #eee; border-radius: 10px; font-size: 1rem;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <textarea placeholder="הודעה" rows="4" required style="width: 100%; padding: 1rem; border: 2px solid #eee; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" style="background: var(--gradient-primary); color: white; padding: 1rem 2rem; border: none; border-radius: 25px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%;">
+                            שלח הודעה
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 ${website.name}. כל הזכויות שמורות. | פותח על ידי WebMaster Pro</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Advanced Website Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeWebsite();
-            setupEditableElements();
-            setupSmoothScrolling();
-            setupFormHandling();
+        console.log('${website.name} loaded successfully');
+        
+        // Setup smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
-
-        function initializeWebsite() {
-            // Add loading animation
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease';
-                document.body.style.opacity = '1';
-            }, 100);
-
-            // Setup intersection observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all sections
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-        }
-
-        function setupEditableElements() {
-            const editableElements = document.querySelectorAll('[data-editable="true"]');
-            
-            editableElements.forEach(element => {
-                element.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    makeElementEditable(this);
-                });
-
-                element.addEventListener('mouseenter', function() {
-                    if (window.parent !== window) {
-                        window.parent.postMessage({
-                            type: 'elementHover',
-                            element: {
-                                tag: this.tagName,
-                                content: this.textContent,
-                                selector: getElementSelector(this)
-                            }
-                        }, '*');
-                    }
-                });
-            });
-        }
-
-        function makeElementEditable(element) {
-            if (element.classList.contains('editing')) return;
-
-            const originalContent = element.textContent;
-            element.classList.add('editing');
-
-            // Create editable div
-            const editDiv = document.createElement('div');
-            editDiv.contentEditable = true;
-            editDiv.style.cssText = `
-                background: rgba(255,255,255,0.95);
-                border: 2px solid var(--primary);
-                border-radius: 4px;
-                padding: 0.5rem;
-                font: inherit;
-                color: inherit;
-                outline: none;
-                min-height: 1.5em;
-            `;
-            editDiv.textContent = originalContent;
-
-            element.textContent = '';
-            element.appendChild(editDiv);
-            editDiv.focus();
-
-            // Select all text
-            const range = document.createRange();
-            range.selectNodeContents(editDiv);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-
-            function finishEdit() {
-                const newContent = editDiv.textContent.trim();
-                element.textContent = newContent || originalContent;
-                element.classList.remove('editing');
-
-                // Notify parent window
-                if (window.parent !== window) {
-                    window.parent.postMessage({
-                        type: 'contentChanged',
-                        element: {
-                            tag: element.tagName,
-                            content: newContent,
-                            selector: getElementSelector(element)
-                        }
-                    }, '*');
-                }
-            }
-
-            editDiv.addEventListener('blur', finishEdit);
-            editDiv.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    finishEdit();
-                }
-                if (e.key === 'Escape') {
-                    element.textContent = originalContent;
-                    element.classList.remove('editing');
-                }
-            });
-        }
-
-        function getElementSelector(element) {
-            let selector = element.tagName.toLowerCase();
-            if (element.id) selector += '#' + element.id;
-            if (element.className) selector += '.' + element.className.split(' ').join('.');
-            return selector;
-        }
-
-        function setupSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        function setupFormHandling() {
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', handleFormSubmit);
-            });
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<div class="loading"></div> שולח...';
-            submitBtn.disabled = true;
-
-            // Simulate form submission
-            setTimeout(() => {
-                alert('ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.');
-                form.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        }
-
-        // CSS Animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            section {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-        `;
-        document.head.appendChild(style);
+        
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.');
+            this.reset();
+        });
     </script>
 </body>
 </html>`;
+        }
+
+        function generateWebsiteContent(website) {
+            const contentTemplates = {
+                'aesthetic-clinic': {
+                    heroTitle: 'מרכז היופי הפרמיום המוביל בישראל',
+                    heroDescription: 'טיפולי יופי ואסתטיקה מתקדמים עם טכנולוגיה חדשנית ומומחיות ברמה עולמית',
+                    phone: '03-555-0123',
+                    email: 'info@beauty-premium.co.il',
+                    address: 'רחוב הירקון 125, תל אביב',
+                    hours: 'ראשון-חמישי 9:00-20:00, שישי 9:00-14:00',
+                    serviceDescriptions: [
+                        'טיפולי בוטוקס מתקדמים ובטוחים עם מומחית מובילה',
+                        'חומצה היאלורונית איכותית למראה צעיר וטבעי',
+                        'טיפולי לייזר חדשניים לכל סוגי העור',
+                        'פילינג כימי עמוק לחידוש העור',
+                        'טיפולי פנים מקצועיים ומותאמים אישית',
+                        'ייעוץ אסתטי מקצועי וליווי אישי'
+                    ]
+                },
+                'dr-michal-rosen': {
+                    heroTitle: 'ד"ר מיכל רוזן - רפואה אסתטית ברמה עולמית',
+                    heroDescription: 'מומחיות רפואית מובילה בטיפולי יופי וחידוש עם ליווי אישי מלא',
+                    phone: '03-555-0456',
+                    email: 'dr.rosen@clinic.co.il',
+                    address: 'שדרות רוטשילד 45, תל אביב',
+                    hours: 'ראשון-רביעי 10:00-19:00, חמישי 10:00-15:00',
+                    serviceDescriptions: [
+                        'רפואה אסתטית מתקדמת עם גישה אישית',
+                        'טיפולי בוטוקס רפואיים ברמה גבוהה',
+                        'מילוי קמטים טבעי ומקצועי',
+                        'ייעוץ יופי מותאם אישית',
+                        'טיפולי עור מתקדמים ובטוחים',
+                        'ליווי אישי לכל השלבים'
+                    ]
+                },
+                'default': {
+                    heroTitle: `ברוכים הבאים ל${website.name}`,
+                    heroDescription: `${website.description} - שירות מקצועי ברמה הגבוהה ביותר`,
+                    phone: '03-555-' + Math.floor(Math.random() * 9000 + 1000),
+                    email: `info@${website.id}.co.il`,
+                    address: 'רחוב הדקל 15, תל אביב',
+                    hours: 'ראשון-חמישי 9:00-18:00',
+                    serviceDescriptions: website.features.map(feature => 
+                        `שירות מקצועי ב${feature} ברמה הגבוהה ביותר עם ניסיון רב שנים`
+                    )
+                }
+            };
+            
+            return contentTemplates[website.id] || contentTemplates.default;
         }
 
         function generateColorScheme(primaryColor) {
@@ -2481,20 +2132,29 @@
         }
 
         function updateActiveCard(websiteId) {
+            // Remove active class from all cards
             document.querySelectorAll('.website-card').forEach(card => {
                 card.classList.remove('active');
             });
             
-            const activeCard = Array.from(document.querySelectorAll('.website-card'))
-                .find(card => card.onclick.toString().includes(websiteId));
-            
-            if (activeCard) {
-                activeCard.classList.add('active');
+            // Add active class to selected card
+            const targetCard = document.querySelector(`[data-website-id="${websiteId}"]`);
+            if (targetCard) {
+                targetCard.classList.add('active');
+                console.log('Updated active card for:', websiteId);
+            } else {
+                console.warn('Card not found for website:', websiteId);
             }
         }
 
         function updateWebsiteSelector(websiteId) {
-            document.getElementById('websiteSelector').value = websiteId;
+            const selector = document.getElementById('websiteSelector');
+            if (selector) {
+                selector.value = websiteId;
+                console.log('Updated selector to:', websiteId);
+            } else {
+                console.warn('Website selector not found');
+            }
         }
 
         function updateColorPalette(primaryColor) {
@@ -3643,9 +3303,58 @@
             }, 4000);
         }
 
+        function loadDemoWebsite() {
+            console.log('🚀 Loading demo website...');
+            
+            // Load first available website as demo
+            const demoWebsite = Object.values(websiteDatabase)[0];
+            if (demoWebsite) {
+                console.log('📱 Demo website selected:', demoWebsite.name);
+                loadWebsite(demoWebsite);
+            } else {
+                console.error('❌ No websites available for demo');
+                showNotification('error', 'אין אתרים זמינים לדמו');
+            }
+        }
+
+        function testWebsiteConnection() {
+            console.log('🔬 Testing website connection...');
+            
+            // Test if websiteDatabase is populated
+            console.log('📊 Available websites:', Object.keys(websiteDatabase).length);
+            console.log('📋 Website list:', Object.keys(websiteDatabase));
+            
+            // Test if elements exist
+            const criticalElements = ['websiteGrid', 'websiteSelector', 'previewFrame'];
+            criticalElements.forEach(id => {
+                const element = document.getElementById(id);
+                console.log(`🔍 Element ${id}:`, element ? '✅ Found' : '❌ Missing');
+            });
+            
+            // Test generateAdvancedWebsiteHTML
+            if (Object.keys(websiteDatabase).length > 0) {
+                const testWebsite = Object.values(websiteDatabase)[0];
+                try {
+                    const html = generateAdvancedWebsiteHTML(testWebsite);
+                    console.log('🎨 HTML generation test:', html.length > 1000 ? '✅ Success' : '❌ Failed');
+                } catch (error) {
+                    console.error('❌ HTML generation failed:', error);
+                }
+            }
+        }
+
         function showWelcomeNotification() {
             setTimeout(() => {
-                showNotification('info', 'ברוכים הבאים ל-WebMaster Pro 3.0! בחרו אתר מהגלריה כדי להתחיל');
+                showNotification('success', 'WebMaster Pro 3.0 הותחל בהצלחה! 🚀');
+                
+                setTimeout(() => {
+                    showNotification('info', 'לחץ על "דמו מהיר" או בחר אתר מהגלריה כדי להתחיל עריכה');
+                }, 2000);
+                
+                // Run connection test
+                setTimeout(() => {
+                    testWebsiteConnection();
+                }, 3000);
             }, 1000);
         }
 
@@ -3811,6 +3520,8 @@
         window.updateElementFontSize = updateElementFontSize;
         window.updatePadding = updatePadding;
         window.updateMargin = updateMargin;
+        window.loadDemoWebsite = loadDemoWebsite;
+        window.testWebsiteConnection = testWebsiteConnection;
 
         // Validation function to check all critical elements exist
         function validateEditorState() {
